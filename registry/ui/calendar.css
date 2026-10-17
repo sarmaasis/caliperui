@@ -1,0 +1,41 @@
+/* calendar.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="calendar-grid"][data-motion="next"] {
+    animation: caliper-calendar-next var(--duration-travel) var(--ease-showcase);
+  }
+  [data-slot="calendar-grid"][data-motion="prev"] {
+    animation: caliper-calendar-prev var(--duration-travel) var(--ease-showcase);
+  }
+  [data-slot="calendar-range"] {
+    position: absolute;
+    z-index: 0;
+    height: 2.25rem;
+    border-radius: 999px;
+    background: var(--muted);
+    transition:
+      left var(--duration-travel) var(--ease-showcase),
+      width var(--duration-travel) var(--ease-showcase);
+  }
+  [data-slot="calendar-selection"] {
+    position: absolute;
+    z-index: 1;
+    border-radius: var(--radius-control);
+    background: var(--accent);
+    pointer-events: none;
+    transition:
+      transform var(--duration-travel) var(--ease-showcase),
+      width var(--duration-travel) var(--ease-showcase),
+      height var(--duration-travel) var(--ease-showcase);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="calendar-grid"][data-motion="next"] {
+      animation: caliper-calendar-next 400ms var(--ease-showcase);
+    }
+    [data-slot="calendar-grid"][data-motion="prev"] {
+      animation: caliper-calendar-prev 400ms var(--ease-showcase);
+    }
+  }
+}

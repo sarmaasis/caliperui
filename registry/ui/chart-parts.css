@@ -1,0 +1,32 @@
+/* chart-parts.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="chart-legend-item"] {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: var(--control-height);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-control);
+    font-size: 0.75rem;
+    color: var(--muted-foreground);
+    outline: none;
+    transition:
+      background-color var(--duration-fast) var(--ease-out),
+      color var(--duration-fast) var(--ease-out);
+  }
+  [data-slot="chart-legend-item"]:hover,
+  [data-slot="chart-legend-item"][data-active="true"] {
+    background: var(--muted);
+    color: var(--foreground);
+  }
+  [data-slot="chart-legend-item"]:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  [data-slot="chart-legend-item"][aria-pressed="false"] {
+    opacity: 0.45;
+    text-decoration: line-through;
+  }
+}

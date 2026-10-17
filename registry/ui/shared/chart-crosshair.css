@@ -1,0 +1,14 @@
+/* Shared by line-chart.tsx, market-terminal.tsx, price-target-fan.tsx, revenue-explorer.tsx, ridgeline.tsx, streamgraph.tsx; each imports it. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="chart-crosshair"] {
+    transition: transform var(--duration-fast) var(--ease-out);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="chart-crosshair"] {
+      transition: none;
+      animation: none !important;
+    }
+  }
+}

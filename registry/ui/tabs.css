@@ -1,0 +1,80 @@
+/* tabs.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="tabs-indicator"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: var(--radius-surface);
+    background: var(--accent);
+    box-shadow: var(--shadow-control);
+    transition:
+      transform var(--duration-normal) var(--ease-settle),
+      width var(--duration-normal) var(--ease-settle),
+      height var(--duration-normal) var(--ease-settle);
+  }
+  /* Underline tabs: one 2px ink line travels; panels swap at once. */
+  [data-slot="tabs-list"][data-variant="underline"] > [data-slot="tabs-indicator"] {
+    top: auto;
+    bottom: 0;
+    height: 2px !important;
+    border: 0;
+    border-radius: 2px;
+    background: var(--accent);
+    box-shadow: none;
+    transition:
+      transform 320ms var(--ease-settle),
+      width 320ms var(--ease-settle);
+  }
+  [data-slot="tabs-list"][data-variant="underline"] [data-slot="tabs-trigger"] {
+    height: 40px;
+    border-radius: 8px 8px 0 0;
+  }
+  @media (hover: hover) {
+    [data-slot="tabs-list"][data-variant="underline"] [data-slot="tabs-trigger"]:hover:not([data-state="active"]) {
+      background: var(--muted);
+    }
+  }
+  [data-slot="tabs-count"] {
+    padding: 0 5px;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--muted-foreground);
+    background: var(--sunken);
+  }
+  [data-state="active"] > [data-slot="tabs-count"] {
+    color: var(--foreground);
+    background: var(--muted);
+  }
+
+  [data-slot="tabs-trigger"] {
+    transition:
+      color var(--duration-fast) var(--ease-out),
+      background-color var(--duration-fast) var(--ease-out),
+      scale var(--duration-fast) var(--ease-out);
+  }
+  [data-slot="tabs-trigger"]:active:not(:disabled) {
+    scale: var(--motion-press-scale);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="tabs-trigger"],
+    [data-slot="tabs-indicator"] {
+      transition: none;
+    }
+    [data-slot="tabs-list"][data-variant="underline"] > [data-slot="tabs-indicator"] {
+      transition: none;
+    }
+    [data-slot="tabs-trigger"]:active:not(:disabled) {
+      scale: none;
+    }
+    [data-slot="tabs-content"] {
+      animation: none !important;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+/* feedback.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="feedback-icon"] {
+    display: flex;
+    width: 2rem;
+    height: 2rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-surface);
+    background: var(--muted);
+    color: var(--muted-foreground);
+    transition:
+      color var(--duration-fast) var(--ease-out),
+      background-color var(--duration-fast) var(--ease-out);
+  }
+  [data-slot="feedback-symbol"] {
+    display: flex;
+    animation: caliper-feedback-symbol-enter var(--duration-normal) var(--ease-out);
+  }
+  [data-slot="feedback-icon"] svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="feedback-icon"] {
+      transition: none;
+      transform: none !important;
+    }
+    [data-slot="feedback-symbol"] {
+      animation: none;
+    }
+  }
+}

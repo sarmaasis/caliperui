@@ -1,0 +1,38 @@
+/* Shared by data-table.tsx, team-members.tsx; each imports it. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="bulk-bar"] {
+    position: sticky;
+    bottom: 16px;
+    z-index: 5;
+    display: flex;
+    width: fit-content;
+    max-width: calc(100% - 16px);
+    margin: 12px auto 0;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 6px 6px 14px;
+    border-radius: 16px;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    box-shadow: var(--shadow-overlay);
+    transition:
+      translate 320ms var(--ease-settle),
+      opacity var(--duration-normal) var(--ease-out);
+  }
+  [data-slot="bulk-bar"][data-open="false"] {
+    translate: 0 24px;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="bulk-bar"] {
+      transition: none;
+    }
+  }
+  [data-slot="bulk-bar"] { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; padding: 0.5rem 0.75rem; border: 1px solid var(--border); border-radius: 0.75rem; background: var(--surface); animation: think-in var(--duration-normal) var(--ease-out) both; }
+  @media (prefers-reduced-motion: reduce) { [data-slot="bulk-bar"] { animation: none; } }
+}

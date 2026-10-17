@@ -1,0 +1,46 @@
+/* Shared by accordion.tsx, collapsible.tsx, expandable-card.tsx; each imports it. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="accordion-panel"] {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows var(--duration-travel) var(--ease-settle);
+  }
+  [data-slot="accordion-panel"][data-open="true"] {
+    grid-template-rows: 1fr;
+  }
+  [data-slot="accordion-panel"] > div {
+    min-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(6px);
+    transition:
+      opacity var(--duration-fast) var(--ease-out),
+      transform var(--duration-travel) var(--ease-showcase);
+  }
+  [data-slot="accordion-panel"][data-open="true"] > div {
+    opacity: 1;
+    transform: none;
+  }
+  [data-slot="accordion-trigger"] svg {
+    transition: transform var(--duration-travel) var(--ease-showcase);
+  }
+  [data-slot="accordion-trigger"][aria-expanded="true"] svg {
+    transform: rotate(180deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="accordion-panel"] > div {
+      transition:
+        opacity 120ms var(--ease-out),
+        transform 400ms var(--ease-showcase);
+    }
+    [data-slot="accordion-panel"] {
+      transition: grid-template-rows 400ms var(--ease-settle);
+    }
+    [data-slot="accordion-trigger"] svg {
+      transition-duration: 400ms;
+    }
+  }
+}

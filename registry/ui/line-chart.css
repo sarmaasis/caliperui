@@ -1,0 +1,22 @@
+/* line-chart.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="chart-line"] {
+    transition:
+      d var(--duration-travel) var(--ease-showcase),
+      opacity var(--duration-normal) var(--ease-out);
+  }
+  [data-slot="line-chart"][data-visible="true"] [data-slot="chart-line"] {
+    animation: caliper-chart-draw var(--duration-showcase) var(--ease-showcase);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="chart-line"] {
+      transition: none;
+      animation: none !important;
+    }
+  }
+  [data-slot="line-chart"][aria-busy="true"] [data-slot="chart-plot"] {
+    opacity: 0.5;
+  }
+}

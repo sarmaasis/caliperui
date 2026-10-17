@@ -1,0 +1,24 @@
+/* Shared by billing-toggle.tsx, segmented-control.tsx; each imports it. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Segmented control: one raised plate travels to the choice on the settle
+     curve and stretches 7% toward it mid-flight, so selection reads as one
+     object moving. Labels and the value change at once. */
+  [data-slot="segmented-indicator"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
+    transition:
+      transform 320ms var(--ease-settle),
+      width 320ms var(--ease-settle);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="segmented-indicator"] {
+      transition: none;
+    }
+  }
+}

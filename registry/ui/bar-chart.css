@@ -1,0 +1,14 @@
+/* bar-chart.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="bar"] {
+    transition: background-color var(--duration-fast) var(--ease-out);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="bar"] {
+      transition: none;
+    }
+  }
+}

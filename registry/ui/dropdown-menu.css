@@ -1,0 +1,12 @@
+/* dropdown-menu.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="menu-confirm"] {
+    margin: 2px 0;
+    padding-bottom: 2px;
+    border-radius: 12px;
+    background: var(--destructive-subtle);
+    animation: caliper-fade-in var(--duration-fast) var(--ease-out);
+  }
+}

@@ -1,0 +1,45 @@
+/* alert.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="alert"] {
+    container-type: inline-size;
+    opacity: 1;
+    transform: translateY(0);
+    transition-property: opacity, transform, display;
+    transition-duration: var(--duration-normal);
+    transition-timing-function: var(--ease-out);
+    transition-behavior: allow-discrete;
+  }
+  [data-slot="alert"][hidden] {
+    display: none !important;
+    opacity: 0;
+    pointer-events: none;
+    transition-duration: var(--duration-fast);
+  }
+  @starting-style {
+    [data-slot="alert"]:not([hidden]) {
+      opacity: 0;
+      transform: translateY(var(--motion-enter-distance));
+    }
+  }
+  @container (max-width: 22rem) {
+    [data-slot="alert"] > [data-slot="button"] {
+      grid-column: 3;
+      grid-row: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="alert"] {
+      transition: none;
+      transform: none !important;
+    }
+    @starting-style {
+      [data-slot="alert"]:not([hidden]) {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+/* Shared by select-menu.tsx, select.tsx; each imports it. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="select"] {
+    transition-property: background-color, color, border-color;
+    transition-duration: var(--duration-fast);
+    transition-timing-function: var(--ease-out);
+  }
+
+  [data-slot="select"] {
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+  /* The native select wears the select-menu trigger: no platform arrow, the
+     same up/down mark on the right. Lists (multiple or size > 1) keep theirs. */
+  [data-slot="select"]:not([multiple]):not([size]) {
+    appearance: none;
+    padding-right: 36px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235d5d66' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m7 15 5 5 5-5'/%3E%3Cpath d='m7 9 5-5 5 5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px 16px;
+  }
+  [data-theme="dark"] [data-slot="select"]:not([multiple]):not([size]),
+  [data-slot="select"][data-theme="dark"]:not([multiple]):not([size]) {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23ababb4' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m7 15 5 5 5-5'/%3E%3Cpath d='m7 9 5-5 5 5'/%3E%3C/svg%3E");
+  }
+
+  /* Recessed to fill. One ring for every field: 3:1 at rest, darker on
+     hover, a 2px ember ring with a soft halo on focus, danger when invalid.
+     Disabled and read-only drop into the sunken fill and stay legible. */
+  [data-slot="select"] {
+    border: 0;
+    background-color: var(--field);
+    box-shadow: var(--shadow-field);
+    transition: box-shadow var(--duration-fast) var(--ease-out);
+  }
+
+  [data-slot="select"]:disabled {
+    cursor: not-allowed;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="select"] {
+      transition: none;
+    }
+  }
+}

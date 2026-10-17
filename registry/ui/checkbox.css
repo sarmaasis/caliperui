@@ -1,0 +1,144 @@
+/* checkbox.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* The native input fills the target; the smaller indicator is decorative. */
+  [data-slot="checkbox-root"] {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: var(--control-height);
+    height: var(--control-height);
+    vertical-align: middle;
+  }
+
+  [data-slot="checkbox"] {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    appearance: none;
+    border: 0;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+
+  /* Choice marks: one 18px recessed mark for checkbox and radio. Checked
+     marks fill with ink; the check stroke draws itself and the radio dot
+     settles in. The switch thumb stretches while pressed, then settles. */
+  [data-slot="checkbox-indicator"] {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    background: var(--field);
+    box-shadow: var(--shadow-field);
+    transition:
+      background-color var(--duration-fast) var(--ease-out),
+      box-shadow var(--duration-fast) var(--ease-out);
+  }
+
+  [data-slot="checkbox-indicator"] {
+    width: 18px;
+    height: 18px;
+  }
+
+  [data-slot="checkbox-indicator"] {
+    border-radius: var(--radius-mark);
+    color: var(--accent-foreground);
+  }
+  [data-slot="checkbox-indicator"] svg {
+    width: 12px;
+    height: 12px;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  [data-slot="checkbox-indicator"] path {
+    stroke-dasharray: 20;
+    stroke-dashoffset: 20;
+    transition: stroke-dashoffset 200ms var(--ease-out);
+  }
+  [data-slot="checkbox"]:checked:not(:indeterminate) + [data-slot="checkbox-indicator"] [data-mark="check"],
+  [data-slot="checkbox"]:indeterminate + [data-slot="checkbox-indicator"] [data-mark="mixed"] {
+    stroke-dashoffset: 0;
+  }
+
+  [data-slot="checkbox"]:checked + [data-slot="checkbox-indicator"],
+  [data-slot="checkbox"]:indeterminate + [data-slot="checkbox-indicator"] {
+    background: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent), inset 0 1px 0 rgb(255 255 255 / 14%);
+  }
+
+  @media (hover: hover) {
+    [data-slot="checkbox"]:hover:not(:disabled):not(:checked)
+      + [data-slot="checkbox-indicator"] {
+      box-shadow: var(--shadow-field-hover);
+    }
+  }
+
+  [data-slot="checkbox"]:focus-visible + [data-slot="checkbox-indicator"] {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  [data-slot="checkbox"][aria-invalid="true"]
+    + [data-slot="checkbox-indicator"] {
+    box-shadow: var(--shadow-field-invalid);
+    outline-color: var(--destructive);
+  }
+
+  [data-slot="checkbox"]:disabled {
+    cursor: not-allowed;
+  }
+  [data-slot="checkbox"]:disabled + [data-slot="checkbox-indicator"] {
+    background: var(--sunken);
+    box-shadow: var(--shadow-field-quiet);
+    color: var(--muted-foreground);
+  }
+  [data-slot="checkbox"]:disabled:is(:checked, :indeterminate) + [data-slot="checkbox-indicator"] {
+    background: var(--border);
+    box-shadow: none;
+  }
+
+  @media (forced-colors: active) {
+    [data-slot="checkbox-indicator"] {
+      forced-color-adjust: none;
+      background: Canvas;
+      border-color: CanvasText;
+    }
+    [data-slot="checkbox"]:checked + [data-slot="checkbox-indicator"],
+    [data-slot="checkbox"]:indeterminate + [data-slot="checkbox-indicator"] {
+      background: Highlight;
+      border-color: Highlight;
+    }
+    [data-slot="checkbox"]:is(:checked, :indeterminate) + [data-slot="checkbox-indicator"] {
+      color: HighlightText;
+    }
+    [data-slot="checkbox-indicator"] {
+      border: 1px solid CanvasText;
+      box-shadow: none;
+    }
+    [data-slot="checkbox"]:hover:not(:disabled)
+      + [data-slot="checkbox-indicator"] {
+      border-color: CanvasText;
+    }
+    [data-slot="checkbox"]:focus-visible + [data-slot="checkbox-indicator"] {
+      outline-color: Highlight;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="checkbox-indicator"],
+    [data-slot="checkbox-indicator"] path {
+      transition: none;
+    }
+  }
+}

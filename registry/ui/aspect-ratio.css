@@ -1,0 +1,14 @@
+/* aspect-ratio.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="aspect-ratio"][data-animated="true"] {
+    transition: aspect-ratio var(--duration-normal) var(--ease-settle);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="aspect-ratio"][data-animated="true"] {
+      transition: aspect-ratio 180ms var(--ease-settle);
+    }
+  }
+}

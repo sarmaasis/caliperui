@@ -1,0 +1,29 @@
+/* rolling-value.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="number-digit"][data-direction="up"] {
+    animation: caliper-digit-in var(--duration-travel) var(--ease-showcase);
+  }
+  [data-slot="number-digit"][data-direction="down"] {
+    animation: caliper-digit-down var(--duration-travel) var(--ease-showcase);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="number-digit"][data-direction="up"] {
+      animation: caliper-digit-in 400ms var(--ease-showcase);
+    }
+    [data-slot="number-digit"][data-direction="down"] {
+      animation: caliper-digit-down 400ms var(--ease-showcase);
+    }
+  }
+}
+
+@keyframes caliper-digit-down {
+  from {
+    transform: translateY(70%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

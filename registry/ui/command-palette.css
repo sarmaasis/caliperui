@@ -1,0 +1,56 @@
+/* command-palette.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="command-option"] {
+    transition-property: background-color, color, border-color;
+    transition-duration: var(--duration-fast);
+    transition-timing-function: var(--ease-out);
+  }
+  [data-slot="command-highlight"] {
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: var(--radius-surface);
+    background: var(--muted);
+    transition:
+      transform var(--duration-normal) var(--ease-settle),
+      height var(--duration-normal) var(--ease-settle);
+  }
+  [data-slot="command-scope"] {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    height: 22px;
+    padding: 0 8px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent-text);
+    background: var(--brand-subtle);
+  }
+  [data-slot="command-match"] {
+    background: none;
+    color: inherit;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: var(--ring);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+  }
+  [data-slot="command-preview"] {
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+    box-shadow: inset 1px 0 0 var(--border);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="command-highlight"],
+    [data-slot="command-option"] {
+      transition: none;
+    }
+  }
+}

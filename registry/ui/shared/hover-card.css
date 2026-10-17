@@ -1,0 +1,25 @@
+/* Shared by hover-card.tsx, preview-rail.tsx; each imports it. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="hover-card"] {
+    transform-origin: top left;
+    animation: caliper-menu-enter var(--duration-travel) var(--ease-showcase);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="hover-card"] {
+      animation: caliper-menu-enter 400ms var(--ease-showcase);
+    }
+  }
+}
+
+[data-slot="hover-card"] {
+  background-color: var(--elevated-glass);
+  border-color: color-mix(in srgb, var(--edge-light) 45%, var(--border));
+  backdrop-filter: blur(var(--blur-overlay));
+  box-shadow:
+    var(--shadow-overlay),
+    0 0 40px var(--edge-glow),
+    inset 0 1px 0 var(--edge-light);
+}

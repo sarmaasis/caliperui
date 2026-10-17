@@ -1,0 +1,25 @@
+/* kbd.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Key caps: a small raised object with a lip on the bottom edge. */
+  [data-slot="kbd-group"] { display: inline-flex; align-items: center; gap: 3px; font: inherit; }
+  [data-slot="kbd"] {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 20px; height: 20px; padding: 0 5px;
+    border-radius: var(--radius-mark);
+    background: var(--raised);
+    box-shadow: inset 0 0 0 1px var(--border), inset 0 -1px 0 var(--border-strong);
+    color: var(--muted-foreground);
+    font-family: var(--font-mono, ui-monospace, monospace); font-size: 12px; line-height: 1; font-weight: 500;
+    font-variant-numeric: tabular-nums; white-space: nowrap;
+  }
+  /* A key hint inside a search box or field is a soft fill: the box already has the border. */
+  :is([data-slot="input-group"], [data-slot="search"], [data-slot$="-search"], [data-slot="command-input"]) [data-slot="kbd"] { background: var(--muted); box-shadow: none; border: 0; }
+  [data-slot="kbd"][data-size="sm"] { min-width: 18px; height: 18px; padding: 0 4px; font-size: 12px; }
+  [data-slot="kbd"][data-variant="inline"] {
+    background: transparent; color: inherit; opacity: 0.72;
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 26%, transparent);
+  }
+  [data-slot="kbd-group"][data-variant="inline"] { opacity: 1; }
+}

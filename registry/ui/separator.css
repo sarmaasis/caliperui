@@ -1,0 +1,13 @@
+/* separator.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Separator: the toolbar's 1px hairline, standalone. */
+  [data-slot="separator"] { flex: none; background: var(--border); }
+  [data-slot="separator"][data-orientation="horizontal"] { width: 100%; height: 1px; }
+  [data-slot="separator"][data-orientation="vertical"] { align-self: stretch; width: 1px; min-height: 16px; }
+  [data-slot="separator"][data-strong] { background: var(--border-strong); }
+  [data-slot="separator"][data-inset] { width: auto; margin-inline: 16px; }
+  [data-slot="separator-labelled"] { display: flex; align-items: center; gap: 12px; width: 100%; color: var(--muted-foreground); font-size: 12px; line-height: 18px; }
+  [data-slot="separator-labelled"]::before, [data-slot="separator-labelled"]::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+}

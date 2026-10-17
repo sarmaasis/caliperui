@@ -1,0 +1,16 @@
+/* stepper.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="stepper-marker"][data-state="complete"],
+  [data-slot="stepper-marker"][data-state="current"] {
+    border-color: transparent;
+    background: var(--accent);
+    color: var(--accent-foreground);
+  }
+  [data-slot="stepper-marker"][data-state="error"] {
+    border-color: transparent;
+    background: var(--danger);
+    color: var(--danger-foreground);
+  }
+}

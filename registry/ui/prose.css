@@ -1,0 +1,25 @@
+/* prose.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Prose: spacing and a readable measure for markup you do not control. */
+  [data-slot="prose"] { display: grid; gap: 16px; max-inline-size: 64ch; font-size: 14px; line-height: 22px; color: var(--foreground); }
+  [data-slot="prose"][data-size="reading"] { font-size: 17px; line-height: 1.7; color: color-mix(in srgb, var(--foreground) 86%, var(--muted-foreground)); }
+  [data-slot="prose"] > * { margin: 0; }
+  [data-slot="prose"] h1 { font-size: 28px; line-height: 1.15; font-weight: 600; letter-spacing: -0.03em; text-wrap: balance; }
+  [data-slot="prose"] h2 { margin-block-start: 12px; font-size: 20px; line-height: 28px; font-weight: 600; letter-spacing: -0.02em; }
+  [data-slot="prose"] h3 { margin-block-start: 8px; font-size: 16px; line-height: 24px; font-weight: 600; letter-spacing: -0.025em; }
+  [data-slot="prose"] h4 { font-size: 14px; line-height: 20px; font-weight: 600; }
+  [data-slot="prose"] a { color: var(--foreground); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  [data-slot="prose"] a:hover { text-decoration-thickness: 2px; }
+  [data-slot="prose"] ul, [data-slot="prose"] ol { display: grid; gap: 8px; padding-inline-start: 1.25em; }
+  [data-slot="prose"] ul { list-style: disc; }
+  [data-slot="prose"] ol { list-style: decimal; }
+  [data-slot="prose"] li::marker { color: var(--muted-foreground); }
+  [data-slot="prose"] blockquote { padding-inline-start: 16px; border-inline-start: 2px solid var(--border-strong); color: var(--muted-foreground); }
+  [data-slot="prose"] code { padding: 1px 5px; border-radius: var(--radius-mark); background: var(--muted); font-family: var(--font-mono); font-size: 0.92em; }
+  [data-slot="prose"] pre { overflow-x: auto; padding: 12px 16px; border-radius: var(--radius-surface); background: var(--muted); }
+  [data-slot="prose"] pre code { padding: 0; background: none; }
+  [data-slot="prose"] hr { height: 1px; border: 0; background: var(--border); }
+  [data-slot="prose"] small { color: var(--muted-foreground); font-size: 12px; }
+}

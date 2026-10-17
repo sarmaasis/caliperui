@@ -1,0 +1,47 @@
+/* avatar.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Avatars: a glass orb in the accent's own hue family. --accent is a fill that carries white at 4.5:1, so every tone
+     stays at that depth and the initials are white; one accent pick recolours every orb. */
+  [data-slot="avatar"] {
+    --av-a: var(--accent);
+    --av-b: color-mix(in srgb, var(--accent) 80%, #000);
+    color: #fff;
+    background:
+      radial-gradient(circle at 32% 26%, rgb(255 255 255 / 40%), rgb(255 255 255 / 0%) 30%),
+      radial-gradient(circle at 74% 80%, color-mix(in srgb, var(--av-b) 80%, #000), transparent 58%),
+      linear-gradient(135deg, var(--av-a), var(--av-b));
+    box-shadow: inset 0 0 0 1px rgb(255 255 255 / 14%), inset 0 -5px 10px rgb(0 0 0 / 14%);
+  }
+  [data-slot="avatar"] > span:first-child {
+    position: relative;
+    text-shadow: 0 1px 1px rgb(0 0 0 / 28%);
+  }
+  [data-slot="avatar"] img {
+    border-radius: inherit;
+  }
+  [data-slot="avatar"][data-tone="1"] { --av-a: color-mix(in srgb, var(--accent) 88%, #000); --av-b: var(--accent); }
+  [data-slot="avatar"][data-tone="2"] { --av-a: var(--accent); --av-b: color-mix(in srgb, var(--accent) 60%, #27272a); }
+  [data-slot="avatar"][data-tone="3"] { --av-a: color-mix(in srgb, var(--accent) 75%, #52525b); --av-b: color-mix(in srgb, var(--accent) 85%, #000); }
+  [data-slot="avatar"][data-tone="4"] { --av-a: color-mix(in srgb, var(--accent) 45%, #52525b); --av-b: color-mix(in srgb, var(--accent) 60%, #27272a); }
+  [data-slot="avatar"][data-tone="5"] { --av-a: #6b6b73; --av-b: #3f3f46; }
+  @supports (color: oklch(from red l c h)) {
+    [data-slot="avatar"][data-tone="1"] { --av-a: oklch(from var(--accent) calc(l - 0.04) c calc(h + 24)); --av-b: oklch(from var(--accent) calc(l - 0.04) c calc(h + 48)); }
+    [data-slot="avatar"][data-tone="2"] { --av-a: oklch(from var(--accent) calc(l - 0.04) c calc(h - 24)); --av-b: oklch(from var(--accent) calc(l - 0.04) c calc(h - 48)); }
+    [data-slot="avatar"][data-tone="3"] { --av-a: oklch(from var(--accent) calc(l - 0.02) calc(c * 0.85) calc(h + 12)); --av-b: oklch(from var(--accent) calc(l - 0.06) calc(c * 0.7) calc(h - 12)); }
+  }
+  [data-slot="avatar-presence"] {
+    position: absolute;
+    right: -3px;
+    bottom: -3px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--background);
+  }
+  [data-slot="avatar-presence"][data-presence="online"] { background: var(--success); }
+  [data-slot="avatar-presence"][data-presence="away"] { background: linear-gradient(90deg, var(--warning) 50%, var(--background) 50%); box-shadow: 0 0 0 2px var(--background), inset 0 0 0 1.5px var(--warning); }
+  [data-slot="avatar-presence"][data-presence="busy"] { background: radial-gradient(var(--background) 0 0) center / 5px 1.5px no-repeat, var(--danger); }
+  [data-slot="avatar-presence"][data-presence="offline"] { background: var(--background); box-shadow: 0 0 0 2px var(--background), inset 0 0 0 1.5px var(--muted-foreground); }
+}

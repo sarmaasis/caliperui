@@ -1,0 +1,24 @@
+/* theme-switch.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="theme-icon"] {
+    opacity: 0;
+    transform: rotate(-20deg) scale(0.86);
+    transition:
+      opacity var(--duration-travel) var(--ease-showcase),
+      transform var(--duration-travel) var(--ease-showcase);
+  }
+  [data-slot="theme-icon"][data-visible="true"] {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="theme-icon"] {
+      transition:
+        opacity 400ms var(--ease-showcase),
+        transform 400ms var(--ease-showcase);
+    }
+  }
+}

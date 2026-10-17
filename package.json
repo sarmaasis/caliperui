@@ -1,0 +1,17 @@
+{
+  "name": "caliper-ui-free",
+  "version": "0.0.0",
+  "private": true,
+  "description": "React components, blocks and complete product screens drawn to one specification. Accessible by default, shadcn-compatible, installed as source you own.",
+  "license": "MIT",
+  "scripts": {
+    "registry:build": "shadcn build -o public/r"
+  },
+  "devDependencies": {
+    "shadcn": "latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sarmaasis/caliperui"
+  }
+}

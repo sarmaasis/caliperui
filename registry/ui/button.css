@@ -1,0 +1,154 @@
+/* button.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="button"] {
+    transition-property: background-color, color, border-color;
+    transition-duration: var(--duration-fast);
+    transition-timing-function: var(--ease-out);
+  }
+
+  /* Button material. Raised to press: a lit top edge and a small lift; the
+     press travels 1px down and swaps the lift for an inner shade. Only
+     translate animates (release on the settle curve); shadows swap. */
+  [data-slot="button"] {
+    --b-bg: var(--raised);
+    --b-bg-hover: var(--raised-hover);
+    --b-bg-press: var(--raised-press);
+    --b-fg: var(--foreground);
+    --b-shadow: var(--shadow-raised);
+    --b-shadow-press: var(--shadow-raised-press);
+    background-color: var(--b-bg);
+    color: var(--b-fg);
+    box-shadow: var(--b-shadow);
+    transition-property: background-color, color, border-color, translate, scale;
+    transition-duration:
+      var(--duration-fast), var(--duration-fast), var(--duration-fast),
+      var(--duration-normal), var(--duration-normal);
+    transition-timing-function:
+      var(--ease-out), var(--ease-out), var(--ease-out), var(--ease-settle),
+      var(--ease-settle);
+  }
+  [data-slot="button"][data-variant="default"] {
+    --b-bg: var(--primary);
+    --b-bg-hover: var(--primary-hover);
+    --b-bg-press: var(--primary-press);
+    --b-fg: var(--primary-foreground);
+    --b-shadow: var(--shadow-accent);
+    --b-shadow-press: var(--shadow-accent-press);
+  }
+  [data-slot="button"][data-variant="destructive"] {
+    --b-bg: var(--danger-fill);
+    --b-bg-hover: var(--danger-fill-hover);
+    --b-bg-press: var(--danger-fill-press);
+    --b-fg: var(--danger-fill-foreground);
+    --b-shadow: var(--shadow-danger);
+    --b-shadow-press: var(--shadow-danger-press);
+  }
+  [data-slot="button"][data-variant="ghost"] {
+    --b-bg: transparent;
+    --b-bg-hover: var(--muted);
+    --b-bg-press: var(--muted);
+    --b-fg: var(--muted-foreground);
+    --b-shadow: none;
+    --b-shadow-press: none;
+  }
+  @media (hover: hover) {
+    [data-slot="button"]:hover {
+      background-color: var(--b-bg-hover);
+    }
+    [data-slot="button"][data-variant="ghost"]:hover {
+      color: var(--foreground);
+    }
+  }
+  [data-slot="button"]:active:not(:disabled):not([aria-disabled="true"]):not(
+      [aria-busy="true"]
+    ) {
+    translate: 0 var(--motion-press-travel);
+    scale: var(--motion-press-scale);
+    background-color: var(--b-bg-press);
+    box-shadow: var(--b-shadow-press);
+    transition-duration:
+      var(--duration-fast), var(--duration-fast), var(--duration-fast), 90ms,
+      90ms;
+    transition-timing-function: var(--ease-out);
+  }
+  [data-slot="button"]:is(:disabled, [aria-disabled="true"]):not([aria-busy="true"]) {
+    background-color: var(--sunken);
+    color: var(--muted-foreground);
+    box-shadow: inset 0 0 0 1px var(--border);
+  }
+  [data-slot="button"][data-variant="ghost"]:is(:disabled, [aria-disabled="true"]):not(
+      [aria-busy="true"]
+    ) {
+    background-color: transparent;
+    box-shadow: none;
+  }
+  /* Loading keeps the exact width: the label stays in flow but invisible. */
+  [data-slot="button-label"] {
+    display: inline-flex;
+    align-items: center;
+    gap: inherit;
+  }
+  /* Opacity, not visibility, so the label still names the button. */
+  [data-slot="button-label"][data-hidden="true"] {
+    opacity: 0;
+  }
+  [data-slot="button-busy"] {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+  }
+  [data-slot="button-feedback"] {
+    display: inline-flex;
+    align-items: center;
+    gap: inherit;
+    overflow: clip;
+    transition: width var(--duration-normal) var(--ease-out);
+  }
+  [data-slot="button-feedback-label"] {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: inherit;
+    width: max-content;
+  }
+  [data-slot="button-feedback-label"][data-enter="true"] {
+    animation: caliper-feedback-enter var(--duration-normal) var(--ease-out);
+  }
+
+  [data-slot="button"][aria-busy="true"] {
+    pointer-events: none;
+  }
+  [data-slot="button"][data-action-phase="error"] {
+    color: var(--danger);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="button"],
+    [data-slot="button-feedback"] {
+      transition: none;
+    }
+    [data-slot="button"]:active:not(:disabled):not([aria-disabled="true"]):not(
+        [aria-busy="true"]
+      ) {
+      translate: none;
+    }
+    [data-slot="button-feedback-label"],
+    [data-slot="button-feedback-label"][data-enter="true"] {
+      animation: none;
+    }
+  }
+
+  /* Toggle: pressed is recessed, as a toggled tool in a button group is. */
+  /* Four attributes, so it wins over the group and toolbar pressed rules in any stylesheet order. */
+  [data-slot="button"][data-variant="ghost"][data-toggle][aria-pressed="true"] {
+    --b-bg: var(--sunken);
+    --b-bg-hover: var(--sunken);
+    --b-bg-press: var(--sunken);
+    --b-fg: var(--foreground);
+    --b-shadow: var(--shadow-sunken);
+    --b-shadow-press: var(--shadow-sunken);
+  }
+}

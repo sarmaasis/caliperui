@@ -1,0 +1,33 @@
+/* Shared by animated-tabs.tsx, dock.tsx, donut-chart.tsx, sortable-list.tsx; each imports it. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  .caliper-icon-button {
+    display: inline-grid;
+    place-items: center;
+    flex-shrink: 0;
+    min-width: var(--control-height);
+    min-height: var(--control-height);
+    border-radius: var(--radius-control);
+    color: var(--muted-foreground);
+    outline: none;
+    transition:
+      background-color var(--duration-fast) var(--ease-out),
+      scale var(--duration-fast) var(--ease-out);
+  }
+  .caliper-icon-button:hover {
+    background: var(--muted);
+    color: var(--foreground);
+  }
+  .caliper-icon-button:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  .caliper-icon-button:active {
+    scale: var(--motion-press-scale);
+  }
+  .caliper-icon-button:disabled {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+}

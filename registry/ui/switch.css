@@ -1,0 +1,172 @@
+/* switch.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* The native input fills the target; the smaller indicator is decorative. */
+  [data-slot="switch-root"] {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: var(--control-height);
+    height: var(--control-height);
+    vertical-align: middle;
+  }
+
+  [data-slot="switch-root"] {
+    width: 44px;
+  }
+
+  [data-slot="switch"] {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    appearance: none;
+    border: 0;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+
+  /* Choice marks: one 18px recessed mark for checkbox and radio. Checked
+     marks fill with ink; the check stroke draws itself and the radio dot
+     settles in. The switch thumb stretches while pressed, then settles. */
+  [data-slot="switch-track"] {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    background: var(--field);
+    box-shadow: var(--shadow-field);
+    transition:
+      background-color var(--duration-fast) var(--ease-out),
+      box-shadow var(--duration-fast) var(--ease-out);
+  }
+
+  [data-slot="switch"]:checked + [data-slot="switch-track"] {
+    background: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent), inset 0 1px 0 rgb(255 255 255 / 14%);
+  }
+
+  [data-slot="switch-track"] {
+    justify-content: flex-start;
+    width: 36px;
+    height: 22px;
+    padding: 2px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--border-strong) 45%, var(--sunken));
+    box-shadow: inset 0 1px 2px rgb(20 20 28 / 18%);
+  }
+
+  [data-slot="switch-thumb"] {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 1px 2px rgb(18 18 22 / 30%), 0 0 0 0.5px rgb(18 18 22 / 10%);
+    transform-origin: 9px 50%;
+    transition:
+      transform 260ms var(--ease-settle),
+      background-color var(--duration-fast) var(--ease-out);
+  }
+
+  [data-slot="switch"]:checked
+    + [data-slot="switch-track"]
+    [data-slot="switch-thumb"] {
+    transform: translateX(14px);
+    background: var(--accent-foreground);
+  }
+  [data-slot="switch"]:active:not(:disabled)
+    + [data-slot="switch-track"]
+    [data-slot="switch-thumb"] {
+    transform: scaleX(1.22);
+    transition-duration: 160ms;
+  }
+  [data-slot="switch"]:checked:active:not(:disabled)
+    + [data-slot="switch-track"]
+    [data-slot="switch-thumb"] {
+    transform: translateX(10px) scaleX(1.22);
+  }
+
+  [data-slot="switch"]:dir(ltr) + [data-slot="switch-track"] {
+    direction: ltr;
+  }
+  [data-slot="switch"]:dir(rtl) + [data-slot="switch-track"] {
+    direction: rtl;
+  }
+  [data-slot="switch"]:dir(rtl):checked
+    + [data-slot="switch-track"]
+    [data-slot="switch-thumb"] {
+    transform: translateX(-14px);
+  }
+
+  [data-slot="switch"]:focus-visible + [data-slot="switch-track"] {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  [data-slot="switch"][aria-invalid="true"] + [data-slot="switch-track"] {
+    box-shadow: var(--shadow-field-invalid);
+    outline-color: var(--destructive);
+  }
+
+  [data-slot="switch"]:disabled {
+    cursor: not-allowed;
+  }
+  [data-slot="switch"]:disabled + [data-slot="switch-track"] {
+    background: var(--sunken);
+    box-shadow: var(--shadow-field-quiet);
+    color: var(--muted-foreground);
+  }
+  [data-slot="switch"]:disabled:checked + [data-slot="switch-track"] {
+    background: var(--border);
+    box-shadow: none;
+  }
+  [data-slot="switch"]:disabled + [data-slot="switch-track"] [data-slot="switch-thumb"] {
+    background: var(--border);
+    box-shadow: none;
+  }
+
+  @media (forced-colors: active) {
+    [data-slot="switch-track"] {
+      forced-color-adjust: none;
+      background: Canvas;
+      border-color: CanvasText;
+    }
+    [data-slot="switch"]:checked + [data-slot="switch-track"] {
+      background: Highlight;
+      border-color: Highlight;
+    }
+    [data-slot="switch-track"] {
+      border: 1px solid CanvasText;
+      box-shadow: none;
+    }
+    [data-slot="switch-thumb"] {
+      background: CanvasText;
+    }
+    [data-slot="switch"]:checked
+      + [data-slot="switch-track"]
+      [data-slot="switch-thumb"] {
+      background: HighlightText;
+    }
+    [data-slot="switch"]:hover:not(:disabled) + [data-slot="switch-track"] {
+      border-color: CanvasText;
+    }
+    [data-slot="switch"]:focus-visible + [data-slot="switch-track"] {
+      outline-color: Highlight;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="switch-track"],
+    [data-slot="switch-thumb"] {
+      transition: none;
+    }
+  }
+}

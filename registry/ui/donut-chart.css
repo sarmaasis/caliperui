@@ -1,0 +1,39 @@
+/* donut-chart.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="donut-legend"][aria-pressed="false"] {
+    opacity: 0.45;
+    text-decoration: line-through;
+  }
+  [data-slot="donut-chart"] {
+    container-type: inline-size;
+  }
+  [data-slot="donut-layout"] {
+    display: grid;
+    gap: 1.5rem;
+  }
+  @container (min-width:28rem) {
+    [data-slot="donut-layout"] {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    }
+  }
+  [data-slot="donut-segment"] {
+    cursor: pointer;
+    transition:
+      stroke-dasharray var(--duration-travel) var(--ease-showcase),
+      stroke-dashoffset var(--duration-travel) var(--ease-showcase),
+      stroke-width var(--duration-normal) var(--ease-out),
+      transform var(--duration-normal) var(--ease-out),
+      opacity var(--duration-fast) var(--ease-out);
+  }
+  [data-slot="donut-chart"][data-visible="true"] [data-slot="donut-segment"] {
+    animation: caliper-ring-fill var(--duration-showcase) var(--ease-showcase);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="donut-segment"] {
+      transition: none;
+      animation: none !important;
+    }
+  }
+}

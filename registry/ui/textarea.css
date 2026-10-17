@@ -1,0 +1,26 @@
+/* textarea.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="textarea"] {
+    transition-property: background-color, color, border-color;
+    transition-duration: var(--duration-fast);
+    transition-timing-function: var(--ease-out);
+  }
+
+  /* Recessed to fill. One ring for every field: 3:1 at rest, darker on
+     hover, a 2px ember ring with a soft halo on focus, danger when invalid.
+     Disabled and read-only drop into the sunken fill and stay legible. */
+  [data-slot="textarea"] {
+    border: 0;
+    background-color: var(--field);
+    box-shadow: var(--shadow-field);
+    transition: box-shadow var(--duration-fast) var(--ease-out);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="textarea"] {
+      transition: none;
+    }
+  }
+}

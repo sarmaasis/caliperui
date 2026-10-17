@@ -1,0 +1,27 @@
+/* Shared by date-picker.tsx, date-range-picker.tsx; each imports it. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="date-menu"] {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-overlay);
+    transform-origin: top center;
+    animation: caliper-menu-enter var(--duration-travel) var(--ease-showcase);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="date-menu"] {
+      animation: caliper-menu-enter 400ms var(--ease-showcase);
+    }
+  }
+}
+
+[data-slot="date-menu"] {
+  background-color: var(--elevated-glass);
+  border-color: color-mix(in srgb, var(--edge-light) 45%, var(--border));
+  backdrop-filter: blur(var(--blur-overlay));
+  box-shadow:
+    var(--shadow-overlay),
+    0 0 40px var(--edge-glow),
+    inset 0 1px 0 var(--edge-light);
+}

@@ -1,0 +1,357 @@
+/* Caliper UI base styles: the few rules no single part owns, and shared animations. Import once, after the tokens. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* A size container ignores its content when sizing, so in a centring flex
+     or grid parent it would collapse to nothing. It fills its slot instead;
+     width and max-width utilities still win. */
+  .\@container,
+  [class*="@container/"] {
+    inline-size: 100%;
+    min-inline-size: 0;
+  }
+
+  /* A grid without declared columns would get an auto track that grows to its
+     widest unbreakable row (a chip row, a badge, a nowrap title) and push past
+     a phone screen. Its single track can shrink instead; grid-cols utilities
+     and component rules later in this file still set real columns. */
+  .grid { grid-template-columns: minmax(0, 1fr); }
+
+  .lucide {
+    stroke-width: 1.75;
+  }
+}
+
+html[data-theme-reveal]::view-transition-old(root),
+  html[data-theme-reveal]::view-transition-new(root) {
+  mix-blend-mode: normal;
+  animation: none;
+}
+
+html[data-theme-reveal="circle"]::view-transition-new(root) {
+  animation: caliper-theme-circle var(--duration-showcase) var(--ease-showcase) both;
+}
+
+html[data-theme-reveal="seam"]::view-transition-new(root) {
+  animation: caliper-theme-seam var(--duration-showcase) var(--ease-showcase) both;
+}
+
+html[data-theme-reveal="wipe"]::view-transition-new(root) {
+  animation: caliper-theme-wipe var(--duration-showcase) var(--ease-showcase) both;
+}
+@layer components {
+  [data-variant="lines"] { display: grid; width: 100%; max-width: 20rem; }
+  [data-slot="page-frame"] { border: 1px solid var(--border); border-radius: 1rem; background: var(--background); padding: 1.5rem; overflow: hidden; min-width: 0; }
+  [data-slot="template-frame"] { border: 1px solid var(--border); border-radius: 1rem; background: var(--background); overflow: hidden; min-width: 0; }
+  [data-slot="template-bar"] { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); background: var(--surface); font-size: 0.75rem; color: var(--muted-foreground); }
+  [data-slot="template-bar"] i { width: 0.55rem; height: 0.55rem; border-radius: 999px; background: var(--border); }
+  [data-slot="template-body"] { max-height: 34rem; overflow: auto; }
+
+  /* ── Backdrops ────────────────────────────────────── */
+  [data-slot="block-grid-lines"] {
+    position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background-image:
+      linear-gradient(var(--k-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--k-line) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-position: center top;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, #000 30%, transparent 100%);
+  }
+
+  [data-chart-measuring], [data-chart-measuring] * { transition: none !important; }
+  li[data-state="next"] { color: var(--muted-foreground); }
+
+  /* Depth set start (2026-10-16) */
+  /* Depth set (2026-10-16). Perspective belongs to a part's own stage, never to the page or an app shell. */
+  [data-depth-set] {
+    --depth-near: 800px;
+    --depth-mid: 1000px;
+    --depth-far: 1400px;
+    --depth-step: 24px;
+    --depth-tilt-max: 8deg;
+    position: relative;
+    min-width: 0;
+    container-type: inline-size;
+  }
+  @keyframes caliper-select-in {
+    from {
+      opacity: 0;
+      transform: scaleY(0.96);
+    }
+  }
+}
+
+@keyframes caliper-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes caliper-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes caliper-dialog-enter {
+  from {
+    opacity: 0;
+    transform: translateY(var(--motion-enter-distance))
+      scale(var(--motion-press-scale));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes caliper-feedback-enter {
+  from {
+    opacity: 0;
+    transform: translateY(var(--motion-enter-distance));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes caliper-feedback-symbol-enter {
+  from {
+    opacity: 0;
+    scale: var(--motion-press-scale);
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes caliper-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes caliper-skeleton-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes caliper-digit-in {
+  from {
+    transform: translateY(-70%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes caliper-calendar-next {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes caliper-calendar-prev {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes caliper-day-select {
+  from {
+    transform: scale(0.86);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes caliper-reject {
+  0%,
+  100% {
+    transform: none;
+  }
+  35% {
+    transform: translateX(-4px);
+  }
+  70% {
+    transform: translateX(4px);
+  }
+}
+
+@keyframes caliper-menu-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes caliper-theme-circle {
+  from {
+    clip-path: circle(0 at var(--theme-origin-x) var(--theme-origin-y));
+  }
+  to {
+    clip-path: circle(var(--theme-radius) at var(--theme-origin-x) var(--theme-origin-y));
+  }
+}
+
+@keyframes caliper-theme-seam {
+  from {
+    clip-path: inset(0 50% 0 50%);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes caliper-theme-wipe {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@layer components {
+  @keyframes caliper-tab-swap {
+    from {
+      opacity: 0;
+      transform: translateX(
+        calc(var(--tab-direction, 1) * var(--motion-enter-distance))
+      );
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @keyframes caliper-chart-draw {
+    from {
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+    }
+    to {
+      stroke-dasharray: 1;
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes caliper-ring-fill {
+    from {
+      stroke-dasharray: 0 100;
+    }
+  }
+  @keyframes caliper-heat-in {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes caliper-status-in {
+    from {
+      opacity: 0;
+      transform: scaleY(0.4);
+    }
+  }
+  @keyframes caliper-calendar-next {
+    from {
+      opacity: 0;
+      translate: 14px 0;
+    }
+  }
+  @keyframes caliper-calendar-prev {
+    from {
+      opacity: 0;
+      translate: -14px 0;
+    }
+  }
+  @keyframes caliper-skeleton-pulse {
+    50% {
+      opacity: 0.45;
+    }
+  }
+  @keyframes caliper-chip-in {
+    from {
+      opacity: 0;
+      scale: 0.92;
+    }
+  }
+  @keyframes caliper-thread-in {
+    from {
+      opacity: 0;
+      translate: 0 6px;
+    }
+  }
+  @keyframes caliper-pulse-soft {
+    50% {
+      opacity: 0.5;
+    }
+  }
+  @keyframes caliper-scrim-in {
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes rec-pulse { 50% { opacity: 0.25; } }
+  @keyframes vt-pulse { 50% { opacity: 0.45; } }
+  @keyframes think-in { from { opacity: 0; transform: translateY(4px); } }
+  @keyframes caliper-faq-open { from { opacity: 0; translate: 0 -6px; } }
+  @media (prefers-reduced-motion: no-preference) {
+    @keyframes caliper-select-in { from { background-color: transparent; } }
+  }
+  @keyframes caliper-unsaved-in { from { opacity: 0; transform: translateY(12px); } }
+  @media (prefers-reduced-motion: no-preference) {
+    @keyframes caliper-app-swap { from { opacity: 0; transform: translateY(6px); } }
+  }
+  @keyframes caliper-docs-shimmer { to { background-position: -150% 0; } }
+  @keyframes onboarding-rise { from { opacity: 0; transform: translateY(6px); } }
+  @keyframes caliper-mc-wipe { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+  @keyframes caliper-mc-grow { from { transform: scale(0); } }
+  @keyframes caliper-mc-rise { from { transform: scaleY(0); } }
+  @keyframes caliper-mc-fill-x { from { transform: scaleX(0); } }
+  @keyframes caliper-mc-draw { from { stroke-dasharray: 1; stroke-dashoffset: 1; } to { stroke-dasharray: 1; stroke-dashoffset: 0; } }
+  @keyframes caliper-mc-fade { from { opacity: 0; } }
+  @keyframes caliper-live-ring { from { opacity: 0.55; transform: scale(1); } to { opacity: 0; transform: scale(2.8); } }
+  @keyframes caliper-live-blink { to { opacity: 0.3; } }
+  @keyframes caliper-block-arrive { from { opacity: 0; transform: translateY(calc(var(--motion-showcase-distance) / 2)); } }
+  @keyframes caliper-live-good { from { background-color: color-mix(in srgb, var(--success) 30%, transparent); } }
+  @keyframes caliper-live-bad { from { background-color: color-mix(in srgb, var(--destructive) 28%, transparent); } }
+  @keyframes crm-bar-in { from { transform: scaleX(0); } }
+}
+@keyframes caliper-pop-in { from { opacity: 0; scale: 0.6; } }
+@keyframes caliper-arrive-left { from { opacity: 0; translate: -24px 0; } }
+@keyframes caliper-arrive-right { from { opacity: 0; translate: 24px 0; } }
+@keyframes caliper-panel-forward { from { opacity: 0; translate: 32px 0; } }
+@keyframes caliper-panel-grow { from { opacity: 0; scale: 0.92; } }
+@layer components {
+  @keyframes caliper-panel-in { from { opacity: 0; translate: 8px 0; } }
+  @keyframes caliper-status-in { from { opacity: 0; translate: 0 3px; } }
+  @keyframes caliper-status-in { from { opacity: 0; translate: 0 4px; } }
+  @keyframes caliper-pill-open { from { opacity: 0; transform: translateY(6px) scale(0.97); } }
+}

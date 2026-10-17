@@ -1,0 +1,36 @@
+/* glide-highlight.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="glide-highlight"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
+    border-radius: var(--radius-surface);
+    background: var(--muted);
+    opacity: 0;
+    transition:
+      transform var(--duration-travel) var(--ease-showcase),
+      width var(--duration-travel) var(--ease-showcase),
+      height var(--duration-travel) var(--ease-showcase),
+      opacity var(--duration-deliberate) var(--ease-out);
+  }
+  [data-slot="glide-highlight"][data-active="true"] {
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="glide-highlight"] {
+      transition: none;
+    }
+    [data-slot="glide-highlight"] {
+      transition:
+        transform 400ms var(--ease-showcase),
+        width 400ms var(--ease-showcase),
+        height 400ms var(--ease-showcase),
+        opacity 280ms var(--ease-out);
+    }
+  }
+}

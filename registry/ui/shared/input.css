@@ -1,0 +1,26 @@
+/* Shared by combobox.tsx, input.tsx; each imports it. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="input"] {
+    transition-property: background-color, color, border-color;
+    transition-duration: var(--duration-fast);
+    transition-timing-function: var(--ease-out);
+  }
+
+  /* Recessed to fill. One ring for every field: 3:1 at rest, darker on
+     hover, a 2px ember ring with a soft halo on focus, danger when invalid.
+     Disabled and read-only drop into the sunken fill and stay legible. */
+  [data-slot="input"] {
+    border: 0;
+    background-color: var(--field);
+    box-shadow: var(--shadow-field);
+    transition: box-shadow var(--duration-fast) var(--ease-out);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="input"] {
+      transition: none;
+    }
+  }
+}

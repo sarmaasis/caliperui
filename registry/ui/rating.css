@@ -1,0 +1,42 @@
+/* rating.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Rating: stars in ember; a half star clips its fill at the middle. */
+  [data-slot="rating"] { --star: 22px; --star-cell: 30px; }
+  [data-slot="rating"][data-size="sm"] { --star: 15px; --star-cell: 20px; }
+  [data-slot="rating"][data-size="lg"] { --star: 30px; --star-cell: 38px; }
+  @media (pointer: coarse) { [data-slot="rating"]:not([data-readonly]) { --star-cell: 44px; } }
+  [data-slot="rating"][data-readonly] { --star-cell: var(--star); }
+  [data-slot="rating-stars"] { display: inline-flex; align-items: center; }
+  [data-slot="rating-star"] { position: relative; display: grid; place-items: center; width: var(--star-cell); height: var(--star-cell); border-radius: var(--radius-control); }
+  [data-slot="rating"][data-readonly] [data-slot="rating-star"] { width: calc(var(--star) + 2px); height: var(--star); }
+  [data-slot="rating-star"]:has(input:focus-visible) { outline: 2px solid var(--ring); outline-offset: 0; }
+  [data-slot="rating-star"] input {
+    position: absolute; inset: 0; z-index: 1; margin: 0; opacity: 0; cursor: pointer; appearance: none;
+  }
+  [data-slot="rating-star"][data-half] input[data-side="start"] { inset-inline-end: 50%; }
+  [data-slot="rating-star"][data-half] input[data-side="end"] { inset-inline-start: 50%; }
+  [data-slot="rating"]:disabled input { cursor: not-allowed; }
+  [data-slot="rating"]:disabled [data-slot="rating-stars"] { opacity: 0.45; }
+  [data-slot="rating-settle"] { display: grid; }
+  [data-slot="rating-settle"][data-pop] { animation: caliper-star-settle var(--duration-deliberate) var(--ease-settle); }
+  [data-slot="rating-glyph"] { position: relative; display: grid; width: var(--star); height: var(--star); }
+  [data-slot="rating-glyph"] svg { grid-area: 1 / 1; width: 100%; height: 100%; }
+  [data-slot="rating-glyph"] [data-layer="track"] path { fill: var(--muted); stroke: var(--border-strong); stroke-width: 1.25; stroke-linejoin: round; }
+  [data-slot="rating-glyph"] [data-layer="fill"] path { fill: var(--brand); stroke: var(--brand); stroke-width: 1.25; stroke-linejoin: round; }
+  [data-slot="rating-glyph"] [data-layer="fill"] { clip-path: inset(0 100% 0 0); transition: clip-path var(--duration-fast) var(--ease-out); }
+  [data-slot="rating-glyph"][data-fill="full"] [data-layer="fill"] { clip-path: inset(0 0 0 0); }
+  [data-slot="rating-glyph"][data-fill="half"] [data-layer="fill"] { clip-path: inset(0 50% 0 0); }
+  [dir="rtl"] [data-slot="rating-glyph"][data-fill="half"] [data-layer="fill"] { clip-path: inset(0 0 0 50%); }
+  [data-slot="rating-word"] { min-width: 6ch; font-size: 13px; color: var(--muted-foreground); font-variant-numeric: tabular-nums; }
+  [data-slot="rating-word"][data-preview] { color: var(--foreground); }
+  [data-slot="rating-value"] { font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; }
+  [data-slot="rating-count"] { font-size: 13px; color: var(--muted-foreground); font-variant-numeric: tabular-nums; }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="rating-settle"][data-pop] { animation: none !important; }
+  }
+}
+
+@keyframes caliper-star-settle { 0% { scale: 0.82; } 100% { scale: 1; } }

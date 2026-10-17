@@ -1,0 +1,52 @@
+/* Shared by alert.tsx, toast.tsx; each imports it. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="feedback-message"] {
+    display: block;
+    animation: caliper-fade-in var(--duration-normal) var(--ease-out);
+  }
+  :is([data-slot="alert"], [data-slot="toast"])[data-variant="success"]
+    [data-slot="feedback-icon"] {
+    background: var(--success-subtle);
+    color: var(--success);
+  }
+  :is([data-slot="alert"], [data-slot="toast"])[data-variant="warning"]
+    [data-slot="feedback-icon"] {
+    background: var(--warning-subtle);
+    color: var(--warning);
+  }
+  :is([data-slot="alert"], [data-slot="toast"])[data-variant="error"]
+    [data-slot="feedback-icon"] {
+    background: var(--destructive-subtle);
+    color: var(--destructive);
+  }
+  @container (max-width: 22rem) {
+    [data-slot="feedback-copy"] {
+      display: contents;
+    }
+    [data-slot="feedback-title"] {
+      grid-column: 2;
+      grid-row: 1;
+      min-width: 0;
+      padding-top: 0.25rem;
+    }
+    [data-slot="feedback-description"],
+    [data-slot="feedback-action"] {
+      grid-column: 1 / -1;
+      margin-top: 0;
+    }
+    [data-slot="feedback-description"] {
+      grid-row: 2;
+    }
+    [data-slot="feedback-action"] {
+      grid-row: 3;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="feedback-message"] {
+      animation: none;
+    }
+  }
+}

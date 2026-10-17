@@ -1,0 +1,8 @@
+/* popover.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="popover-arrow"] {
+    fill: var(--elevated);
+  }
+}

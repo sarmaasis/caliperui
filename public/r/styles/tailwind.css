@@ -1,0 +1,56 @@
+/* Import after Tailwind and Caliper UI tokens. Values stay in tokens.css. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme inline {
+  --default-transition-duration: var(--duration-fast);
+  --default-transition-timing-function: var(--ease-out);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-elevated: var(--elevated);
+  --color-muted: var(--muted);
+  --color-selected: var(--selected);
+  --color-raised: var(--raised);
+  --color-raised-hover: var(--raised-hover);
+  --color-sunken: var(--sunken);
+  --color-field: var(--field);
+  --color-accent-hover: var(--accent-hover);
+  --color-danger-fill: var(--danger-fill);
+  --color-danger-fill-foreground: var(--danger-fill-foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-text: var(--accent-text);
+  --color-accent-soft: var(--accent-soft);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-ring: var(--ring);
+  --color-border-strong: var(--border-strong);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-subtle: var(--brand-subtle);
+  --color-river: var(--river);
+  --color-river-subtle: var(--river-subtle);
+  --color-success: var(--success);
+  --color-success-subtle: var(--success-subtle);
+  --color-warning: var(--warning);
+  --color-warning-subtle: var(--warning-subtle);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-destructive-subtle: var(--destructive-subtle);
+  --color-danger: var(--danger);
+  --color-danger-foreground: var(--danger-foreground);
+  --radius-control: var(--radius-control);
+  --radius-surface: var(--radius-surface);
+  --radius-overlay: var(--radius-overlay);
+  --radius-mark: var(--radius-mark);
+  --radius-button: var(--radius-button);
+  --radius-touch: var(--radius-touch);
+  --shadow-overlay: var(--shadow-overlay);
+  --shadow-feedback: var(--shadow-feedback);
+  --shadow-raised: var(--shadow-raised);
+  --shadow-plate: var(--shadow-plate);
+  --shadow-sunken: var(--shadow-sunken);
+  --shadow-field: var(--shadow-field);
+}

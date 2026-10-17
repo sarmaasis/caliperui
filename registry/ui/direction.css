@@ -1,0 +1,8 @@
+/* direction.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Direction: no box of its own, and a mark for icons that point somewhere. */
+  [data-slot="direction"] { display: contents; }
+  :dir(rtl) > [data-mirror], [data-mirror]:dir(rtl) { scale: -1 1; }
+}

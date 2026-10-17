@@ -1,0 +1,51 @@
+/* combobox.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="combobox-match"] {
+    background: none;
+    color: inherit;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: var(--ring);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+  }
+  [data-slot="combobox-menu"] {
+    position: absolute;
+    top: calc(100% + 0.25rem);
+    left: 0;
+    z-index: 20;
+    display: grid;
+    width: 100%;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-overlay);
+    transition: grid-template-rows var(--duration-travel) var(--ease-showcase);
+  }
+  [data-slot="combobox-menu"][data-open="true"] {
+    grid-template-rows: 1fr;
+  }
+  [data-slot="combobox-menu"] > div {
+    min-height: 0;
+    max-height: 15rem;
+    overflow: auto;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="combobox-menu"] {
+      transition: grid-template-rows 400ms var(--ease-showcase);
+    }
+  }
+}
+
+[data-slot="combobox-menu"] {
+  background-color: var(--elevated-glass);
+  border-color: color-mix(in srgb, var(--edge-light) 45%, var(--border));
+  backdrop-filter: blur(var(--blur-overlay));
+  box-shadow:
+    var(--shadow-overlay),
+    0 0 40px var(--edge-glow),
+    inset 0 1px 0 var(--edge-light);
+}

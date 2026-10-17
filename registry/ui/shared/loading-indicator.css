@@ -1,0 +1,14 @@
+/* Shared by button.tsx, confirm-morph.tsx, expanding-button-group.tsx, field.tsx; each imports it. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="loading-indicator"] {
+    animation: caliper-spin var(--duration-loading) var(--ease-linear) infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="loading-indicator"] {
+      animation: none;
+    }
+  }
+}

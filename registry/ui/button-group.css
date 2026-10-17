@@ -1,0 +1,14 @@
+/* button-group.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="button-group"] > [data-slot="glide-highlight"] {
+    top: 0;
+    border-radius: 8px;
+    transition:
+      transform var(--duration-normal) var(--ease-out),
+      width var(--duration-normal) var(--ease-out),
+      height var(--duration-normal) var(--ease-out),
+      opacity var(--duration-fast) var(--ease-out);
+  }
+}

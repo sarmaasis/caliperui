@@ -1,0 +1,41 @@
+/* accordion.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="accordion-item"] {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-bottom-width: 0;
+    background: var(--background);
+    transition: margin var(--duration-travel) var(--ease-showcase);
+  }
+  [data-slot="accordion-item"]:first-child {
+    border-start-start-radius: var(--radius-overlay);
+    border-start-end-radius: var(--radius-overlay);
+  }
+  [data-slot="accordion-item"]:last-child {
+    border-bottom-width: 1px;
+    border-end-start-radius: var(--radius-overlay);
+    border-end-end-radius: var(--radius-overlay);
+  }
+  [data-slot="accordion-item"][data-open="true"] {
+    margin-block: 0.5rem;
+    border-bottom-width: 1px;
+    border-radius: var(--radius-overlay);
+  }
+  [data-slot="accordion-item"]:has(+ [data-open="true"]) {
+    border-bottom-width: 1px;
+    border-end-start-radius: var(--radius-overlay);
+    border-end-end-radius: var(--radius-overlay);
+  }
+  [data-slot="accordion-item"][data-open="true"] + [data-slot="accordion-item"] {
+    border-start-start-radius: var(--radius-overlay);
+    border-start-end-radius: var(--radius-overlay);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="accordion-item"] {
+      transition: margin 400ms var(--ease-showcase);
+    }
+  }
+}

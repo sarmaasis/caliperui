@@ -1,0 +1,35 @@
+/* card.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="card"] {
+    transition: transform var(--duration-fast) var(--ease-out);
+  }
+  [data-slot="card-media"] img,
+  [data-slot="card-media"] video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--duration-deliberate) var(--ease-out);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    [data-slot="card"]:hover {
+      transform: translateY(calc(var(--motion-enter-distance) * -0.5));
+    }
+    [data-slot="card"]:hover [data-slot="card-media"] img,
+    [data-slot="card"]:hover [data-slot="card-media"] video {
+      transform: scale(1.03);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="card"],
+    [data-slot="card-media"] img,
+    [data-slot="card-media"] video {
+      transition: transform 180ms var(--ease-out);
+    }
+    [data-slot="card"]:hover {
+      transform: translateY(-2px);
+    }
+  }
+}

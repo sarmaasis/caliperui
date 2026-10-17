@@ -1,0 +1,80 @@
+/* copy-button.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Copy button: the icon swaps in place; a small inverse ticket says what
+     was copied. A failure keeps the ticket open with the value selected. */
+  [data-slot="copy-icon"] {
+    position: relative;
+    display: inline-grid;
+    width: 16px;
+    height: 16px;
+  }
+  [data-slot="copy-icon"] svg {
+    grid-area: 1 / 1;
+    transition:
+      opacity var(--duration-fast) var(--ease-out),
+      scale var(--duration-normal) var(--ease-settle);
+  }
+  [data-slot="copy-icon"] svg:last-child,
+  [data-slot="copy-icon"][data-copied="true"] svg:first-child {
+    opacity: 0;
+    scale: 0.6;
+  }
+  [data-slot="copy-icon"][data-copied="true"] svg:last-child {
+    opacity: 1;
+    scale: 1;
+  }
+  [data-slot="copy-ticket"] {
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 8px);
+    z-index: 30;
+    pointer-events: none;
+  }
+  [data-slot="copy-ticket-body"] {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    white-space: nowrap;
+    box-shadow: var(--shadow-feedback);
+    animation: caliper-ticket-in var(--duration-normal) var(--ease-out);
+  }
+  [data-slot="copy-ticket-body"] svg {
+    width: 14px;
+    height: 14px;
+  }
+  [data-slot="copy-ticket-body"][data-tone="error"] {
+    display: grid;
+    width: min(320px, calc(100vw - 32px));
+    gap: 8px;
+    padding: 10px;
+    white-space: normal;
+    background: var(--elevated);
+    color: var(--danger);
+    box-shadow: var(--shadow-overlay), inset 0 0 0 1px var(--border);
+    pointer-events: auto;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="copy-icon"] svg {
+      transition: none;
+    }
+    [data-slot="copy-ticket-body"] {
+      animation: none;
+    }
+  }
+  @keyframes caliper-ticket-in {
+    from {
+      opacity: 0;
+      translate: 0 4px;
+    }
+  }
+}

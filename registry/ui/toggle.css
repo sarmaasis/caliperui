@@ -1,0 +1,26 @@
+/* toggle.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Toolbar group: one raised shell, transparent segments, one hover
+     highlight. A toggled tool (aria-pressed) is recessed, the inverse of the
+     segmented control's raised plate, so "on" never looks like "selected". */
+  [data-slot="button-group"] > [data-slot="button"] {
+    position: relative;
+    z-index: 1;
+    --b-bg: transparent;
+    --b-bg-hover: transparent;
+    --b-bg-press: var(--muted);
+    --b-fg: var(--foreground);
+    --b-shadow: none;
+    --b-shadow-press: none;
+  }
+  [data-slot="button-group"] > [data-slot="button"][aria-pressed="true"],
+  [data-slot="button-group"] > [data-slot="button"][aria-checked="true"] {
+    --b-bg: var(--sunken);
+    --b-bg-hover: var(--sunken);
+    --b-bg-press: var(--sunken);
+    --b-shadow: var(--shadow-sunken);
+    --b-shadow-press: var(--shadow-sunken);
+  }
+}

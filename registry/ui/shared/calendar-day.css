@@ -1,0 +1,61 @@
+/* Shared by calendar.tsx, returns-calendar.tsx; each imports it. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Calendar: today gets an ember dot, data marks a quiet bar, unavailable days are struck through. */
+  [data-slot="calendar-day"][aria-current="date"] {
+    font-weight: 600;
+  }
+  [data-slot="calendar-day"][aria-current="date"]::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    margin-left: -2px;
+    border-radius: 50%;
+    background: var(--ring);
+  }
+  [data-slot="calendar-day"][data-mark]::after {
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    width: 12px;
+    height: 2px;
+    margin-left: -6px;
+    border-radius: 1px;
+    background: var(--border-strong);
+  }
+  [data-slot="calendar-day"][data-selected="true"]::after,
+  [data-slot="calendar-day"][data-selected="true"]::before {
+    background: var(--accent-foreground);
+  }
+  [data-slot="calendar-day"][aria-disabled="true"] {
+    text-decoration: line-through;
+  }
+  [data-slot="calendar-day"] {
+    transition:
+      background-color var(--duration-travel) var(--ease-showcase),
+      color var(--duration-fast) var(--ease-out);
+  }
+  [data-slot="calendar-day"][data-selected="true"] {
+    color: var(--background);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="calendar-day"] {
+      transition:
+        background-color 400ms var(--ease-showcase),
+        color 120ms var(--ease-out);
+    }
+    [data-slot="calendar-day"][data-selected="true"] {
+      animation: caliper-day-select 400ms var(--ease-showcase);
+    }
+  }
+  [data-slot="calendar-day"] {
+    font-size: 0.75rem;
+    color: var(--muted-foreground);
+  }
+}

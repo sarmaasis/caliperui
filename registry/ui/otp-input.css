@@ -1,0 +1,25 @@
+/* otp-input.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="otp"][data-invalid="true"] {
+    animation: caliper-reject var(--duration-travel) var(--ease-out);
+  }
+  [data-slot="otp"] [data-slot="glide-highlight"] {
+    border-radius: var(--radius-overlay);
+    background: transparent;
+    box-shadow: 0 0 0 2px var(--foreground);
+  }
+  [data-slot="otp-digit"]:not(:empty) {
+    animation: caliper-digit-in var(--duration-travel) var(--ease-showcase);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="otp-digit"]:not(:empty) {
+      animation: caliper-digit-in 400ms var(--ease-showcase);
+    }
+    [data-slot="otp"][data-invalid="true"] {
+      animation: caliper-reject 400ms var(--ease-out);
+    }
+  }
+}

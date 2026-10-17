@@ -1,0 +1,53 @@
+/* scroll-area.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="scroll-viewport"] {
+    scrollbar-width: none;
+  }
+  [data-slot="scroll-viewport"]::-webkit-scrollbar {
+    display: none;
+  }
+  [data-slot="scroll-fade"] {
+    position: absolute;
+    right: 0.75rem;
+    left: 0;
+    height: 1.25rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--duration-fast) var(--ease-out);
+  }
+  [data-slot="scroll-fade"][data-edge="top"] {
+    top: 0;
+    background: linear-gradient(var(--background), transparent);
+  }
+  [data-slot="scroll-fade"][data-edge="bottom"] {
+    bottom: 0;
+    background: linear-gradient(transparent, var(--background));
+  }
+  [data-slot="scroll-area"][data-overflow-top] [data-slot="scroll-fade"][data-edge="top"],
+  [data-slot="scroll-area"][data-overflow-bottom] [data-slot="scroll-fade"][data-edge="bottom"] {
+    opacity: 1;
+  }
+  [data-slot="scroll-thumb"] {
+    position: absolute;
+    top: 0;
+    right: 2px;
+    width: 4px;
+    border-radius: 999px;
+    background: var(--muted-foreground);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--duration-fast) var(--ease-out);
+  }
+  [data-slot="scroll-area"][data-overflow]:hover [data-slot="scroll-thumb"],
+  [data-slot="scroll-area"][data-scrolling="true"] [data-slot="scroll-thumb"] {
+    opacity: 0.75;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="scroll-thumb"] {
+      transition-duration: 400ms;
+    }
+  }
+}

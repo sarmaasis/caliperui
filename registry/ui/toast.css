@@ -1,0 +1,128 @@
+/* toast.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="toast"] {
+    --caliper-toast-touch-action: pan-y;
+    --caliper-toast-exit-x: 100%;
+    --caliper-toast-exit-y: 0px;
+    margin-block-start: 0.5rem;
+    container-type: inline-size;
+    block-size: var(--caliper-toast-block-size, 0px);
+    overflow: clip;
+    transition:
+      block-size var(--duration-normal) var(--ease-out),
+      margin-block-start var(--duration-normal) var(--ease-out);
+  }
+  [data-slot="toast-content"] {
+    min-width: 0;
+    border-radius: inherit;
+    border: 1px solid var(--border);
+    padding: 1rem;
+  }
+  [data-slot="toast"][data-layout="instant"] {
+    transition: none;
+  }
+  [data-slot="toast"][data-state="open"] {
+    animation: caliper-feedback-enter var(--duration-normal) var(--ease-out);
+  }
+  [data-slot="toast"][data-state="closed"] {
+    animation: caliper-fade-out var(--duration-fast) var(--ease-in) forwards;
+    pointer-events: none;
+    block-size: 0;
+    margin-block-start: 0;
+    transition-duration: var(--duration-fast);
+    transition-timing-function: var(--ease-in);
+  }
+  @starting-style {
+    [data-slot="toast"][data-state="open"] {
+      block-size: 0;
+      margin-block-start: 0;
+    }
+  }
+  @container (max-width: 22rem) {
+    [data-slot="toast-content"] > [data-slot="button"] {
+      grid-column: 3;
+      grid-row: 1;
+    }
+  }
+  [data-slot="toast"][data-swipe-direction="left"] {
+    --caliper-toast-exit-x: -100%;
+  }
+  [data-slot="toast"][data-swipe-direction="up"],
+  [data-slot="toast"][data-swipe-direction="down"] {
+    --caliper-toast-touch-action: pan-x;
+    --caliper-toast-exit-x: 0px;
+  }
+  [data-slot="toast"][data-swipe-direction="up"] {
+    --caliper-toast-exit-y: -100%;
+  }
+  [data-slot="toast"][data-swipe-direction="down"] {
+    --caliper-toast-exit-y: 100%;
+  }
+  [data-slot="toast"][data-state="open"]:is(
+      [data-swipe="start"],
+      [data-swipe="move"],
+      [data-swipe="cancel"]
+    ) {
+    animation: none;
+  }
+  [data-slot="toast"][data-swipe="move"] {
+    transform: translate(
+      var(--radix-toast-swipe-move-x, 0px),
+      var(--radix-toast-swipe-move-y, 0px)
+    );
+  }
+  [data-slot="toast"][data-swipe="cancel"] {
+    transform: translate(0, 0);
+    transition: transform var(--duration-fast) var(--ease-out);
+  }
+  [data-slot="toast"][data-state="closed"][data-swipe="end"] {
+    animation: caliper-toast-swipe-out var(--duration-fast) var(--ease-in) forwards;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="toast"][data-state="open"] {
+      animation: none;
+    }
+    [data-slot="toast"] {
+      animation: none;
+    }
+    [data-slot="toast"] {
+      transition: none;
+      transform: none !important;
+    }
+    /* Preserve the exit name for Radix Presence's completion matcher, including
+       a preference changed during exit. No visual motion or unmount timer. */
+    [data-slot="toast"][data-state="closed"] {
+      animation: caliper-fade-out var(--duration-instant) var(--ease-in) forwards !important;
+    }
+    [data-slot="toast"][data-state="closed"][data-swipe="end"] {
+      animation: caliper-toast-swipe-out var(--duration-instant) var(--ease-in) forwards !important;
+    }
+  }
+}
+
+[data-slot="toast"] {
+  background-color: var(--elevated-glass);
+  border-color: color-mix(in srgb, var(--edge-light) 45%, var(--border));
+  backdrop-filter: blur(var(--blur-overlay));
+  box-shadow:
+    var(--shadow-overlay),
+    0 0 40px var(--edge-glow),
+    inset 0 1px 0 var(--edge-light);
+}
+
+@keyframes caliper-toast-swipe-out {
+  from {
+    opacity: 1;
+    transform: translate(
+      var(--radix-toast-swipe-end-x, 0px),
+      var(--radix-toast-swipe-end-y, 0px)
+    );
+  }
+  to {
+    opacity: 0;
+    transform: translate(var(--caliper-toast-exit-x), var(--caliper-toast-exit-y));
+  }
+}

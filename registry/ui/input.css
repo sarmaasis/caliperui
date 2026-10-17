@@ -1,0 +1,76 @@
+/* input.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Recessed to fill. One ring for every field: 3:1 at rest, darker on
+     hover, a 2px ember ring with a soft halo on focus, danger when invalid.
+     Disabled and read-only drop into the sunken fill and stay legible. */
+  [data-slot="input-group"] {
+    border: 0;
+    background-color: var(--field);
+    box-shadow: var(--shadow-field);
+    transition: box-shadow var(--duration-fast) var(--ease-out);
+  }
+  @media (hover: hover) {
+    [data-slot="input-group"]:not([data-disabled]):not([data-invalid]):hover:not(:focus-within) {
+      box-shadow: var(--shadow-field-hover);
+    }
+  }
+  [data-slot="input-group"]:focus-within {
+    outline: none;
+    box-shadow: var(--shadow-field-focus);
+    transition: none;
+  }
+  [data-slot="input-group"][data-invalid] {
+    box-shadow: var(--shadow-field-invalid);
+  }
+  [data-slot="input-group"][data-invalid]:focus-within {
+    box-shadow:
+      var(--shadow-field-invalid),
+      0 0 0 4px color-mix(in srgb, var(--danger) 18%, transparent);
+  }
+  [data-slot="input-group"][data-disabled] {
+    background-color: var(--sunken);
+    box-shadow: var(--shadow-field-quiet);
+    color: var(--muted-foreground);
+  }
+  [data-slot="input-group"][data-readonly] {
+    background-color: var(--sunken);
+    box-shadow: var(--shadow-field-quiet);
+  }
+  [data-slot="input-bare"] {
+    border: 0;
+    box-shadow: none;
+    outline: none;
+  }
+  [data-slot="input-affix"] {
+    display: inline-flex;
+    align-items: center;
+    height: 20px;
+    padding-inline-end: 10px;
+    margin-inline-end: 2px;
+    color: var(--muted-foreground);
+    box-shadow: 1px 0 0 var(--border);
+    white-space: nowrap;
+  }
+  [data-slot="input-affix"]:dir(rtl) {
+    box-shadow: -1px 0 0 var(--border);
+  }
+  [data-slot="input-affix"]:has(> svg:only-child) {
+    padding-inline-end: 0;
+    box-shadow: none;
+  }
+  [data-slot="input-trailing"] {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted-foreground);
+    white-space: nowrap;
+    font-size: 12px;
+  }
+  :is([data-slot="input-affix"], [data-slot="input-trailing"]) svg {
+    width: 16px;
+    height: 16px;
+  }
+  [data-slot="docs-toolbar"] [data-slot="input-group"] { max-width: 24rem; }
+}

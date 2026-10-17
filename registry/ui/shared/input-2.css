@@ -1,0 +1,32 @@
+/* Shared by combobox.tsx, input.tsx, select-menu.tsx, select.tsx, textarea.tsx; each imports it. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  @media (hover: hover) {
+    :is([data-slot="input"], [data-slot="textarea"], [data-slot="select"]):hover:enabled:not(:focus-visible):not([aria-invalid="true"]) {
+      box-shadow: var(--shadow-field-hover);
+    }
+  }
+  :is([data-slot="input"], [data-slot="textarea"], [data-slot="select"]):focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-field-focus);
+    transition: none;
+  }
+  :is([data-slot="input"], [data-slot="textarea"], [data-slot="select"])[aria-invalid="true"] {
+    box-shadow: var(--shadow-field-invalid);
+  }
+  :is([data-slot="input"], [data-slot="textarea"], [data-slot="select"])[aria-invalid="true"]:focus-visible {
+    box-shadow:
+      var(--shadow-field-invalid),
+      0 0 0 4px color-mix(in srgb, var(--danger) 18%, transparent);
+  }
+  :is([data-slot="input"], [data-slot="textarea"], [data-slot="select"]):disabled {
+    background-color: var(--sunken);
+    box-shadow: var(--shadow-field-quiet);
+    color: var(--muted-foreground);
+  }
+  :is([data-slot="input"], [data-slot="textarea"])[readonly] {
+    background-color: var(--sunken);
+    box-shadow: var(--shadow-field-quiet);
+  }
+}

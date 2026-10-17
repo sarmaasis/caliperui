@@ -1,0 +1,26 @@
+/* avatar-group.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="avatar-group-item"] {
+    margin-inline-start: -0.5rem;
+    transition: margin-inline-start var(--duration-fast) var(--ease-out);
+  }
+  [data-slot="avatar-group-item"]:first-child {
+    margin-inline-start: 0;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    [data-slot="avatar-group"]:hover [data-slot="avatar-group-item"] {
+      margin-inline-start: 0.25rem;
+    }
+    [data-slot="avatar-group"]:hover [data-slot="avatar-group-item"]:first-child {
+      margin-inline-start: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="avatar-group-item"] {
+      transition: margin-inline-start 120ms var(--ease-out);
+    }
+  }
+}

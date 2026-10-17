@@ -1,0 +1,17 @@
+/* split-button.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="split-chevron"] {
+    transition: rotate var(--duration-normal) var(--ease-settle);
+  }
+  [data-state="open"] > [data-slot="split-chevron"] {
+    rotate: 180deg;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="split-chevron"] {
+      transition: none;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+/* Shared by action-button.tsx, copy-button.tsx, hold-to-confirm.tsx; each imports it. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Action button: every phase's label shares one grid cell, so the button
+     is always as wide as its widest label and never shifts. */
+  [data-slot="action-labels"] {
+    display: inline-grid;
+    justify-items: center;
+  }
+  [data-slot="action-label"] {
+    grid-area: 1 / 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity var(--duration-fast) var(--ease-out), visibility 0s linear var(--duration-fast);
+  }
+  [data-slot="action-label"][data-active="true"] {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity var(--duration-fast) var(--ease-out), visibility 0s;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="action-label"],
+    [data-slot="action-label"][data-active="true"] {
+      transition: none !important;
+    }
+  }
+}

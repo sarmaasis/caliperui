@@ -1,0 +1,13 @@
+/* animated-counter.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="counter-shell"] {
+    transition: width var(--duration-deliberate) var(--ease-out);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="counter-shell"] {
+      transition: none;
+    }
+  }
+}

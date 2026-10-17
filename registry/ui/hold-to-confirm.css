@@ -1,0 +1,60 @@
+/* hold-to-confirm.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Hold to confirm: the fill soaks out from the press point at the hold's
+     own pace (driven per frame), then drains back on the settle curve. */
+  [data-slot="hold-to-confirm"] {
+    box-shadow: var(--shadow-danger);
+    transition: translate var(--duration-normal) var(--ease-settle);
+  }
+  [data-slot="hold-to-confirm"][data-phase="holding"] {
+    translate: 0 var(--motion-press-travel);
+    box-shadow: var(--shadow-danger-press);
+    transition-duration: 90ms;
+  }
+  [data-slot="hold-to-confirm"]:disabled {
+    cursor: default;
+  }
+  [data-slot="hold-fill"] {
+    position: absolute;
+    top: 50%;
+    z-index: 0;
+    border-radius: 50%;
+    background: rgb(0 0 0 / 34%);
+    pointer-events: none;
+  }
+  [data-slot="hold-to-confirm"][data-phase="draining"] [data-slot="hold-fill"] {
+    transition: transform 380ms var(--ease-settle);
+  }
+  [data-slot="hold-countdown"] {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    opacity: 0.8;
+  }
+  [data-slot="hold-notches"] {
+    position: absolute;
+    inset-inline: 14px;
+    bottom: 6px;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+  }
+  [data-slot="hold-notches"] i {
+    height: 3px;
+    border-radius: 2px;
+    background: rgb(255 255 255 / 28%);
+  }
+  [data-slot="hold-notches"] i[data-on="true"] {
+    background: #ffffff;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="hold-to-confirm"],
+    [data-slot="hold-fill"] {
+      transition: none !important;
+    }
+  }
+}

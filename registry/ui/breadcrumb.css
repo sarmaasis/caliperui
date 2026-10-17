@@ -1,0 +1,16 @@
+/* breadcrumb.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="breadcrumb-link"] {
+    transition-property: background-color, color, border-color;
+    transition-duration: var(--duration-fast);
+    transition-timing-function: var(--ease-out);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="breadcrumb-link"] {
+      transition: none;
+    }
+  }
+}

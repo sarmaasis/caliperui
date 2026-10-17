@@ -1,0 +1,35 @@
+/* sidebar.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="sidebar"] {
+    width: 15rem;
+    transition: width var(--duration-travel) var(--ease-settle);
+  }
+  [data-slot="sidebar"][data-collapsed] {
+    width: 4rem;
+  }
+  [data-slot="sidebar-label"] {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-width: 0;
+    overflow: hidden;
+    opacity: 1;
+    transition:
+      grid-template-columns var(--duration-travel) var(--ease-showcase),
+      opacity var(--duration-fast) var(--ease-out);
+  }
+  [data-slot="sidebar"][data-collapsed] [data-slot="sidebar-label"] {
+    grid-template-columns: 0fr;
+    opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="sidebar"] {
+      transition-duration: 400ms;
+    }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    [data-slot="sidebar"] [aria-current="page"] { animation: caliper-select-in var(--duration-normal) var(--ease-out) both; }
+  }
+}

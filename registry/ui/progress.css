@@ -1,0 +1,22 @@
+/* progress.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="progress-fill"] {
+    transition: background-color var(--duration-fast) var(--ease-out);
+  }
+  [data-slot="progress"][data-complete="true"] [data-slot="progress-fill"] {
+    background: var(--success);
+  }
+  [data-slot="progress-check"] {
+    animation: caliper-feedback-symbol-enter var(--duration-normal) var(--ease-settle);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="progress-check"] {
+      animation: none;
+      transition: none;
+      transform: none;
+    }
+  }
+}

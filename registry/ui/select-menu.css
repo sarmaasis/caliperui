@@ -1,0 +1,108 @@
+/* select-menu.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="select-menu-native"] [data-slot="select"] {
+    background-image: none;
+  }
+  /* Select menu: the field trigger, and a frosted list that opens with the
+     chosen row over the trigger and grows around it. */
+  [data-slot="select-menu"] {
+    border: 0;
+    background-color: var(--field);
+    box-shadow: var(--shadow-field);
+    cursor: pointer;
+    transition: box-shadow var(--duration-fast) var(--ease-out);
+  }
+  @media (hover: hover) {
+    [data-slot="select-menu"]:hover:enabled:not(:focus-visible):not([aria-expanded="true"]):not([aria-invalid="true"]) {
+      box-shadow: var(--shadow-field-hover);
+    }
+  }
+  [data-slot="select-menu"]:focus-visible,
+  [data-slot="select-menu"][aria-expanded="true"] {
+    box-shadow: var(--shadow-field-focus);
+  }
+  [data-slot="select-menu"][aria-invalid="true"] {
+    box-shadow: var(--shadow-field-invalid);
+  }
+  [data-slot="select-menu"]:disabled {
+    background-color: var(--sunken);
+    box-shadow: var(--shadow-field-quiet);
+    color: var(--muted-foreground);
+  }
+  [data-slot="select-menu-code"] {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted-foreground);
+  }
+  [data-slot="select-menu-content"] {
+    z-index: 50;
+    border-radius: 16px;
+    background: var(--elevated-glass);
+    -webkit-backdrop-filter: blur(var(--blur-overlay));
+    backdrop-filter: blur(var(--blur-overlay));
+    box-shadow: var(--shadow-overlay), 0 0 0 1px var(--edge-glow), inset 0 1px 0 var(--edge-light);
+    color: var(--foreground);
+    animation: caliper-select-in var(--duration-normal) var(--ease-out);
+  }
+  [data-slot="select-menu-option"] {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 36px;
+    padding: 0 10px;
+    border-radius: 12px;
+    font-size: 14px;
+    cursor: default;
+    transition: background-color var(--duration-fast) var(--ease-out);
+  }
+  [data-slot="select-menu-option"][data-active="true"] {
+    background: var(--selected);
+  }
+  [data-slot="select-menu-option"][aria-disabled="true"] {
+    color: var(--muted-foreground);
+    opacity: 0.7;
+  }
+  [data-slot="select-menu-native"] [data-slot="select"] {
+    appearance: none;
+  }
+  [data-slot="select-menu-icon"] {
+    display: inline-grid;
+    flex: none;
+    place-items: center;
+    width: 16px;
+    height: 16px;
+  }
+  [data-slot="select-menu-icon"] svg { width: 16px; height: 16px; }
+  /* Ghost: no field ring, for a select inside a composed control. */
+  [data-slot="select-menu"][data-variant="ghost"],
+  [data-slot="select-menu-native"][data-variant="ghost"] [data-slot="select"] {
+    background-color: transparent;
+    box-shadow: none;
+  }
+  @media (hover: hover) {
+    [data-slot="select-menu"][data-variant="ghost"]:hover:enabled:not([aria-expanded="true"]) {
+      background-color: var(--raised-hover);
+      box-shadow: none;
+    }
+  }
+  [data-slot="select-menu"][data-variant="ghost"]:focus-visible,
+  [data-slot="select-menu"][data-variant="ghost"][aria-expanded="true"] {
+    background-color: var(--raised-hover);
+    box-shadow: 0 0 0 2px var(--ring);
+  }
+  [data-slot="select-menu"][data-variant="ghost"]:disabled {
+    background-color: transparent;
+    box-shadow: none;
+  }
+  [data-slot="select-menu"][data-size="sm"] [data-slot="select-menu-code"] { font-size: 12px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="select-menu-content"] {
+      animation: none;
+    }
+  }
+  [data-slot="toolbar"] [data-toolbar-generic] [data-slot="select-menu"] { height: calc(var(--control-height) - 6px); }
+}

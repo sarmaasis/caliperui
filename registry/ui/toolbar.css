@@ -1,0 +1,25 @@
+/* toolbar.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Toolbar: the button-group material, with arrow-key focus and a fold. */
+  [data-slot="toolbar"] > [data-slot="glide-highlight"] { border-radius: 8px; transition: transform var(--duration-normal) var(--ease-out), width var(--duration-normal) var(--ease-out), height var(--duration-normal) var(--ease-out), opacity var(--duration-fast) var(--ease-out); }
+  [data-slot="toolbar"] [data-slot="button"] {
+    position: relative; z-index: 1; height: calc(var(--control-height) - 6px); border-radius: 8px;
+    --b-bg: transparent; --b-bg-hover: transparent; --b-bg-press: var(--muted); --b-fg: var(--foreground); --b-shadow: none; --b-shadow-press: none;
+  }
+  [data-slot="toolbar"] [data-slot="button"][data-size="icon"] { width: calc(var(--control-height) - 6px); }
+  [data-slot="toolbar"] [data-slot="button"]:is([aria-pressed="true"], [aria-checked="true"], [data-state="open"]) {
+    --b-bg: var(--sunken); --b-bg-hover: var(--sunken); --b-bg-press: var(--sunken); --b-shadow: var(--shadow-sunken); --b-shadow-press: var(--shadow-sunken);
+  }
+  [data-slot="toolbar"] [data-toolbar-generic] button { height: calc(var(--control-height) - 6px); }
+  [data-slot="toolbar"] [data-toolbar-unit] { display: inline-flex; flex: none; gap: 2px; }
+  [data-slot="toolbar"] [data-toolbar-unit][data-overflowed] { display: none; }
+  [data-slot="toolbar-separator"] { flex: none; align-self: stretch; width: 1px; margin: 6px 3px; background: var(--border); }
+  [data-slot="toolbar"][data-orientation="vertical"] [data-slot="toolbar-separator"] { width: auto; height: 1px; margin: 3px 6px; }
+  [data-slot="toolbar"][data-orientation="vertical"] [data-slot="toolbar-group"] { flex-direction: column; }
+  @media (pointer: coarse) {
+    [data-slot="toolbar"] [data-slot="button"] { height: 40px; }
+    [data-slot="toolbar"] [data-slot="button"][data-size="icon"] { width: 40px; }
+  }
+}

@@ -1,0 +1,14 @@
+/* number-field.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="number-field"] {
+    transition: translate var(--duration-normal) var(--ease-settle);
+  }
+  [data-slot="number-field"][data-strain="min"] {
+    translate: -3px 0;
+  }
+  [data-slot="number-field"][data-strain="max"] {
+    translate: 3px 0;
+  }
+}

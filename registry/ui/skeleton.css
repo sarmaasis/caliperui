@@ -1,0 +1,44 @@
+/* skeleton.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="skeleton"][data-has-content="true"] {
+    transition: height var(--duration-normal) var(--ease-settle);
+  }
+  [data-slot="skeleton"][data-has-content="true"] [data-slot="skeleton-placeholder"],
+  [data-slot="skeleton"][data-has-content="true"] [data-slot="skeleton-content"] {
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    transition:
+      opacity var(--duration-normal) var(--ease-out),
+      transform var(--duration-normal) var(--ease-settle);
+  }
+  [data-slot="skeleton"][data-loading="true"] [data-slot="skeleton-content"] {
+    opacity: 0;
+    transform: translateY(var(--motion-enter-distance));
+    pointer-events: none;
+  }
+  [data-slot="skeleton"][data-loading="false"] [data-slot="skeleton-placeholder"] {
+    opacity: 0;
+    pointer-events: none;
+  }
+  [data-slot="skeleton-block"] {
+    border-radius: var(--radius-control);
+    background: var(--muted);
+    animation: caliper-skeleton-pulse var(--duration-skeleton) var(--ease-in-out) infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="skeleton"],
+    [data-slot="skeleton-placeholder"],
+    [data-slot="skeleton-content"] {
+      transition: none;
+    }
+    [data-slot="skeleton-block"] {
+      animation: none;
+      transition: none;
+      transform: none;
+    }
+  }
+}

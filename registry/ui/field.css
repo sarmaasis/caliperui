@@ -1,0 +1,12 @@
+/* field.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="field-count"] {
+    margin-left: auto;
+    color: var(--muted-foreground);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+  }
+}

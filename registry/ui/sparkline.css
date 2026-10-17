@@ -1,0 +1,23 @@
+/* sparkline.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="sparkline-line"] {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: caliper-sparkline var(--duration-deliberate) var(--ease-out) forwards;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="sparkline-line"] {
+      animation: none;
+      stroke-dashoffset: 0;
+    }
+  }
+}
+
+@keyframes caliper-sparkline {
+  to {
+    stroke-dashoffset: 0;
+  }
+}

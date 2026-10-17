@@ -1,0 +1,27 @@
+/* Shared by date-input.tsx, field.tsx, scrub-field.tsx; each imports it. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="field-message"] {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    min-height: 18px;
+    margin: 0;
+    font-size: 12px;
+    line-height: 18px;
+    color: var(--muted-foreground);
+  }
+  [data-slot="field-message"] svg {
+    flex: none;
+    width: 14px;
+    height: 14px;
+    margin-top: 2px;
+  }
+  [data-slot="field-message"][data-tone="error"] {
+    color: var(--danger);
+  }
+  [data-slot="field-message"][data-tone="success"] {
+    color: var(--success);
+  }
+}

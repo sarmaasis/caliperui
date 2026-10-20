@@ -24,7 +24,7 @@ export function StatCard({
     >
       <dl>
         <dt className="text-xs text-muted-foreground">{label}</dt>
-        <dd className="mt-2 font-mono text-2xl leading-8 font-medium tabular-nums">
+        <dd className="mt-2 text-2xl leading-8 font-medium tabular-nums">
           {value}
         </dd>
       </dl>

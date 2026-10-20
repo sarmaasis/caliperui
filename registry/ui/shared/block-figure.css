@@ -1,0 +1,18 @@
+/* Shared by about-template.tsx, feature-rows-block.tsx, hero-block.tsx, pricing-block.tsx, proof-block.tsx, steps-block.tsx, testimonials-block.tsx; each imports it. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="block-figure"] {
+    font-family: var(--k-display-font);
+    font-weight: var(--k-display-weight);
+    font-stretch: var(--k-display-stretch);
+    font-variation-settings: "wdth" var(--k-display-wdth, 100);
+    letter-spacing: var(--k-display-track);
+    font-variant-numeric: tabular-nums;
+    line-height: 0.9;
+    font-size: clamp(48px, 7cqi, 96px);
+    color: var(--k-ink);
+  }
+  [data-slot="block-figure"][data-size="xl"] { font-size: clamp(72px, 13cqi, 176px); line-height: 0.85; }
+  [data-slot="block-figure"][data-size="sm"] { font-size: clamp(36px, 4.4cqi, 56px); }
+}

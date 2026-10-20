@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, type ReactNode, type KeyboardEvent } from "react";
 import { line, curveMonotoneX } from "d3-shape";
+import "./shared/chip-option.css";
 import "./chart-parts.css";
 export type ChartSeries = { id: string; label: string; color?: string };
 export type ChartDatum = {
@@ -203,19 +204,30 @@ export function pathFor(
     x: (600 * ((item.x ?? index) - first)) / (last - first || 1),
     y: item.values[id],
   }));
+  // Monotone cubic tangents (Fritsch-Carlson): the line is smooth through every point and never overshoots it.
+  const ok = (value: number | undefined): value is number => value !== undefined && Number.isFinite(value);
+  const slope = (k: number) => {
+    const p = points[k], q = points[k + 1];
+    return p && q && ok(p.y) && ok(q.y) ? (q.y - p.y) / (q.x - p.x || 1) : Number.NaN;
+  };
+  const tangents = points.map((_, k) => {
+    const before = slope(k - 1), after = slope(k);
+    if (!Number.isFinite(before)) return Number.isFinite(after) ? after : 0;
+    if (!Number.isFinite(after)) return before;
+    return before * after <= 0 ? 0 : (2 * before * after) / (before + after);
+  });
   const samples = Array.from({ length: 97 }, (_, index) => {
     const x = (index / 96) * 600;
     let right = points.findIndex((point) => point.x >= x);
     if (right < 0) right = points.length - 1;
-    const a = points[Math.max(0, right - 1)],
+    const left = Math.max(0, right - 1);
+    const a = points[left],
       b = points[right];
-    const valid =
-      a.y !== undefined &&
-      b.y !== undefined &&
-      Number.isFinite(a.y) &&
-      Number.isFinite(b.y);
+    const valid = ok(a.y) && ok(b.y);
+    const h = b.x - a.x || 1;
+    const t = Math.min(1, Math.max(0, (x - a.x) / h));
     const value = valid
-      ? a.y! + ((b.y! - a.y!) * (x - a.x)) / (b.x - a.x || 1)
+      ? (2 * t ** 3 - 3 * t ** 2 + 1) * a.y! + (t ** 3 - 2 * t ** 2 + t) * h * tangents[left]! + (-2 * t ** 3 + 3 * t ** 2) * b.y! + (t ** 3 - t ** 2) * h * tangents[right]!
       : Number.NaN;
     return [
       x,

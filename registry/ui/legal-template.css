@@ -1,0 +1,23 @@
+/* legal-template.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="legal-summary"] ul { list-style: disc; }
+  [data-slot="legal-summary"] li::marker { color: var(--k-hi); }
+
+  /* Legal */
+  [data-slot="legal-header"] { display: grid; gap: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--k-line-strong); }
+  @container (min-width: 860px) { [data-slot="legal-header"] { grid-template-columns: minmax(0, 1fr) auto; align-items: end; } }
+  [data-slot="legal-dates"] { display: grid; justify-items: start; gap: 8px; font-size: 14px; }
+  [data-slot="legal-summary"] { display: grid; gap: 12px; padding: clamp(18px, 2.6cqi, 26px); border-radius: var(--k-radius-lg); background: var(--k-hi-soft); }
+  [data-slot="legal-summary"] ul { display: grid; gap: 8px; margin: 0; padding-left: 1.2em; font-size: 16px; line-height: 1.6; }
+  [data-slot="legal-number"] { flex: none; color: var(--k-hi); font-variant-numeric: tabular-nums; }
+  [data-slot="legal-history"] { display: grid; gap: 14px; }
+  [data-slot="legal-history"] ol { display: grid; margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--k-line); }
+  [data-slot="legal-history"] li { display: grid; gap: 4px 20px; padding-block: 12px; border-bottom: 1px solid var(--k-line); font-size: 15px; color: var(--k-muted); }
+  @container (min-width: 640px) { [data-slot="legal-history"] li { grid-template-columns: 150px minmax(0, 1fr); } }
+  [data-slot="legal-history"] time { color: var(--k-ink); font-variant-numeric: tabular-nums; }
+  @media print {
+    [data-print-hide] { display: none !important; }
+  }
+}

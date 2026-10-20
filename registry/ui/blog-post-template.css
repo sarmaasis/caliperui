@@ -1,0 +1,29 @@
+/* blog-post-template.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Reading progress: a 2px ember line under the sticky header. */
+  [data-slot="reading-progress"] { position: sticky; top: 68px; z-index: 19; height: 2px; margin-bottom: -2px; pointer-events: none; }
+  [data-slot="reading-progress"] > span { display: block; height: 100%; background: var(--k-hi); transform-origin: left center; }
+  [data-slot="article-author"] { display: flex; align-items: flex-start; gap: 16px; padding-top: 28px; border-top: 1px solid var(--k-line-strong); }
+  [data-slot="article-next"] {
+    display: inline-flex; align-items: center; justify-self: start; gap: 10px; min-height: 48px; padding: 0 20px; border-radius: var(--k-btn-radius);
+    background: var(--k-accent); color: var(--k-accent-ink); font-size: 15px; font-weight: 500; text-decoration: none;
+  }
+  [data-slot="article-next"] svg { width: 16px; height: 16px; transition: translate var(--duration-normal) var(--ease-out); }
+  [data-slot="article-next"]:hover svg { translate: 3px 0; }
+  [data-slot="article-next"]:focus-visible { outline: 2px solid var(--k-focus, var(--k-hi)); outline-offset: 3px; }
+  [data-slot="article-related"] { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; }
+  @container (min-width: 760px) { [data-slot="article-related"] { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; } }
+  [data-slot="article-related"] a {
+    display: grid; align-content: start; gap: 10px; height: 100%; padding: 22px; border-radius: var(--k-radius-lg); background: var(--k-surface); box-shadow: 0 0 0 1px var(--k-line);
+    color: inherit; text-decoration: none; transition: box-shadow var(--duration-fast) var(--ease-out), translate var(--duration-normal) var(--ease-out);
+  }
+  [data-slot="article-related"] a:hover { box-shadow: 0 0 0 1px var(--k-line-strong), var(--k-shadow); translate: 0 -2px; }
+  [data-slot="article-related"] a:focus-visible { outline: 2px solid var(--k-focus, var(--k-hi)); outline-offset: 3px; }
+  [data-slot="article-related-title"] { font-family: var(--k-display-font); font-size: 22px; line-height: 1.2; letter-spacing: calc(var(--k-display-track) / 2); }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="article-related"] a:hover { translate: none; }
+  }
+}

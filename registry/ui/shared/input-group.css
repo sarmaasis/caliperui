@@ -1,0 +1,15 @@
+/* Shared by input.tsx, money-field.tsx, phone-field.tsx; each imports it. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  @media (hover: hover) {
+    :is([data-slot="input-group"], [data-slot="money-field"], [data-slot="phone-field-control"]):not([data-disabled]):not([data-invalid]):hover:not(:focus-within) {
+      box-shadow: var(--shadow-field-hover);
+    }
+  }
+  :is([data-slot="input-group"], [data-slot="money-field"], [data-slot="phone-field-control"]):focus-within {
+    outline: none;
+    box-shadow: var(--shadow-field-focus);
+    transition: none;
+  }
+}

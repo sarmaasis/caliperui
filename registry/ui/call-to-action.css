@@ -1,0 +1,8 @@
+/* call-to-action.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="cta"][data-tone="tinted"] > div {
+    background: color-mix(in srgb, var(--chart-1) 9%, var(--surface));
+  }
+}

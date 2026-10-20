@@ -59,6 +59,8 @@ export type CommandPaletteProps = {
   emptyAction?: { label: (query: string) => string; onSelect: (query: string) => void };
   /** The search field's prompt, naming what can be found, e.g. "Search people, companies and deals…". */
   placeholder?: string;
+  /** What one item is called in the count and the empty state, singular and plural: ["result", "results"] for a site search. */
+  noun?: readonly [string, string];
 };
 
 export function CommandPalette({
@@ -72,6 +74,7 @@ export function CommandPalette({
   scopes = [],
   emptyAction,
   placeholder = "Find a project or action…",
+  noun = ["command", "commands"],
 }: CommandPaletteProps) {
   const hasPreview = items.some((item) => item.preview);
   // Esc leaves an active scope first; without a scope it closes.
@@ -97,6 +100,7 @@ export function CommandPalette({
           scopes={scopes}
           emptyAction={emptyAction}
           placeholder={placeholder}
+          noun={noun}
           hasPreview={hasPreview}
           clearOnEscape={clearOnEscape}
           onSelect={(item) => {
@@ -118,6 +122,7 @@ function PaletteContent({
   scopes,
   emptyAction,
   placeholder,
+  noun,
   hasPreview,
   clearOnEscape,
 }: {
@@ -129,6 +134,7 @@ function PaletteContent({
   scopes: readonly CommandScope[];
   emptyAction?: CommandPaletteProps["emptyAction"];
   placeholder: string;
+  noun: readonly [string, string];
   hasPreview: boolean;
   clearOnEscape: { current: (() => boolean) | null };
 }) {
@@ -233,7 +239,7 @@ function PaletteContent({
         <DialogTitle className="pr-12 text-sm leading-5">{title}</DialogTitle>
         <DialogDescription className="sr-only">{description}</DialogDescription>
         <label htmlFor={`${id}-search`} className="sr-only">
-          Search commands
+          Search {noun[1]}
         </label>
         <div className="relative mt-3 flex items-center gap-2 rounded-surface bg-surface pl-3 focus-within:outline-solid focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-ring">
           <Search
@@ -399,7 +405,7 @@ function PaletteContent({
                       )}
                     </span>
                     {item.meta && !item.disabled && (
-                      <span className="shrink-0 font-mono text-xs text-muted-foreground">
+                      <span className="shrink-0 tabular-nums text-xs text-muted-foreground">
                         {item.meta}
                       </span>
                     )}
@@ -416,11 +422,11 @@ function PaletteContent({
         </div>
         {!matched.length && (
           <div className="px-3 py-6 text-center">
-            <p className="text-sm font-medium">No commands found</p>
+            <p className="text-sm font-medium">No {noun[1]} found</p>
             <p className="mt-1 text-xs leading-5 text-muted-foreground break-words [overflow-wrap:anywhere]">
               {search
                 ? `Nothing matches “${query.trim()}”. Try another word or a shorter one.`
-                : "There are no commands in this context."}
+                : `There are no ${noun[1]} in this context.`}
             </p>
             {search && (
               <div className="mt-4 flex flex-wrap justify-center gap-2">
@@ -445,7 +451,7 @@ function PaletteContent({
         <div data-slot="command-preview" aria-live="polite" className="hidden md:flex">
           {active?.preview ? (
             <>
-              <span className="font-mono text-[11px] tracking-[0.06em] text-muted-foreground uppercase">{active.preview.kind}</span>
+              <span className="tabular-nums text-[11px] tracking-[0.06em] text-muted-foreground uppercase">{active.preview.kind}</span>
               <span className="text-base leading-6 font-semibold">{active.preview.title}</span>
               {active.preview.rows && (
                 <dl className="grid grid-cols-[72px_minmax(0,1fr)] gap-x-2.5 gap-y-1.5 text-[13px] leading-[18px]">
@@ -468,7 +474,7 @@ function PaletteContent({
 
       <div className="flex shrink-0 flex-wrap items-center justify-between gap-x-4 gap-y-1 border-t border-border px-4 py-3 text-xs leading-5 text-muted-foreground">
         <p role="status" aria-atomic="true">
-          {matched.length} {matched.length === 1 ? "command" : "commands"}
+          {matched.length} {matched.length === 1 ? noun[0] : noun[1]}
         </p>
         <p className="hidden sm:block">
           <span aria-hidden="true">↑↓</span> Navigate · Enter Select · Esc Close

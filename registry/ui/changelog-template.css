@@ -1,0 +1,32 @@
+/* changelog-template.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* ── Changelog ────────────────────────────────────── */
+  [data-slot="changelog-filter"] {
+    height: 34px; padding: 0 14px; border-radius: 999px; font-size: 13px; font-weight: 500; cursor: pointer;
+    color: var(--k-muted); box-shadow: inset 0 0 0 1px var(--k-line-strong);
+    transition: background-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
+  }
+  [data-slot="changelog-filter"]:hover { color: var(--k-ink); }
+  [data-slot="changelog-filter"][aria-pressed="true"] { background: var(--k-ink); color: var(--k-bg); box-shadow: none; }
+  [data-slot="changelog-filter"]:focus-visible { outline: 2px solid var(--k-focus); outline-offset: 2px; }
+  [data-slot="changelog-entry"] { display: grid; gap: 16px; padding-block: clamp(36px, 5cqi, 56px); border-bottom: 1px solid var(--k-line); scroll-margin-top: 80px; }
+  [data-slot="changelog-meta"] { display: flex; align-items: baseline; gap: 14px; }
+  @container (min-width: 760px) {
+    [data-slot="changelog-entry"] { grid-template-columns: 160px minmax(0, 1fr); gap: 40px; }
+    [data-slot="changelog-meta"] { position: sticky; top: 88px; align-self: start; display: grid; gap: 6px; }
+  }
+  [data-slot="changelog-version"] {
+    display: inline-flex; align-items: center; gap: 6px; justify-self: start;
+    font-family: var(--font-mono, monospace); font-size: 13px; color: var(--k-hi); text-decoration: none;
+  }
+  [data-slot="changelog-version"] svg { opacity: 0; transition: opacity var(--duration-fast) var(--ease-out); }
+  [data-slot="changelog-version"]:hover svg, [data-slot="changelog-version"]:focus-visible svg { opacity: 1; }
+  [data-slot="changelog-version"]:focus-visible { outline: 2px solid var(--k-focus); outline-offset: 3px; border-radius: 3px; }
+  [data-slot="changelog-body"] { display: grid; gap: 12px; max-width: 64ch; font-size: 16px; line-height: 27px; color: var(--k-muted); }
+  [data-slot="changelog-body"] p { margin: 0; }
+  [data-slot="changelog-body"] ul { display: grid; gap: 6px; margin: 0; padding-left: 20px; list-style: disc; }
+  [data-slot="changelog-body"] strong { color: var(--k-ink); font-weight: 600; }
+  [data-slot="changelog-body"] code { font-family: var(--font-mono, monospace); font-size: 0.88em; padding: 1px 6px; border-radius: 4px; background: var(--k-sunken); color: var(--k-ink); }
+}

@@ -1,0 +1,40 @@
+/* blog-grid.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="blog-link"] {
+    color: inherit;
+    text-decoration: none;
+    outline: none;
+  }
+  [data-slot="blog-link"]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-overlay, 12px);
+  }
+  [data-slot="blog-link"]:focus-visible::after {
+    outline: 2px solid var(--ring);
+    outline-offset: 4px;
+  }
+  [data-slot="blog-card"]:hover [data-slot="blog-link"] {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  [data-slot="blog-image"] {
+    transition: transform var(--duration-travel) var(--ease-showcase);
+  }
+  [data-slot="blog-card"]:hover [data-slot="blog-image"] {
+    transform: scale(1.03);
+  }
+  [data-slot="blog-grid"] [data-slot="prompt-suggestion"][aria-pressed="true"] {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-foreground);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="blog-image"] {
+      transition: none;
+    }
+  }
+}

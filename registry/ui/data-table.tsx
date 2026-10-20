@@ -2,6 +2,7 @@ import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react";
 import type { ComponentProps, ReactNode } from "react";
 import { cn } from "./lib/cn";
 import "./shared/bulk-bar.css";
+import "./shared/chip-option.css";
 import "./data-table.css";
 
 export type DataTableProps = ComponentProps<"table"> & {

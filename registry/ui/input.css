@@ -11,16 +11,6 @@
     box-shadow: var(--shadow-field);
     transition: box-shadow var(--duration-fast) var(--ease-out);
   }
-  @media (hover: hover) {
-    [data-slot="input-group"]:not([data-disabled]):not([data-invalid]):hover:not(:focus-within) {
-      box-shadow: var(--shadow-field-hover);
-    }
-  }
-  [data-slot="input-group"]:focus-within {
-    outline: none;
-    box-shadow: var(--shadow-field-focus);
-    transition: none;
-  }
   [data-slot="input-group"][data-invalid] {
     box-shadow: var(--shadow-field-invalid);
   }

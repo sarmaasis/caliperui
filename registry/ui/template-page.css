@@ -1,0 +1,34 @@
+/* template-page.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="template-outline"] { min-width: 0; }
+  [data-slot="template-outline-label"] { display: none; margin: 0 0 12px; font-family: var(--font-mono, monospace); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--k-muted); }
+  [data-slot="template-outline"] > [data-slot="template-outline-list"] { display: none; }
+  @container (min-width: 960px) {
+    [data-slot="template-outline"] { position: sticky; top: 96px; align-self: start; }
+    [data-slot="template-outline-label"], [data-slot="template-outline"] > [data-slot="template-outline-list"] { display: block; }
+    [data-slot="template-outline-fold"] { display: none; }
+  }
+  [data-slot="template-outline-list"] { display: grid; gap: 2px; margin: 0; padding: 0; list-style: none; }
+  [data-slot="template-outline-list"] a {
+    position: relative; display: flex; gap: 8px; padding: 6px 0 6px 14px; font-size: 14px; line-height: 20px; color: var(--k-muted); text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-out);
+  }
+  [data-slot="template-outline-list"] a::before { content: ""; position: absolute; left: 0; top: 6px; bottom: 6px; width: 2px; border-radius: 2px; background: var(--k-line); transition: background-color var(--duration-normal) var(--ease-out); }
+  [data-slot="template-outline-list"] a:hover { color: var(--k-ink); }
+  [data-slot="template-outline-list"] a[aria-current] { color: var(--k-ink); }
+  [data-slot="template-outline-list"] a[aria-current]::before { background: var(--k-hi); }
+  [data-slot="template-outline-list"] a:focus-visible { outline: 2px solid var(--k-focus, var(--k-hi)); outline-offset: 2px; border-radius: 4px; }
+  [data-slot="template-outline-number"] { flex: none; min-width: 1.6em; font-variant-numeric: tabular-nums; }
+  [data-slot="template-outline-fold"] { border-radius: var(--k-radius); background: var(--k-surface); box-shadow: 0 0 0 1px var(--k-line); }
+  [data-slot="template-outline-fold"] > summary { display: flex; align-items: center; justify-content: space-between; min-height: 48px; padding: 0 16px; font-size: 14px; font-weight: 500; cursor: pointer; list-style: none; }
+  [data-slot="template-outline-fold"] > summary::-webkit-details-marker { display: none; }
+  [data-slot="template-outline-fold"] > summary::after { content: "+"; font-size: 18px; color: var(--k-muted); }
+  [data-slot="template-outline-fold"][open] > summary::after { content: "–"; }
+  [data-slot="template-outline-fold"] > summary:focus-visible { outline: 2px solid var(--k-focus, var(--k-hi)); outline-offset: 2px; border-radius: var(--k-radius); }
+  [data-slot="template-outline-fold"] > [data-slot="template-outline-list"] { padding: 0 16px 12px; }
+  @media print {
+    [data-slot="template-outline"] { display: none !important; }
+  }
+}

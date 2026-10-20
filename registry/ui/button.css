@@ -76,7 +76,6 @@
   [data-slot="button"]:is(:disabled, [aria-disabled="true"]):not([aria-busy="true"]) {
     background-color: var(--sunken);
     color: var(--muted-foreground);
-    box-shadow: inset 0 0 0 1px var(--border);
   }
   [data-slot="button"][data-variant="ghost"]:is(:disabled, [aria-disabled="true"]):not(
       [aria-busy="true"]

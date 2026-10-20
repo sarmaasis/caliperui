@@ -5,12 +5,14 @@ import {
   useRef,
   useState,
   type KeyboardEvent,
+  type ReactNode,
 } from "react";
 import { cn } from "./lib/cn";
 import "./shared/segmented-indicator.css";
 import "./segmented-control.css";
 
-export type SegmentedOption = { value: string; label: string };
+/** With an icon, the option shows only the icon and `label` becomes its accessible name and tooltip. */
+export type SegmentedOption = { value: string; label: string; icon?: ReactNode };
 
 export function SegmentedControl({
   label,
@@ -113,10 +115,12 @@ export function SegmentedControl({
             role="radio"
             aria-checked={selected}
             tabIndex={selected ? 0 : -1}
+            aria-label={option.icon ? option.label : undefined}
+            title={option.icon ? option.label : undefined}
             onClick={() => onValueChange(option.value)}
-            className="relative z-10 inline-flex h-[calc(var(--control-height)-6px)] min-w-10 items-center justify-center rounded-[9px] px-3 text-[13px] font-medium text-muted-foreground outline-none transition-colors hover:text-foreground focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-ring aria-checked:text-accent-foreground"
+            className="relative z-10 inline-flex h-[calc(var(--control-height)-6px)] min-w-10 items-center justify-center rounded-[9px] px-3 text-[13px] font-medium text-muted-foreground outline-none transition-colors hover:text-foreground focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-ring aria-checked:text-accent-foreground [&_svg]:size-4 [&_svg]:shrink-0"
           >
-            {option.label}
+            {option.icon ?? option.label}
           </button>
         );
       })}

@@ -1,0 +1,45 @@
+/* footer-block.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* ── Footer ───────────────────────────────────────── */
+  [data-slot="footer-brand"] {
+    margin: 0; font-family: var(--k-display-font); font-weight: var(--k-display-weight); font-stretch: var(--k-display-stretch);
+    font-variation-settings: "wdth" var(--k-display-wdth, 100); text-transform: var(--k-display-case);
+    letter-spacing: calc(var(--k-display-track) / 2); font-size: 28px; line-height: 1;
+  }
+  /* A label, not code: Geist at the label step (DESIGN-SYSTEM.md keeps mono for code, commands and keycaps). */
+  [data-slot="footer-heading"] { margin: 0; font-size: 13px; line-height: 18px; font-weight: 500; color: var(--k-muted); }
+  [data-slot="footer-block-link"] { font-size: 15px; color: var(--k-ink); text-decoration: none; text-underline-offset: 4px; }
+  [data-slot="footer-block-link"]:hover { text-decoration: underline; text-decoration-color: var(--k-hi); }
+  [data-slot="footer-block-link"]:focus-visible { outline: 2px solid var(--k-focus); outline-offset: 3px; border-radius: 3px; }
+  [data-slot="footer-field"] {
+    display: flex; align-items: center; gap: 6px; height: 50px; padding: 5px 5px 5px 16px;
+    border-radius: var(--k-btn-radius); background: var(--k-surface); box-shadow: inset 0 0 0 1px var(--k-line-strong);
+    transition: box-shadow var(--duration-fast) var(--ease-out);
+  }
+  [data-slot="footer-field"]:focus-within { box-shadow: inset 0 0 0 2px var(--k-focus); }
+  [data-slot="footer-field"][data-invalid] { box-shadow: inset 0 0 0 2px var(--k-danger); }
+  [data-slot="footer-field"] input { flex: 1; min-width: 0; border: 0; background: transparent; color: var(--k-ink); font-size: 15px; outline: none; }
+  [data-slot="footer-field"] input::placeholder { color: var(--k-muted); }
+  [data-slot="footer-field"] button {
+    display: grid; place-items: center; width: 40px; height: 40px; flex: none; border-radius: calc(var(--k-btn-radius) - 4px);
+    background: var(--k-accent); color: var(--k-accent-ink); cursor: pointer;
+  }
+  [data-slot="footer-field"] button:focus-visible { outline: 2px solid var(--k-focus); outline-offset: 2px; }
+  [data-slot="footer-field"] button:disabled { opacity: 0.6; cursor: progress; }
+  [data-slot="footer-status-dot"] { width: 8px; height: 8px; border-radius: 999px; background: var(--success, #0b7643); box-shadow: 0 0 0 3px color-mix(in srgb, var(--success, #0b7643) 22%, transparent); }
+  [data-slot="footer-wordmark"] {
+    margin: 0 0 -0.16em; overflow: hidden;
+    font-family: var(--k-display-font); font-weight: var(--k-display-weight); font-stretch: var(--k-display-stretch);
+    font-variation-settings: "wdth" var(--k-display-wdth, 100); text-transform: var(--k-display-case);
+    font-size: var(--wordmark-size, clamp(72px, 21cqi, 300px)); line-height: 0.82; letter-spacing: -0.06em; white-space: nowrap;
+    color: var(--k-ink); user-select: none;
+  }
+  [data-slot="footer-wordmark"] > span { display: inline-block; padding-right: 0.04em; }
+  [data-slot="footer-wordmark"] { font-weight: 700; }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="footer-field"] { transition: none; }
+  }
+}

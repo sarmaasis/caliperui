@@ -38,10 +38,10 @@ export function Metric({
           {label}
         </h3>
         {change && (
-          <p className={cn("font-mono text-xs tabular-nums", tone)}>{change}</p>
+          <p className={cn("text-xs tabular-nums", tone)}>{change}</p>
         )}
       </div>
-      <p className="mt-3 font-mono text-2xl leading-8 font-medium tabular-nums">
+      <p className="mt-3 text-2xl leading-8 font-medium tabular-nums">
         {value}
       </p>
       {context && (

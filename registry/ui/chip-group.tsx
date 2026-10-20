@@ -2,6 +2,7 @@
 
 import { useState, type KeyboardEvent } from "react";
 import { cn } from "./lib/cn";
+import "./shared/chip-option.css";
 
 export type ChipOption = { value: string; label: string; disabled?: boolean };
 
@@ -69,6 +70,7 @@ export function ChipGroup({
           return (
             <button
               key={option.value}
+              data-slot="chip-option"
               type="button"
               role={selection === "single" ? "radio" : undefined}
               aria-checked={selection === "single" ? on : undefined}

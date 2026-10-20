@@ -1,0 +1,10 @@
+/* Shared by progress.tsx, usage-meter.tsx; each imports it. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  @media (prefers-reduced-motion: no-preference) {
+    :is([data-slot="progress-fill"], [data-slot="usage-segment"], [data-slot="usage-projected"]) {
+      animation: caliper-chart-sweep var(--duration-showcase) var(--ease-showcase) backwards;
+    }
+  }
+}

@@ -3,7 +3,7 @@
 
 @layer components {
   [data-slot="number-field"] {
-    transition: translate var(--duration-normal) var(--ease-settle);
+    transition: translate var(--duration-normal) var(--ease-settle), box-shadow var(--duration-fast) var(--ease-out);
   }
   [data-slot="number-field"][data-strain="min"] {
     translate: -3px 0;

@@ -45,7 +45,7 @@ export function Accordion({
                 aria-expanded={open}
                 aria-controls={panelId}
                 data-slot="accordion-trigger"
-                className="flex min-h-11 w-full items-center gap-3 px-3 py-2 text-left text-sm font-medium outline-none hover:bg-muted/60 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                className="flex min-h-11 w-full items-center gap-3 px-3 py-2 text-left text-sm font-medium outline-none hover:bg-muted/60 active:bg-[var(--raised-press)] focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                 onClick={() => toggle(item.id)}
               >
                 {item.icon ? <span className="grid size-7 shrink-0 place-items-center text-muted-foreground">{item.icon}</span> : null}

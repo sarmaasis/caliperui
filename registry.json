@@ -28,6 +28,126 @@
       "docs": "Import once in app/globals.css, after Tailwind (paths are relative to that file):\n@import \"../styles/caliper/tokens.css\";\n@import \"../styles/caliper/tailwind.css\";\n@import \"../styles/caliper/base.css\";\nEach part imports its own stylesheet."
     },
     {
+      "name": "about-template",
+      "type": "registry:ui",
+      "title": "About template",
+      "description": "Who is behind the product, in the order buyers and candidates check: the belief, how you got here, the numbers, how you work, the people and the next step.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/about-template.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/about-template.tsx"
+        },
+        {
+          "path": "registry/ui/block-concept.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/block-concept.tsx"
+        },
+        {
+          "path": "registry/ui/block-nav.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/block-nav.tsx"
+        },
+        {
+          "path": "registry/ui/cta-block.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/cta-block.tsx"
+        },
+        {
+          "path": "registry/ui/footer-block.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/footer-block.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/stage-scope.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/stage-scope.tsx"
+        },
+        {
+          "path": "registry/ui/team-block.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/team-block.tsx"
+        },
+        {
+          "path": "registry/ui/template-page.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/template-page.tsx"
+        },
+        {
+          "path": "registry/ui/shared/block-figure.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/block-figure.css"
+        },
+        {
+          "path": "registry/ui/shared/article-prose.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/article-prose.css"
+        },
+        {
+          "path": "registry/ui/about-template.css",
+          "type": "registry:file",
+          "target": "components/ui/about-template.css"
+        },
+        {
+          "path": "registry/ui/block-concept.css",
+          "type": "registry:file",
+          "target": "components/ui/block-concept.css"
+        },
+        {
+          "path": "registry/ui/shared/site-header.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/site-header.css"
+        },
+        {
+          "path": "registry/ui/block-nav.css",
+          "type": "registry:file",
+          "target": "components/ui/block-nav.css"
+        },
+        {
+          "path": "registry/ui/cta-block.css",
+          "type": "registry:file",
+          "target": "components/ui/cta-block.css"
+        },
+        {
+          "path": "registry/ui/footer-block.css",
+          "type": "registry:file",
+          "target": "components/ui/footer-block.css"
+        },
+        {
+          "path": "registry/ui/shared/skip-link.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/skip-link.css"
+        },
+        {
+          "path": "registry/ui/template-page.css",
+          "type": "registry:file",
+          "target": "components/ui/template-page.css"
+        }
+      ],
+      "categories": [
+        "free-pages"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "reading-proof",
+        "docs": "/docs/components/about-template"
+      }
+    },
+    {
       "name": "accordion",
       "type": "registry:ui",
       "title": "Accordion",
@@ -304,6 +424,40 @@
       }
     },
     {
+      "name": "auth-page",
+      "type": "registry:ui",
+      "title": "Auth page",
+      "description": "A centred sign-in or sign-up page with a brand header and legal links.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/auth-page.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/auth-page.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        }
+      ],
+      "categories": [
+        "free-account"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "account-entry",
+        "docs": "/docs/components/auth-page"
+      }
+    },
+    {
       "name": "avatar",
       "type": "registry:ui",
       "title": "Avatar",
@@ -449,6 +603,11 @@
           "target": "components/ui/lib/cn.ts"
         },
         {
+          "path": "registry/ui/shared/bar-chart.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/bar-chart.css"
+        },
+        {
           "path": "registry/ui/bar-chart.css",
           "type": "registry:file",
           "target": "components/ui/bar-chart.css"
@@ -462,6 +621,201 @@
         "license": "MIT",
         "family": "blocks",
         "docs": "/docs/components/bar-chart"
+      }
+    },
+    {
+      "name": "blog-grid",
+      "type": "registry:ui",
+      "title": "Blog grid",
+      "description": "A grid of article cards with date, tag and summary.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/avatar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/avatar.tsx"
+        },
+        {
+          "path": "registry/ui/badge.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/badge.tsx"
+        },
+        {
+          "path": "registry/ui/blog-grid.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/blog-grid.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/avatar.css",
+          "type": "registry:file",
+          "target": "components/ui/avatar.css"
+        },
+        {
+          "path": "registry/ui/shared/table-skeleton.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/table-skeleton.css"
+        },
+        {
+          "path": "registry/ui/shared/prompt-suggestion.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/prompt-suggestion.css"
+        },
+        {
+          "path": "registry/ui/blog-grid.css",
+          "type": "registry:file",
+          "target": "components/ui/blog-grid.css"
+        }
+      ],
+      "categories": [
+        "free-marketing"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "reading-proof",
+        "docs": "/docs/components/blog-grid"
+      }
+    },
+    {
+      "name": "blog-post-template",
+      "type": "registry:ui",
+      "title": "Blog post template",
+      "description": "One article at a reading measure: a progress line under the header, an outline that marks where you are, linkable headings, the author and three related posts.",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "clsx",
+        "lucide-react",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/block-concept.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/block-concept.tsx"
+        },
+        {
+          "path": "registry/ui/block-nav.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/block-nav.tsx"
+        },
+        {
+          "path": "registry/ui/blog-post-template.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/blog-post-template.tsx"
+        },
+        {
+          "path": "registry/ui/button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button.tsx"
+        },
+        {
+          "path": "registry/ui/copy-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/copy-button.tsx"
+        },
+        {
+          "path": "registry/ui/footer-block.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/footer-block.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/stage-scope.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/stage-scope.tsx"
+        },
+        {
+          "path": "registry/ui/template-page.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/template-page.tsx"
+        },
+        {
+          "path": "registry/ui/block-concept.css",
+          "type": "registry:file",
+          "target": "components/ui/block-concept.css"
+        },
+        {
+          "path": "registry/ui/shared/site-header.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/site-header.css"
+        },
+        {
+          "path": "registry/ui/block-nav.css",
+          "type": "registry:file",
+          "target": "components/ui/block-nav.css"
+        },
+        {
+          "path": "registry/ui/shared/article-prose.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/article-prose.css"
+        },
+        {
+          "path": "registry/ui/blog-post-template.css",
+          "type": "registry:file",
+          "target": "components/ui/blog-post-template.css"
+        },
+        {
+          "path": "registry/ui/shared/loading-indicator.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/loading-indicator.css"
+        },
+        {
+          "path": "registry/ui/button.css",
+          "type": "registry:file",
+          "target": "components/ui/button.css"
+        },
+        {
+          "path": "registry/ui/shared/action-label.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/action-label.css"
+        },
+        {
+          "path": "registry/ui/copy-button.css",
+          "type": "registry:file",
+          "target": "components/ui/copy-button.css"
+        },
+        {
+          "path": "registry/ui/footer-block.css",
+          "type": "registry:file",
+          "target": "components/ui/footer-block.css"
+        },
+        {
+          "path": "registry/ui/shared/skip-link.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/skip-link.css"
+        },
+        {
+          "path": "registry/ui/template-page.css",
+          "type": "registry:file",
+          "target": "components/ui/template-page.css"
+        }
+      ],
+      "categories": [
+        "free-pages"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "reading-proof",
+        "docs": "/docs/components/blog-post-template"
       }
     },
     {
@@ -509,7 +863,7 @@
       "name": "button",
       "type": "registry:ui",
       "title": "Button",
-      "description": "Button, part of the Button family.",
+      "description": "A familiar action with immediate focus, a tactile press, and optional pending or label feedback that stays on the button itself.",
       "dependencies": [
         "@radix-ui/react-slot",
         "clsx",
@@ -635,6 +989,11 @@
           "target": "components/ui/shared/calendar-day.css"
         },
         {
+          "path": "registry/ui/shared/chip-option.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/chip-option.css"
+        },
+        {
           "path": "registry/ui/calendar.css",
           "type": "registry:file",
           "target": "components/ui/calendar.css"
@@ -653,6 +1012,45 @@
         "license": "MIT",
         "family": "dates",
         "docs": "/docs/components/calendar"
+      }
+    },
+    {
+      "name": "call-to-action",
+      "type": "registry:ui",
+      "title": "Call to action",
+      "description": "A closing band with one clear action.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/call-to-action.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/call-to-action.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/call-to-action.css",
+          "type": "registry:file",
+          "target": "components/ui/call-to-action.css"
+        }
+      ],
+      "categories": [
+        "free-marketing"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "reading-proof",
+        "docs": "/docs/components/call-to-action"
       }
     },
     {
@@ -728,6 +1126,91 @@
       }
     },
     {
+      "name": "changelog-template",
+      "type": "registry:ui",
+      "title": "Changelog template",
+      "description": "What shipped, newest first: dates that stay in view, linkable versions, tag filters with a count and a product view per release.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/block-concept.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/block-concept.tsx"
+        },
+        {
+          "path": "registry/ui/block-nav.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/block-nav.tsx"
+        },
+        {
+          "path": "registry/ui/changelog-template.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/changelog-template.tsx"
+        },
+        {
+          "path": "registry/ui/footer-block.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/footer-block.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/stage-scope.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/stage-scope.tsx"
+        },
+        {
+          "path": "registry/ui/block-concept.css",
+          "type": "registry:file",
+          "target": "components/ui/block-concept.css"
+        },
+        {
+          "path": "registry/ui/shared/site-header.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/site-header.css"
+        },
+        {
+          "path": "registry/ui/block-nav.css",
+          "type": "registry:file",
+          "target": "components/ui/block-nav.css"
+        },
+        {
+          "path": "registry/ui/shared/skip-link.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/skip-link.css"
+        },
+        {
+          "path": "registry/ui/changelog-template.css",
+          "type": "registry:file",
+          "target": "components/ui/changelog-template.css"
+        },
+        {
+          "path": "registry/ui/footer-block.css",
+          "type": "registry:file",
+          "target": "components/ui/footer-block.css"
+        }
+      ],
+      "categories": [
+        "free-pages"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "pages-set",
+        "docs": "/docs/components/changelog-template"
+      }
+    },
+    {
       "name": "checkbox",
       "type": "registry:ui",
       "title": "Checkbox",
@@ -780,6 +1263,11 @@
           "path": "registry/ui/lib/cn.ts",
           "type": "registry:ui",
           "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/shared/chip-option.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/chip-option.css"
         }
       ],
       "categories": [
@@ -964,6 +1452,11 @@
           "target": "components/ui/shared/input-2.css"
         },
         {
+          "path": "registry/ui/shared/input-group.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/input-group.css"
+        },
+        {
           "path": "registry/ui/input.css",
           "type": "registry:file",
           "target": "components/ui/input.css"
@@ -977,6 +1470,370 @@
         "license": "MIT",
         "family": "command-palette",
         "docs": "/docs/components/command-palette"
+      }
+    },
+    {
+      "name": "contact-section",
+      "type": "registry:ui",
+      "title": "Contact section",
+      "description": "A contact form beside the ways to reach a team.",
+      "dependencies": [
+        "@radix-ui/react-popover",
+        "@radix-ui/react-slot",
+        "clsx",
+        "lucide-react",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/alert.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/alert.tsx"
+        },
+        {
+          "path": "registry/ui/button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button.tsx"
+        },
+        {
+          "path": "registry/ui/contact-section.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/contact-section.tsx"
+        },
+        {
+          "path": "registry/ui/feedback.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/feedback.tsx"
+        },
+        {
+          "path": "registry/ui/field.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/field.tsx"
+        },
+        {
+          "path": "registry/ui/input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input.tsx"
+        },
+        {
+          "path": "registry/ui/label.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/label.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/select-menu.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/select-menu.tsx"
+        },
+        {
+          "path": "registry/ui/textarea.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/textarea.tsx"
+        },
+        {
+          "path": "registry/ui/shared/alert.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/alert.css"
+        },
+        {
+          "path": "registry/ui/alert.css",
+          "type": "registry:file",
+          "target": "components/ui/alert.css"
+        },
+        {
+          "path": "registry/ui/shared/loading-indicator.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/loading-indicator.css"
+        },
+        {
+          "path": "registry/ui/button.css",
+          "type": "registry:file",
+          "target": "components/ui/button.css"
+        },
+        {
+          "path": "registry/ui/feedback.css",
+          "type": "registry:file",
+          "target": "components/ui/feedback.css"
+        },
+        {
+          "path": "registry/ui/shared/field-message.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/field-message.css"
+        },
+        {
+          "path": "registry/ui/field.css",
+          "type": "registry:file",
+          "target": "components/ui/field.css"
+        },
+        {
+          "path": "registry/ui/shared/input.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/input.css"
+        },
+        {
+          "path": "registry/ui/shared/input-2.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/input-2.css"
+        },
+        {
+          "path": "registry/ui/shared/input-group.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/input-group.css"
+        },
+        {
+          "path": "registry/ui/input.css",
+          "type": "registry:file",
+          "target": "components/ui/input.css"
+        },
+        {
+          "path": "registry/ui/shared/select.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/select.css"
+        },
+        {
+          "path": "registry/ui/select-menu.css",
+          "type": "registry:file",
+          "target": "components/ui/select-menu.css"
+        },
+        {
+          "path": "registry/ui/textarea.css",
+          "type": "registry:file",
+          "target": "components/ui/textarea.css"
+        }
+      ],
+      "categories": [
+        "free-marketing"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "marketing",
+        "docs": "/docs/components/contact-section"
+      }
+    },
+    {
+      "name": "contact-template",
+      "type": "registry:ui",
+      "title": "Contact template",
+      "description": "A contact page that routes the message first: pick the topic and it says who answers and how soon. The form keeps what you typed if sending fails and confirms where the reply will go.",
+      "dependencies": [
+        "@radix-ui/react-popover",
+        "@radix-ui/react-slot",
+        "clsx",
+        "lucide-react",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/alert.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/alert.tsx"
+        },
+        {
+          "path": "registry/ui/block-concept.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/block-concept.tsx"
+        },
+        {
+          "path": "registry/ui/block-nav.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/block-nav.tsx"
+        },
+        {
+          "path": "registry/ui/button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button.tsx"
+        },
+        {
+          "path": "registry/ui/contact-template.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/contact-template.tsx"
+        },
+        {
+          "path": "registry/ui/faq-block.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/faq-block.tsx"
+        },
+        {
+          "path": "registry/ui/feedback.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/feedback.tsx"
+        },
+        {
+          "path": "registry/ui/field.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/field.tsx"
+        },
+        {
+          "path": "registry/ui/footer-block.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/footer-block.tsx"
+        },
+        {
+          "path": "registry/ui/input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input.tsx"
+        },
+        {
+          "path": "registry/ui/label.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/label.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/select-menu.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/select-menu.tsx"
+        },
+        {
+          "path": "registry/ui/stage-scope.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/stage-scope.tsx"
+        },
+        {
+          "path": "registry/ui/template-page.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/template-page.tsx"
+        },
+        {
+          "path": "registry/ui/textarea.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/textarea.tsx"
+        },
+        {
+          "path": "registry/ui/shared/alert.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/alert.css"
+        },
+        {
+          "path": "registry/ui/alert.css",
+          "type": "registry:file",
+          "target": "components/ui/alert.css"
+        },
+        {
+          "path": "registry/ui/block-concept.css",
+          "type": "registry:file",
+          "target": "components/ui/block-concept.css"
+        },
+        {
+          "path": "registry/ui/shared/site-header.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/site-header.css"
+        },
+        {
+          "path": "registry/ui/block-nav.css",
+          "type": "registry:file",
+          "target": "components/ui/block-nav.css"
+        },
+        {
+          "path": "registry/ui/shared/loading-indicator.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/loading-indicator.css"
+        },
+        {
+          "path": "registry/ui/button.css",
+          "type": "registry:file",
+          "target": "components/ui/button.css"
+        },
+        {
+          "path": "registry/ui/contact-template.css",
+          "type": "registry:file",
+          "target": "components/ui/contact-template.css"
+        },
+        {
+          "path": "registry/ui/faq-block.css",
+          "type": "registry:file",
+          "target": "components/ui/faq-block.css"
+        },
+        {
+          "path": "registry/ui/feedback.css",
+          "type": "registry:file",
+          "target": "components/ui/feedback.css"
+        },
+        {
+          "path": "registry/ui/shared/field-message.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/field-message.css"
+        },
+        {
+          "path": "registry/ui/field.css",
+          "type": "registry:file",
+          "target": "components/ui/field.css"
+        },
+        {
+          "path": "registry/ui/footer-block.css",
+          "type": "registry:file",
+          "target": "components/ui/footer-block.css"
+        },
+        {
+          "path": "registry/ui/shared/input.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/input.css"
+        },
+        {
+          "path": "registry/ui/shared/input-2.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/input-2.css"
+        },
+        {
+          "path": "registry/ui/shared/input-group.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/input-group.css"
+        },
+        {
+          "path": "registry/ui/input.css",
+          "type": "registry:file",
+          "target": "components/ui/input.css"
+        },
+        {
+          "path": "registry/ui/shared/select.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/select.css"
+        },
+        {
+          "path": "registry/ui/select-menu.css",
+          "type": "registry:file",
+          "target": "components/ui/select-menu.css"
+        },
+        {
+          "path": "registry/ui/shared/skip-link.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/skip-link.css"
+        },
+        {
+          "path": "registry/ui/template-page.css",
+          "type": "registry:file",
+          "target": "components/ui/template-page.css"
+        },
+        {
+          "path": "registry/ui/textarea.css",
+          "type": "registry:file",
+          "target": "components/ui/textarea.css"
+        }
+      ],
+      "categories": [
+        "free-pages"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "reading-proof",
+        "docs": "/docs/components/contact-template"
       }
     },
     {
@@ -1091,6 +1948,61 @@
       }
     },
     {
+      "name": "cta-block",
+      "type": "registry:ui",
+      "title": "CTA block",
+      "description": "The closing call to action: the promise again, one specific next step and a reassurance line.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/block-concept.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/block-concept.tsx"
+        },
+        {
+          "path": "registry/ui/cta-block.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/cta-block.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/stage-scope.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/stage-scope.tsx"
+        },
+        {
+          "path": "registry/ui/block-concept.css",
+          "type": "registry:file",
+          "target": "components/ui/block-concept.css"
+        },
+        {
+          "path": "registry/ui/cta-block.css",
+          "type": "registry:file",
+          "target": "components/ui/cta-block.css"
+        }
+      ],
+      "categories": [
+        "free-marketing"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "marketing",
+        "docs": "/docs/components/cta-block"
+      }
+    },
+    {
       "name": "data-table",
       "type": "registry:ui",
       "title": "Data table",
@@ -1118,6 +2030,11 @@
           "path": "registry/ui/shared/bulk-bar.css",
           "type": "registry:file",
           "target": "components/ui/shared/bulk-bar.css"
+        },
+        {
+          "path": "registry/ui/shared/chip-option.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/chip-option.css"
         },
         {
           "path": "registry/ui/data-table.css",
@@ -1179,6 +2096,11 @@
           "path": "registry/ui/shared/calendar-day.css",
           "type": "registry:file",
           "target": "components/ui/shared/calendar-day.css"
+        },
+        {
+          "path": "registry/ui/shared/chip-option.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/chip-option.css"
         },
         {
           "path": "registry/ui/calendar.css",
@@ -1250,6 +2172,11 @@
           "path": "registry/ui/shared/calendar-day.css",
           "type": "registry:file",
           "target": "components/ui/shared/calendar-day.css"
+        },
+        {
+          "path": "registry/ui/shared/chip-option.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/chip-option.css"
         },
         {
           "path": "registry/ui/calendar.css",
@@ -1351,6 +2278,11 @@
           "path": "registry/ui/shared/input-2.css",
           "type": "registry:file",
           "target": "components/ui/shared/input-2.css"
+        },
+        {
+          "path": "registry/ui/shared/input-group.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/input-group.css"
         },
         {
           "path": "registry/ui/input.css",
@@ -1507,6 +2439,11 @@
           "path": "registry/ui/animated-counter.css",
           "type": "registry:file",
           "target": "components/ui/animated-counter.css"
+        },
+        {
+          "path": "registry/ui/shared/chip-option.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/chip-option.css"
         },
         {
           "path": "registry/ui/chart-parts.css",
@@ -1692,6 +2629,242 @@
       }
     },
     {
+      "name": "error-template",
+      "type": "registry:ui",
+      "title": "Error template",
+      "description": "The pages people land on when something goes wrong, each with the way out that fits: search, ask for access, retry with a reference, wait out maintenance, reconnect or get a new link.",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "clsx",
+        "lucide-react",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/block-concept.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/block-concept.tsx"
+        },
+        {
+          "path": "registry/ui/block-nav.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/block-nav.tsx"
+        },
+        {
+          "path": "registry/ui/button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button.tsx"
+        },
+        {
+          "path": "registry/ui/copy-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/copy-button.tsx"
+        },
+        {
+          "path": "registry/ui/error-template.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/error-template.tsx"
+        },
+        {
+          "path": "registry/ui/field.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/field.tsx"
+        },
+        {
+          "path": "registry/ui/footer-block.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/footer-block.tsx"
+        },
+        {
+          "path": "registry/ui/input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input.tsx"
+        },
+        {
+          "path": "registry/ui/label.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/label.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/stage-scope.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/stage-scope.tsx"
+        },
+        {
+          "path": "registry/ui/template-page.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/template-page.tsx"
+        },
+        {
+          "path": "registry/ui/textarea.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/textarea.tsx"
+        },
+        {
+          "path": "registry/ui/block-concept.css",
+          "type": "registry:file",
+          "target": "components/ui/block-concept.css"
+        },
+        {
+          "path": "registry/ui/shared/site-header.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/site-header.css"
+        },
+        {
+          "path": "registry/ui/block-nav.css",
+          "type": "registry:file",
+          "target": "components/ui/block-nav.css"
+        },
+        {
+          "path": "registry/ui/shared/loading-indicator.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/loading-indicator.css"
+        },
+        {
+          "path": "registry/ui/button.css",
+          "type": "registry:file",
+          "target": "components/ui/button.css"
+        },
+        {
+          "path": "registry/ui/shared/action-label.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/action-label.css"
+        },
+        {
+          "path": "registry/ui/copy-button.css",
+          "type": "registry:file",
+          "target": "components/ui/copy-button.css"
+        },
+        {
+          "path": "registry/ui/error-template.css",
+          "type": "registry:file",
+          "target": "components/ui/error-template.css"
+        },
+        {
+          "path": "registry/ui/shared/field-message.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/field-message.css"
+        },
+        {
+          "path": "registry/ui/field.css",
+          "type": "registry:file",
+          "target": "components/ui/field.css"
+        },
+        {
+          "path": "registry/ui/footer-block.css",
+          "type": "registry:file",
+          "target": "components/ui/footer-block.css"
+        },
+        {
+          "path": "registry/ui/shared/input.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/input.css"
+        },
+        {
+          "path": "registry/ui/shared/input-2.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/input-2.css"
+        },
+        {
+          "path": "registry/ui/shared/input-group.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/input-group.css"
+        },
+        {
+          "path": "registry/ui/input.css",
+          "type": "registry:file",
+          "target": "components/ui/input.css"
+        },
+        {
+          "path": "registry/ui/shared/skip-link.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/skip-link.css"
+        },
+        {
+          "path": "registry/ui/template-page.css",
+          "type": "registry:file",
+          "target": "components/ui/template-page.css"
+        },
+        {
+          "path": "registry/ui/textarea.css",
+          "type": "registry:file",
+          "target": "components/ui/textarea.css"
+        }
+      ],
+      "categories": [
+        "free-pages"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "reading-proof",
+        "docs": "/docs/components/error-template"
+      }
+    },
+    {
+      "name": "faq-block",
+      "type": "registry:ui",
+      "title": "FAQ block",
+      "description": "Searchable questions with one answer open at a time, each linking to the exact doc, and a way to ask when nothing matches.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/block-concept.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/block-concept.tsx"
+        },
+        {
+          "path": "registry/ui/faq-block.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/faq-block.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/stage-scope.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/stage-scope.tsx"
+        },
+        {
+          "path": "registry/ui/block-concept.css",
+          "type": "registry:file",
+          "target": "components/ui/block-concept.css"
+        },
+        {
+          "path": "registry/ui/faq-block.css",
+          "type": "registry:file",
+          "target": "components/ui/faq-block.css"
+        }
+      ],
+      "categories": [
+        "free-marketing"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "marketing",
+        "docs": "/docs/components/faq-block"
+      }
+    },
+    {
       "name": "field",
       "type": "registry:ui",
       "title": "Field",
@@ -1744,6 +2917,61 @@
         "license": "MIT",
         "family": "inputs",
         "docs": "/docs/components/field"
+      }
+    },
+    {
+      "name": "footer-block",
+      "type": "registry:ui",
+      "title": "Footer block",
+      "description": "The page's last word: link columns, a newsletter that confirms in place, the legal line, status and the name as a full-width wordmark.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/block-concept.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/block-concept.tsx"
+        },
+        {
+          "path": "registry/ui/footer-block.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/footer-block.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/stage-scope.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/stage-scope.tsx"
+        },
+        {
+          "path": "registry/ui/block-concept.css",
+          "type": "registry:file",
+          "target": "components/ui/block-concept.css"
+        },
+        {
+          "path": "registry/ui/footer-block.css",
+          "type": "registry:file",
+          "target": "components/ui/footer-block.css"
+        }
+      ],
+      "categories": [
+        "free-marketing"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "marketing",
+        "docs": "/docs/components/footer-block"
       }
     },
     {
@@ -1804,6 +3032,11 @@
       ],
       "files": [
         {
+          "path": "registry/ui/avatar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/avatar.tsx"
+        },
+        {
           "path": "registry/ui/hover-card.tsx",
           "type": "registry:ui",
           "target": "components/ui/hover-card.tsx"
@@ -1812,6 +3045,11 @@
           "path": "registry/ui/lib/cn.ts",
           "type": "registry:ui",
           "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/avatar.css",
+          "type": "registry:file",
+          "target": "components/ui/avatar.css"
         },
         {
           "path": "registry/ui/shared/hover-card.css",
@@ -1861,6 +3099,11 @@
           "path": "registry/ui/shared/input-2.css",
           "type": "registry:file",
           "target": "components/ui/shared/input-2.css"
+        },
+        {
+          "path": "registry/ui/shared/input-group.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/input-group.css"
         },
         {
           "path": "registry/ui/input.css",
@@ -1952,6 +3195,122 @@
       }
     },
     {
+      "name": "legal-template",
+      "type": "registry:ui",
+      "title": "Legal template",
+      "description": "A policy people can read: the short version first, numbered sections with an outline that follows you, linkable clauses, a change history and a print layout.",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "clsx",
+        "lucide-react",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/block-concept.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/block-concept.tsx"
+        },
+        {
+          "path": "registry/ui/block-nav.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/block-nav.tsx"
+        },
+        {
+          "path": "registry/ui/button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button.tsx"
+        },
+        {
+          "path": "registry/ui/footer-block.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/footer-block.tsx"
+        },
+        {
+          "path": "registry/ui/legal-template.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/legal-template.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/stage-scope.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/stage-scope.tsx"
+        },
+        {
+          "path": "registry/ui/template-page.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/template-page.tsx"
+        },
+        {
+          "path": "registry/ui/block-concept.css",
+          "type": "registry:file",
+          "target": "components/ui/block-concept.css"
+        },
+        {
+          "path": "registry/ui/shared/site-header.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/site-header.css"
+        },
+        {
+          "path": "registry/ui/block-nav.css",
+          "type": "registry:file",
+          "target": "components/ui/block-nav.css"
+        },
+        {
+          "path": "registry/ui/shared/loading-indicator.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/loading-indicator.css"
+        },
+        {
+          "path": "registry/ui/button.css",
+          "type": "registry:file",
+          "target": "components/ui/button.css"
+        },
+        {
+          "path": "registry/ui/footer-block.css",
+          "type": "registry:file",
+          "target": "components/ui/footer-block.css"
+        },
+        {
+          "path": "registry/ui/shared/article-prose.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/article-prose.css"
+        },
+        {
+          "path": "registry/ui/legal-template.css",
+          "type": "registry:file",
+          "target": "components/ui/legal-template.css"
+        },
+        {
+          "path": "registry/ui/shared/skip-link.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/skip-link.css"
+        },
+        {
+          "path": "registry/ui/template-page.css",
+          "type": "registry:file",
+          "target": "components/ui/template-page.css"
+        }
+      ],
+      "categories": [
+        "free-pages"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "reading-proof",
+        "docs": "/docs/components/legal-template"
+      }
+    },
+    {
       "name": "line-chart",
       "type": "registry:ui",
       "title": "Line chart",
@@ -1982,6 +3341,11 @@
           "path": "registry/ui/line-chart.tsx",
           "type": "registry:ui",
           "target": "components/ui/line-chart.tsx"
+        },
+        {
+          "path": "registry/ui/shared/chip-option.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/chip-option.css"
         },
         {
           "path": "registry/ui/chart-parts.css",
@@ -2144,6 +3508,188 @@
       }
     },
     {
+      "name": "newsletter-signup",
+      "type": "registry:ui",
+      "title": "Newsletter signup",
+      "description": "An email field with consent and success states.",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "clsx",
+        "lucide-react",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button.tsx"
+        },
+        {
+          "path": "registry/ui/field.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/field.tsx"
+        },
+        {
+          "path": "registry/ui/input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input.tsx"
+        },
+        {
+          "path": "registry/ui/label.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/label.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/newsletter-signup.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/newsletter-signup.tsx"
+        },
+        {
+          "path": "registry/ui/shared/loading-indicator.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/loading-indicator.css"
+        },
+        {
+          "path": "registry/ui/button.css",
+          "type": "registry:file",
+          "target": "components/ui/button.css"
+        },
+        {
+          "path": "registry/ui/shared/field-message.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/field-message.css"
+        },
+        {
+          "path": "registry/ui/field.css",
+          "type": "registry:file",
+          "target": "components/ui/field.css"
+        },
+        {
+          "path": "registry/ui/shared/input.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/input.css"
+        },
+        {
+          "path": "registry/ui/shared/input-2.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/input-2.css"
+        },
+        {
+          "path": "registry/ui/shared/input-group.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/input-group.css"
+        },
+        {
+          "path": "registry/ui/input.css",
+          "type": "registry:file",
+          "target": "components/ui/input.css"
+        }
+      ],
+      "categories": [
+        "free-marketing"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "reading-proof",
+        "docs": "/docs/components/newsletter-signup"
+      }
+    },
+    {
+      "name": "not-found-page",
+      "type": "registry:ui",
+      "title": "Not found page",
+      "description": "A friendly 404 with suggestions and search.",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "clsx",
+        "lucide-react",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button.tsx"
+        },
+        {
+          "path": "registry/ui/input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/not-found-page.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/not-found-page.tsx"
+        },
+        {
+          "path": "registry/ui/search.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/search.tsx"
+        },
+        {
+          "path": "registry/ui/shared/loading-indicator.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/loading-indicator.css"
+        },
+        {
+          "path": "registry/ui/button.css",
+          "type": "registry:file",
+          "target": "components/ui/button.css"
+        },
+        {
+          "path": "registry/ui/shared/input.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/input.css"
+        },
+        {
+          "path": "registry/ui/shared/input-2.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/input-2.css"
+        },
+        {
+          "path": "registry/ui/shared/input-group.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/input-group.css"
+        },
+        {
+          "path": "registry/ui/input.css",
+          "type": "registry:file",
+          "target": "components/ui/input.css"
+        },
+        {
+          "path": "registry/ui/not-found-page.css",
+          "type": "registry:file",
+          "target": "components/ui/not-found-page.css"
+        }
+      ],
+      "categories": [
+        "free-utility"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "specialty",
+        "docs": "/docs/components/not-found-page"
+      }
+    },
+    {
       "name": "number-field",
       "type": "registry:ui",
       "title": "Number field",
@@ -2181,6 +3727,11 @@
           "path": "registry/ui/rolling-value.tsx",
           "type": "registry:ui",
           "target": "components/ui/rolling-value.tsx"
+        },
+        {
+          "path": "registry/ui/shared/chip-option.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/chip-option.css"
         },
         {
           "path": "registry/ui/number-field.css",
@@ -2255,6 +3806,52 @@
         "license": "MIT",
         "family": "otp",
         "docs": "/docs/components/otp-input"
+      }
+    },
+    {
+      "name": "page-header",
+      "type": "registry:ui",
+      "title": "Page header",
+      "description": "A title with description, breadcrumbs and actions.",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "clsx",
+        "lucide-react",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/breadcrumb.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/breadcrumb.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/page-header.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/page-header.tsx"
+        },
+        {
+          "path": "registry/ui/breadcrumb.css",
+          "type": "registry:file",
+          "target": "components/ui/breadcrumb.css"
+        }
+      ],
+      "categories": [
+        "free-marketing"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "page-chrome",
+        "docs": "/docs/components/page-header"
       }
     },
     {
@@ -2353,9 +3950,19 @@
           "target": "components/ui/shared/input-2.css"
         },
         {
+          "path": "registry/ui/shared/input-group.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/input-group.css"
+        },
+        {
           "path": "registry/ui/input.css",
           "type": "registry:file",
           "target": "components/ui/input.css"
+        },
+        {
+          "path": "registry/ui/shared/chip-option.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/chip-option.css"
         },
         {
           "path": "registry/ui/password-field.css",
@@ -2446,6 +4053,11 @@
           "path": "registry/ui/progress.tsx",
           "type": "registry:ui",
           "target": "components/ui/progress.tsx"
+        },
+        {
+          "path": "registry/ui/shared/progress-fill.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/progress-fill.css"
         },
         {
           "path": "registry/ui/progress.css",
@@ -2557,6 +4169,11 @@
           "target": "components/ui/rating.tsx"
         },
         {
+          "path": "registry/ui/shared/styles-5.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/styles-5.css"
+        },
+        {
           "path": "registry/ui/rating.css",
           "type": "registry:file",
           "target": "components/ui/rating.css"
@@ -2609,6 +4226,82 @@
         "license": "MIT",
         "family": "disclosure",
         "docs": "/docs/components/scroll-area"
+      }
+    },
+    {
+      "name": "search",
+      "type": "registry:ui",
+      "title": "Search",
+      "description": "A search field with a clear button and the right keyboard on phones.",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "clsx",
+        "lucide-react",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button.tsx"
+        },
+        {
+          "path": "registry/ui/input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/search.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/search.tsx"
+        },
+        {
+          "path": "registry/ui/shared/loading-indicator.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/loading-indicator.css"
+        },
+        {
+          "path": "registry/ui/button.css",
+          "type": "registry:file",
+          "target": "components/ui/button.css"
+        },
+        {
+          "path": "registry/ui/shared/input.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/input.css"
+        },
+        {
+          "path": "registry/ui/shared/input-2.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/input-2.css"
+        },
+        {
+          "path": "registry/ui/shared/input-group.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/input-group.css"
+        },
+        {
+          "path": "registry/ui/input.css",
+          "type": "registry:file",
+          "target": "components/ui/input.css"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "identity-navigation",
+        "docs": "/docs/components/search"
       }
     },
     {
@@ -2827,6 +4520,191 @@
         "license": "MIT",
         "family": "sidebar",
         "docs": "/docs/components/sidebar"
+      }
+    },
+    {
+      "name": "sign-in-form",
+      "type": "registry:ui",
+      "title": "Sign in form",
+      "description": "An email and password form with provider buttons and clear errors.",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "clsx",
+        "lucide-react",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/alert.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/alert.tsx"
+        },
+        {
+          "path": "registry/ui/button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button.tsx"
+        },
+        {
+          "path": "registry/ui/checkbox.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/checkbox.tsx"
+        },
+        {
+          "path": "registry/ui/feedback.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/feedback.tsx"
+        },
+        {
+          "path": "registry/ui/field.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/field.tsx"
+        },
+        {
+          "path": "registry/ui/input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input.tsx"
+        },
+        {
+          "path": "registry/ui/label.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/label.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/password-field.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/password-field.tsx"
+        },
+        {
+          "path": "registry/ui/sign-in-form.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/sign-in-form.tsx"
+        },
+        {
+          "path": "registry/ui/shared/alert.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/alert.css"
+        },
+        {
+          "path": "registry/ui/alert.css",
+          "type": "registry:file",
+          "target": "components/ui/alert.css"
+        },
+        {
+          "path": "registry/ui/shared/loading-indicator.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/loading-indicator.css"
+        },
+        {
+          "path": "registry/ui/button.css",
+          "type": "registry:file",
+          "target": "components/ui/button.css"
+        },
+        {
+          "path": "registry/ui/checkbox.css",
+          "type": "registry:file",
+          "target": "components/ui/checkbox.css"
+        },
+        {
+          "path": "registry/ui/feedback.css",
+          "type": "registry:file",
+          "target": "components/ui/feedback.css"
+        },
+        {
+          "path": "registry/ui/shared/field-message.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/field-message.css"
+        },
+        {
+          "path": "registry/ui/field.css",
+          "type": "registry:file",
+          "target": "components/ui/field.css"
+        },
+        {
+          "path": "registry/ui/shared/input.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/input.css"
+        },
+        {
+          "path": "registry/ui/shared/input-2.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/input-2.css"
+        },
+        {
+          "path": "registry/ui/shared/input-group.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/input-group.css"
+        },
+        {
+          "path": "registry/ui/input.css",
+          "type": "registry:file",
+          "target": "components/ui/input.css"
+        },
+        {
+          "path": "registry/ui/shared/chip-option.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/chip-option.css"
+        },
+        {
+          "path": "registry/ui/password-field.css",
+          "type": "registry:file",
+          "target": "components/ui/password-field.css"
+        }
+      ],
+      "categories": [
+        "free-account"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "account-entry",
+        "docs": "/docs/components/sign-in-form"
+      }
+    },
+    {
+      "name": "site-footer",
+      "type": "registry:ui",
+      "title": "Site footer",
+      "description": "Link columns, social links and legal text.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/site-footer.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/site-footer.tsx"
+        },
+        {
+          "path": "registry/ui/site-footer.css",
+          "type": "registry:file",
+          "target": "components/ui/site-footer.css"
+        }
+      ],
+      "categories": [
+        "free-marketing"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "page-chrome",
+        "docs": "/docs/components/site-footer"
       }
     },
     {
@@ -3079,6 +4957,11 @@
           "target": "components/ui/stepper.tsx"
         },
         {
+          "path": "registry/ui/shared/chip-option.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/chip-option.css"
+        },
+        {
           "path": "registry/ui/stepper.css",
           "type": "registry:file",
           "target": "components/ui/stepper.css"
@@ -3164,6 +5047,56 @@
         "license": "MIT",
         "family": "animated-tabs",
         "docs": "/docs/components/tabs"
+      }
+    },
+    {
+      "name": "team-block",
+      "type": "registry:ui",
+      "title": "Team block",
+      "description": "People introduced by what they own and how to reach them, with initials when there is no photo.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/block-concept.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/block-concept.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/stage-scope.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/stage-scope.tsx"
+        },
+        {
+          "path": "registry/ui/team-block.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/team-block.tsx"
+        },
+        {
+          "path": "registry/ui/block-concept.css",
+          "type": "registry:file",
+          "target": "components/ui/block-concept.css"
+        }
+      ],
+      "categories": [
+        "free-marketing"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "marketing",
+        "docs": "/docs/components/team-block"
       }
     },
     {

@@ -1,0 +1,17 @@
+/* Shared by blog-grid.tsx, chat-thread.tsx, link-unfurl.tsx, multi-chain-swap.tsx, sortable-table.tsx; each imports it. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="table-skeleton"] {
+    display: block;
+    height: 0.75rem;
+    border-radius: 4px;
+    background: var(--muted);
+    animation: caliper-skeleton-pulse 1.4s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="table-skeleton"] {
+      animation: none;
+    }
+  }
+}

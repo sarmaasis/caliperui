@@ -2,6 +2,7 @@
 
 import { useId, useState, type KeyboardEvent } from "react";
 import { cn } from "./lib/cn";
+import "./shared/styles-5.css";
 import "./rating.css";
 
 const STAR = "M12 2.6l2.83 5.9 6.47.84-4.74 4.5 1.2 6.43L12 17.17l-5.76 3.1 1.2-6.43-4.74-4.5 6.47-.84z";

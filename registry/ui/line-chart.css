@@ -2,10 +2,15 @@
 @layer theme, base, components, utilities;
 
 @layer components {
-  [data-slot="chart-line"] {
+  [data-slot="chart-line"],
+  [data-slot="chart-wash"] {
     transition:
       d var(--duration-travel) var(--ease-showcase),
       opacity var(--duration-normal) var(--ease-out);
+  }
+  [data-slot="chart-wash"] { opacity: 0.1; }
+  [data-slot="line-chart"][data-visible="true"] [data-slot="chart-wash"] {
+    animation: caliper-chart-fade var(--duration-showcase) var(--ease-out);
   }
   [data-slot="line-chart"][data-visible="true"] [data-slot="chart-line"] {
     animation: caliper-chart-draw var(--duration-showcase) var(--ease-showcase);

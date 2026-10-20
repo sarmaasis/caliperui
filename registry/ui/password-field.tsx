@@ -5,6 +5,7 @@ import { useId, useState, type ComponentProps } from "react";
 import { Input } from "./input";
 import { Label } from "./label";
 import { cn } from "./lib/cn";
+import "./shared/chip-option.css";
 import "./password-field.css";
 
 export function PasswordField({
@@ -60,6 +61,7 @@ export function PasswordField({
           }}
         />
         <button
+          data-slot="password-toggle"
           type="button"
           aria-pressed={visible}
           aria-label={visible ? hide : show}

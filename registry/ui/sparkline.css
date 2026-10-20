@@ -2,10 +2,10 @@
 @layer theme, base, components, utilities;
 
 @layer components {
+  /* Drawn left to right by a clip, not a dash: with a non-scaling stroke Chrome ignores pathLength, so a dash pattern
+     would leave a wide sparkline broken into segments. */
   [data-slot="sparkline-line"] {
-    stroke-dasharray: 100;
-    stroke-dashoffset: 100;
-    animation: caliper-sparkline var(--duration-deliberate) var(--ease-out) forwards;
+    animation: caliper-sparkline var(--duration-deliberate) var(--ease-out) both;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -17,7 +17,10 @@
 }
 
 @keyframes caliper-sparkline {
+  from {
+    clip-path: inset(-10% 100% -10% 0);
+  }
   to {
-    stroke-dashoffset: 0;
+    clip-path: inset(-10% 0 -10% 0);
   }
 }

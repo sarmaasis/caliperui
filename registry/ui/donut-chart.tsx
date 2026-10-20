@@ -13,6 +13,9 @@ import {
 import { cn } from "./lib/cn";
 import "./shared/styles.css";
 import "./donut-chart.css";
+/** Series colour by position; the grouped "Other" slice takes the neutral that closes the palette. */
+const colorOf = (id: string, index: number) => (id === "__other" ? "var(--chart-6)" : chartColor(index));
+
 export function DonutChart({
   label,
   data,
@@ -78,10 +81,10 @@ export function DonutChart({
               <circle
                 cx="100"
                 cy="100"
-                r="78"
+                r="76"
                 fill="none"
                 stroke="var(--muted)"
-                strokeWidth="20"
+                strokeWidth="24"
               />
               {parts.map((item, index) => {
                 const share =
@@ -96,12 +99,12 @@ export function DonutChart({
                     data-slot="donut-segment"
                     cx="100"
                     cy="100"
-                    r="78"
+                    r="76"
                     fill="none"
-                    stroke={item.color ?? chartColor(index)}
-                    strokeWidth={active?.id === item.id ? 24 : 20}
+                    stroke={item.color ?? colorOf(item.id, index)}
+                    strokeWidth={active?.id === item.id ? 28 : 24}
                     pathLength="100"
-                    strokeDasharray={`${Math.max(0, share - 0.7)} ${100 - Math.max(0, share - 0.7)}`}
+                    strokeDasharray={`${Math.max(0, share - 1.2)} ${100 - Math.max(0, share - 1.2)}`}
                     strokeDashoffset={-offset}
                     style={{
                       opacity: active && active.id !== item.id ? 0.35 : 1,
@@ -172,12 +175,12 @@ export function DonutChart({
                   onBlur={() => setPreview(null)}
                   onPointerEnter={() => setPreview(item.id)}
                   onPointerLeave={() => setPreview(null)}
-                  className="flex min-h-11 min-w-0 flex-1 items-center gap-2 rounded-control px-2 text-left text-xs outline-none hover:bg-muted focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-ring"
+                  className="flex min-h-11 min-w-0 flex-1 items-center gap-2 rounded-control px-2 text-left text-xs outline-none hover:bg-muted active:bg-[var(--raised-press)] focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-ring"
                 >
                   <span
                     aria-hidden="true"
                     className="size-2 shrink-0 rounded-full"
-                    style={{ background: item.color ?? chartColor(index) }}
+                    style={{ background: item.color ?? colorOf(item.id, index) }}
                   />
                   <span className="min-w-0 flex-1 truncate">{item.label}</span>
                   <strong className="font-medium tabular-nums">

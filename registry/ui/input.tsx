@@ -2,6 +2,7 @@ import type { ComponentProps, ReactNode } from "react";
 import { cn } from "./lib/cn";
 import "./shared/input.css";
 import "./shared/input-2.css";
+import "./shared/input-group.css";
 import "./input.css";
 
 const fieldText =

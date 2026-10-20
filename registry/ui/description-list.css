@@ -19,7 +19,7 @@
   }
   [data-slot="description-value"] { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; width: 100%; min-width: 0; }
   [data-slot="description-row"] dd > [data-slot="description-edit"] { margin-top: -6px; }
-  [data-slot="description-value"] [data-mono] { font-family: var(--font-mono, ui-monospace, monospace); font-size: 13px; font-variant-numeric: tabular-nums; }
+  [data-slot="description-value"] [data-mono] { font-size: 13px; font-variant-numeric: tabular-nums; }
   [data-slot="description-value"] [data-empty] { color: var(--muted-foreground); }
   [data-slot="description-actions"] { display: inline-flex; flex: none; gap: 2px; margin-block: -6px; opacity: 0; transition: opacity var(--duration-fast) var(--ease-out); }
   [data-slot="description-row"]:is(:hover, :focus-within) [data-slot="description-actions"] { opacity: 1; }

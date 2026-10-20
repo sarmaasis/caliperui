@@ -28,7 +28,7 @@
     transition: transform 380ms var(--ease-settle);
   }
   [data-slot="hold-countdown"] {
-    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
     font-size: 12px;
     font-variant-numeric: tabular-nums;
     opacity: 0.8;

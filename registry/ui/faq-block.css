@@ -1,0 +1,22 @@
+/* faq-block.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* FAQ answers open in place; the marker turns. */
+  [data-slot="faq-marker"] {
+    position: relative; display: inline-grid; place-items: center; flex: none;
+    width: 32px; height: 32px; border-radius: 999px;
+    box-shadow: inset 0 0 0 1px var(--k-line-strong);
+    transition: rotate var(--duration-deliberate) var(--ease-settle), background-color var(--duration-fast) var(--ease-out);
+  }
+  [data-slot="faq-marker"]::before, [data-slot="faq-marker"]::after { content: ""; position: absolute; width: 12px; height: 1.5px; border-radius: 1px; background: currentColor; }
+  [data-slot="faq-marker"]::after { rotate: 90deg; transition: rotate var(--duration-deliberate) var(--ease-settle); }
+  [aria-expanded="true"] > [data-slot="faq-marker"] { background: var(--k-ink); color: var(--k-bg); box-shadow: none; }
+  [aria-expanded="true"] > [data-slot="faq-marker"]::after { rotate: 0deg; }
+  [data-slot="faq-answer"]:not([hidden]) { animation: caliper-faq-open var(--duration-deliberate) var(--ease-out); }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="faq-answer"]:not([hidden]) { animation: none; }
+    [data-slot="faq-marker"], [data-slot="faq-marker"]::after { transition: none; }
+  }
+}

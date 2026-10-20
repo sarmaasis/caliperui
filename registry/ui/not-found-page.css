@@ -1,0 +1,30 @@
+/* not-found-page.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="error-code"] {
+    margin: 0;
+    font-size: clamp(5rem, 18vw, 8rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: color-mix(in srgb, var(--foreground) 12%, transparent);
+    font-variant-numeric: tabular-nums;
+  }
+  [data-slot="suggestion"] {
+    display: grid;
+    gap: 0.125rem;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+    transition: background-color var(--duration-fast) var(--ease-out);
+  }
+  [data-slot="suggestion"]:hover {
+    background: var(--muted);
+  }
+  [data-slot="suggestion"]:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: -2px;
+  }
+}

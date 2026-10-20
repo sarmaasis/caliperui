@@ -5,6 +5,7 @@ import { useEffect, useLayoutEffect, useRef, useState, type KeyboardEvent } from
 import { cn } from "./lib/cn";
 import { RollingValue } from "./rolling-value";
 import "./shared/calendar-day.css";
+import "./shared/chip-option.css";
 import "./calendar.css";
 
 const weekdays = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];

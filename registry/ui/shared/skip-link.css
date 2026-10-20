@@ -1,0 +1,30 @@
+/* Shared by changelog-template.tsx, docs-template.tsx, landing-template.tsx, pricing-template.tsx, site-header.tsx, template-page.tsx; each imports it. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="skip-link"] {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 50;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-control);
+    background: var(--foreground);
+    color: var(--background);
+    font-size: 0.875rem;
+    transform: translateY(-200%);
+  }
+  [data-slot="skip-link"]:focus {
+    transform: none;
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  [data-slot="skip-link"] {
+    position: absolute; left: 12px; top: -48px; z-index: 50; padding: 8px 12px; border-radius: 12px;
+    background: var(--foreground); color: var(--background); font-size: 13px; text-decoration: none;
+  }
+  [data-slot="skip-link"]:focus-visible { top: 12px; outline: 2px solid var(--ring); outline-offset: 2px; }
+  @media print {
+    [data-slot="skip-link"] { display: none !important; }
+  }
+}

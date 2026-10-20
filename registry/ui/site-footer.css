@@ -1,0 +1,43 @@
+/* site-footer.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="footer-link"] {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    text-decoration: none;
+    border-radius: 3px;
+    outline: none;
+    transition: color var(--duration-fast) var(--ease-out);
+  }
+  [data-slot="footer-link"]:hover {
+    color: var(--foreground);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  [data-slot="footer-link"]:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  [data-slot="footer-social"] {
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: var(--radius-control);
+    color: var(--muted-foreground);
+    outline: none;
+    transition: background-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
+  }
+  [data-slot="footer-social"]:hover {
+    background: var(--muted);
+    color: var(--foreground);
+  }
+  [data-slot="footer-social"]:focus-visible {
+    outline: 2px solid var(--ring);
+  }
+  [data-slot="footer-social"] svg {
+    width: 1.0625rem;
+    height: 1.0625rem;
+  }
+}

@@ -1,0 +1,24 @@
+/* Shared by blog-grid.tsx, changelog-feed.tsx, prediction-market.tsx, prompt-input.tsx; each imports it. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="prompt-suggestion"] {
+    padding: 0.375rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 0.8125rem;
+    color: var(--muted-foreground);
+    outline: none;
+    transition:
+      background-color var(--duration-fast) var(--ease-out),
+      color var(--duration-fast) var(--ease-out);
+  }
+  [data-slot="prompt-suggestion"]:hover:not(:disabled) {
+    background: var(--muted);
+    color: var(--foreground);
+  }
+  [data-slot="prompt-suggestion"]:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}

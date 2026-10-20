@@ -4,6 +4,7 @@ import { CircleCheck } from "lucide-react";
 import { useEffect, useRef, useState, type ComponentProps } from "react";
 import { cn } from "./lib/cn";
 import { tokenMs } from "./lib/motion-tokens";
+import "./shared/progress-fill.css";
 import "./progress.css";
 
 function settle(amount: number) {
@@ -81,7 +82,7 @@ export function Progress({
             <span />
           )}
           {showValue && (
-            <p className="flex shrink-0 items-center gap-1 font-mono text-xs tabular-nums text-muted-foreground">
+            <p className="flex shrink-0 items-center gap-1 text-xs tabular-nums text-muted-foreground">
               <span>{percent}%</span>
               {complete && (
                 <CircleCheck

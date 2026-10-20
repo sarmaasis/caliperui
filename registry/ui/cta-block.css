@@ -1,0 +1,21 @@
+/* cta-block.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-slot="block-dots"] {
+    position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background-image: radial-gradient(var(--k-stage-dot) 1px, transparent 1.5px);
+    background-size: 22px 22px;
+    mask-image: linear-gradient(to bottom, #000, transparent 85%);
+  }
+
+  /* The closing band inverts its actions. */
+  [data-slot="cta-band"] [data-slot="block-dots"] { --k-stage-dot: rgb(255 255 255 / 14%); }
+  [data-slot="cta-band"] [data-slot="block-button"][data-kind="primary"] { background: var(--k-bg); color: var(--k-ink); }
+  [data-slot="cta-band"] [data-slot="block-button"][data-kind="secondary"] { background: transparent; color: inherit; box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 45%, transparent); }
+  @media (hover: hover) {
+    [data-slot="cta-band"] [data-slot="block-button"][data-kind="primary"]:hover { background: color-mix(in srgb, var(--k-bg) 88%, var(--k-hi)); }
+    [data-slot="cta-band"] [data-slot="block-button"][data-kind="secondary"]:hover { background: rgb(255 255 255 / 8%); box-shadow: inset 0 0 0 1px currentColor; }
+  }
+  [data-slot="cta-band"] [data-slot="block-button"]:focus-visible { outline-color: currentColor; }
+}

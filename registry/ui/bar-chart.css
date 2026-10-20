@@ -3,7 +3,8 @@
 
 @layer components {
   [data-slot="bar"] {
-    transition: background-color var(--duration-fast) var(--ease-out);
+    /* A new dataset moves the bars to their new heights instead of jumping. */
+    transition: background-color var(--duration-fast) var(--ease-out), height var(--duration-travel) var(--ease-out);
   }
 
   @media (prefers-reduced-motion: reduce) {

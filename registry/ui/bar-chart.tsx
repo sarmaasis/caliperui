@@ -1,5 +1,6 @@
-import type { ComponentProps } from "react";
+import type { ComponentProps, CSSProperties } from "react";
 import { cn } from "./lib/cn";
+import "./shared/bar-chart.css";
 import "./bar-chart.css";
 
 export type BarChartProps = Omit<ComponentProps<"div">, "children"> & {
@@ -28,11 +29,12 @@ export function BarChart({
           data-slot="bar"
           className={cn(
             "min-h-1 flex-1 rounded-t-control",
+            // Data colour, not ink: the latest bar in full, the rest as a quiet run of the same series.
             index === values.length - 1
-              ? "bg-brand"
-              : "bg-brand/30 hover:bg-brand/50",
+              ? "bg-[var(--chart-1)]"
+              : "bg-[color-mix(in_srgb,var(--chart-1)_32%,transparent)] hover:bg-[color-mix(in_srgb,var(--chart-1)_55%,transparent)]",
           )}
-          style={{ height: `${Math.max(8, (value / peak) * 100)}%` }}
+          style={{ height: `${Math.max(8, (value / peak) * 100)}%`, "--i": index } as CSSProperties}
         />
       ))}
     </div>

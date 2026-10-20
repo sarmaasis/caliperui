@@ -1,0 +1,8 @@
+/* Shared by not-found-compass.tsx, rating.tsx; each imports it. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-half="north"] { fill: var(--foreground); }
+  [data-half="north-shade"] { fill: color-mix(in oklab, var(--foreground) 70%, var(--background)); }
+  [data-half="south"] { fill: var(--border); }
+}

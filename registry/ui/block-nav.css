@@ -1,0 +1,31 @@
+/* block-nav.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* ── Site nav (shared by page templates) ─────────── */
+  [data-slot="block-nav-row"] {
+    display: flex; align-items: center; gap: 28px;
+    max-inline-size: 1240px; height: 68px; margin-inline: auto;
+    padding-inline: clamp(20px, 5cqi, 64px);
+  }
+  [data-slot="block-nav-brand"] {
+    font-family: var(--k-display-font); font-weight: var(--k-display-weight); font-stretch: var(--k-display-stretch);
+    font-variation-settings: "wdth" var(--k-display-wdth, 100);
+    text-transform: var(--k-display-case); letter-spacing: calc(var(--k-display-track) / 2);
+    font-size: 22px; line-height: 1; color: var(--k-ink); text-decoration: none; white-space: nowrap;
+  }
+  [data-slot="block-nav-brand"]:focus-visible, [data-slot="block-nav-link"]:focus-visible { outline: 2px solid var(--k-focus); outline-offset: 4px; border-radius: 4px; }
+  [data-slot="block-nav-list"] { display: flex; gap: 4px; margin: 0; padding: 0; list-style: none; }
+  [data-slot="block-nav-link"] {
+    display: inline-flex; align-items: center; height: 36px; padding: 0 12px; border-radius: var(--k-btn-radius);
+    font-size: 14px; color: var(--k-muted); text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-out), background-color var(--duration-fast) var(--ease-out);
+  }
+  [data-slot="block-nav-link"]:hover, [data-slot="block-nav-link"][aria-current="page"] { color: var(--k-ink); background: color-mix(in srgb, var(--k-ink) 6%, transparent); }
+  [data-slot="site-header"] [data-slot="block-button"] { min-height: 40px; padding-inline: 16px; font-size: 14px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="block-nav-link"] { transition: none; }
+  }
+  [data-slot="site-menu"] [data-slot="block-button"] { justify-content: center; }
+}

@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
 import { createPortal } from "react-dom";
+import { Avatar } from "./avatar";
 import { cn } from "./lib/cn";
 import "./shared/hover-card.css";
 
@@ -107,11 +108,10 @@ export function HoverCardProfile({
   bio?: string;
   stats?: readonly { label: string; value: string | number }[];
 }) {
-  const initials = name.split(" ").map((part) => part[0]).slice(0, 2).join("");
   return (
     <span className="grid gap-2">
       <span className="flex items-center gap-2">
-        <span className="grid size-9 place-items-center rounded-surface bg-muted text-xs font-medium">{initials}</span>
+        <Avatar name={name} alt="" className="size-9" />
         <span>
           <span className="block font-medium">{name}</span>
           {role ? <span className="block text-xs text-muted-foreground">{role}</span> : null}

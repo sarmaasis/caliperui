@@ -1,0 +1,12 @@
+/* Shared by bar-chart.tsx, range-histogram.tsx; each imports it. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  @media (prefers-reduced-motion: no-preference) {
+    :is([data-slot="bar-chart"] [data-slot="bar"], [data-slot="range-histogram-bars"] > span) {
+      transform-origin: 50% 100%;
+      animation: caliper-chart-rise var(--duration-showcase) var(--ease-showcase) backwards;
+      animation-delay: calc(var(--i, 0) * 28ms);
+    }
+  }
+}

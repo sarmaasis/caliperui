@@ -6,6 +6,7 @@ import { useHoldStep } from "./lib/hold-step";
 import { Label } from "./label";
 import { cn } from "./lib/cn";
 import { RollingValue } from "./rolling-value";
+import "./shared/chip-option.css";
 import "./number-field.css";
 
 function places(step: number) {
@@ -162,7 +163,7 @@ export function NumberField({
         data-slot="number-field"
         data-strain={strain ?? undefined}
         data-invalid={outside || undefined}
-        className="inline-flex h-[var(--control-height)] items-stretch overflow-hidden rounded-overlay border border-muted-foreground/75 bg-background focus-within:border-ring focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 focus-within:ring-offset-background data-[invalid]:border-warning"
+        className="inline-flex h-[var(--control-height)] items-stretch overflow-hidden rounded-overlay bg-[var(--field)] shadow-[var(--shadow-field)] hover:shadow-[var(--shadow-field-hover)] focus-within:shadow-[var(--shadow-field-focus)] data-[invalid]:shadow-[0_0_0_2px_var(--warning)]"
       >
         <button
           type="button"

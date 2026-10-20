@@ -1,0 +1,21 @@
+/* contact-template.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Contact */
+  [data-slot="contact-layout"] { display: grid; gap: 40px; }
+  @container (min-width: 960px) { [data-slot="contact-layout"] { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 72px; align-items: start; } }
+  [data-slot="contact-channels"] { display: grid; margin: 12px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--k-line-strong); }
+  [data-slot="contact-channels"] li { display: grid; gap: 4px; padding-block: 16px; border-bottom: 1px solid var(--k-line); }
+  [data-slot="contact-card"] { position: relative; padding: clamp(20px, 3.4cqi, 36px); border-radius: var(--k-radius-xl); background: var(--k-surface); box-shadow: 0 0 0 1px var(--k-line), var(--k-shadow); }
+  [data-slot="contact-pair"] { display: grid; gap: 16px; }
+  @container (min-width: 560px) { [data-slot="contact-pair"] { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  [data-slot="contact-offices"] { display: grid; gap: 20px; margin: 0; padding: 0; list-style: none; }
+  @container (min-width: 760px) { [data-slot="contact-offices"] { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); } }
+  [data-slot="contact-offices"] li { display: grid; align-content: start; gap: 8px; padding: 22px; border-radius: var(--k-radius-lg); background: var(--k-bg); box-shadow: 0 0 0 1px var(--k-line); }
+  [data-slot="contact-map"] {
+    display: grid; place-items: center; height: 112px; margin: -8px -8px 6px; border-radius: var(--k-radius);
+    background: radial-gradient(circle, var(--k-stage-dot) 1px, transparent 1.2px) 0 0 / 12px 12px, var(--k-stage); color: var(--k-hi);
+  }
+  [data-slot="contact-map"] svg { width: 26px; height: 26px; fill: var(--k-bg); }
+}

@@ -41,7 +41,7 @@
   [data-slot="tabs-count"] {
     padding: 0 5px;
     border-radius: 4px;
-    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
     font-size: 12px;
     line-height: 16px;
     color: var(--muted-foreground);

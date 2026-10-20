@@ -203,6 +203,12 @@ export function LineChart({
                     }
                   />
                 )}
+                {series[0] && !hidden.includes(series[0].id) && (() => {
+                  // A soft wash under the lead series gives the chart weight without a second colour.
+                  const line = pathFor(data, series[0].id, min, max);
+                  const d = line ? `${line}L600,210L0,210Z` : "";
+                  return <path data-slot="chart-wash" d={d} style={{ d: `path("${d}")` } as CSSProperties} fill={series[0].color ?? chartColor(0)} stroke="none" aria-hidden="true" />;
+                })()}
                 {series.map((item, i) => {
                   const d = pathFor(
                     data,

@@ -47,7 +47,7 @@ export function Sidebar({
   return (
     <aside data-slot="sidebar" data-collapsed={closed || undefined} aria-label={label} className={cn("flex h-72 flex-col overflow-hidden border-r border-border bg-background", className)}>
       <div className="flex h-12 items-center gap-2 px-2">
-        <button type="button" aria-pressed={closed} aria-label={closed ? "Expand sidebar" : "Collapse sidebar"} className="grid size-9 shrink-0 place-items-center rounded-surface outline-none hover:bg-muted focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-ring" onClick={toggle}>
+        <button type="button" aria-pressed={closed} aria-label={closed ? "Expand sidebar" : "Collapse sidebar"} className="grid size-9 shrink-0 place-items-center rounded-surface outline-none hover:bg-muted active:bg-[var(--raised-press)] focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-ring" onClick={toggle}>
           <PanelLeft aria-hidden="true" className="size-4" />
         </button>
         <span data-slot="sidebar-label"><span className="truncate text-sm font-medium">{label}</span></span>
@@ -59,7 +59,7 @@ export function Sidebar({
             type="button"
             aria-current={item.id === current ? "page" : undefined}
             title={item.label}
-            className="flex h-9 items-center gap-2 rounded-surface px-2 text-sm outline-none hover:bg-muted focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-ring aria-[current=page]:bg-selected"
+            className="flex h-9 items-center gap-2 rounded-surface px-2 text-sm outline-none hover:bg-muted active:bg-[var(--raised-press)] focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-ring aria-[current=page]:bg-selected"
             onClick={() => select(item.id)}
           >
             <span className="grid size-5 shrink-0 place-items-center">{item.icon}</span>

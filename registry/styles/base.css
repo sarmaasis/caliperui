@@ -73,6 +73,12 @@ html[data-theme-reveal="wipe"]::view-transition-new(root) {
     min-width: 0;
     container-type: inline-size;
   }
+  /* A bare text box with no focus style of its own (a hand-built input with a border) gets one ring drawn over its edge.
+     Zero specificity, so any component rule or outline-none utility wins. */
+  :where(input:not([type="checkbox"], [type="radio"], [type="range"], [type="color"], [type="file"], [type="button"], [type="submit"], [type="reset"], [type="image"]), textarea):where(:focus-visible) {
+    outline: 2px solid var(--ring);
+    outline-offset: -1px;
+  }
   @keyframes caliper-select-in {
     from {
       opacity: 0;
@@ -354,4 +360,8 @@ html[data-theme-reveal="wipe"]::view-transition-new(root) {
   @keyframes caliper-status-in { from { opacity: 0; translate: 0 3px; } }
   @keyframes caliper-status-in { from { opacity: 0; translate: 0 4px; } }
   @keyframes caliper-pill-open { from { opacity: 0; transform: translateY(6px) scale(0.97); } }
+  @keyframes caliper-chart-rise { from { transform: scaleY(0); } }
+  @keyframes caliper-chart-sweep { from { width: 0; } }
+  @keyframes caliper-chart-arc { from { stroke-dashoffset: var(--len); } }
+  @keyframes caliper-chart-fade { from { opacity: 0; } }
 }

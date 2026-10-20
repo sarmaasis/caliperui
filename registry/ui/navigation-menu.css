@@ -52,6 +52,11 @@
   @media (prefers-reduced-motion: reduce) {
     [data-slot="navigation-viewport"], [data-slot="navigation-content"] { animation: none !important; }
   }
+  /* Wide rows (accordion, sidebar, donut legend) set their pressed fill with an active: utility next to their hover:
+     utility, since utilities outrank this layer. The navigation menu trigger has none, so it is set here. */
+  [data-slot="navigation-item-control"]:active:not(:disabled):not([aria-disabled="true"]) {
+    background-color: var(--raised-press);
+  }
 }
 @keyframes caliper-nav-panel-from-start { from { opacity: 0; translate: -16px 0; } to { opacity: 1; translate: 0 0; } }
 @keyframes caliper-nav-panel-from-end { from { opacity: 0; translate: 16px 0; } to { opacity: 1; translate: 0 0; } }

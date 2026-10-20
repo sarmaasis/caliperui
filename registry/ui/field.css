@@ -5,7 +5,7 @@
   [data-slot="field-count"] {
     margin-left: auto;
     color: var(--muted-foreground);
-    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
     font-size: 12px;
     font-variant-numeric: tabular-nums;
   }

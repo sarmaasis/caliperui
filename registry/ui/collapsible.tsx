@@ -31,7 +31,7 @@ export function Collapsible({
         aria-expanded={shown}
         aria-controls={panelId}
         data-slot="accordion-trigger"
-        className="flex min-h-11 w-full items-center justify-between gap-3 text-left text-sm font-medium outline-none focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+        className="flex min-h-11 w-full items-center justify-between gap-3 text-left text-sm font-medium outline-none active:opacity-70 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
         onClick={() => {
           const next = !shown;
           if (open == null) setLocal(next);

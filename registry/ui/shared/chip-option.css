@@ -1,0 +1,13 @@
+/* Shared by calendar.tsx, chart-parts.tsx, chip-group.tsx, data-table.tsx, number-field.tsx, password-field.tsx, stepper.tsx; each imports it. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Depth sets 2 and 3 end */
+
+  /* Press feedback (2026-10-20, motion audit): every pressable control answers a press. Compact controls take the
+     system press scale, as Button does; wide rows deepen their fill instead, since scaling a full-width row reads as a
+     jump. Disabled controls stay still. */
+  :is([data-slot="chip-option"], [data-slot="number-field"] button, [data-slot="password-toggle"], [data-slot="calendar"] button, [data-slot="chart-legend-item"], [data-slot="sort-button"], [data-slot="stepper"] button):active:not(:disabled):not([aria-disabled="true"]) {
+    scale: var(--motion-press-scale);
+  }
+}

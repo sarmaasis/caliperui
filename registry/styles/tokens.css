@@ -7,13 +7,14 @@
 :root,
 [data-theme="light"] {
   color-scheme: light;
-  /* Series follow the accent: it, a neutral, then tints of each, so one pick recolours every chart. */
-  --chart-1: var(--accent-text);
-  --chart-2: color-mix(in srgb, var(--foreground) 58%, var(--background));
-  --chart-3: color-mix(in srgb, var(--accent-text) 70%, var(--background));
-  --chart-4: color-mix(in srgb, var(--foreground) 44%, var(--background));
-  --chart-5: color-mix(in srgb, var(--accent-text) 48%, var(--background));
-  --chart-6: color-mix(in srgb, var(--accent-text) 72%, var(--foreground));
+  /* Series: the accent leads, then violet, amber, teal and rose at one OKLCH lightness and chroma, so no series shouts
+     and every mark stands about 3:1 off the grounds; a neutral grey closes the set for "Other". */
+  --chart-1: var(--chart-accent);
+  --chart-2: oklch(0.56 0.19 295);
+  --chart-3: oklch(0.64 0.17 55);
+  --chart-4: oklch(0.6 0.13 170);
+  --chart-5: oklch(0.6 0.2 355);
+  --chart-6: oklch(0.62 0 0);
   /* Neutrals: page, stage, tile, field. */
   --background: #f4f4f5;
   --foreground: #0a0a0b;
@@ -31,16 +32,20 @@
   --knob: #ffffff;
   --border: rgb(0 0 0 / 8%);
   --border-strong: #8a8a94;
-  /* The customer's accent (HeroUI blue by default). Change --accent, --accent-hover, --accent-press and --accent-text
-     (here and in the dark block) together. --accent is a fill: white (--accent-foreground) on it reads at 4.5:1 or better and
-     it stays 3:1 off the dark and light grounds, so the checked marks, switch thumbs and button text are always white.
-     --accent-text is the same hue moved darker (light) or lighter (dark) until it reads at 4.6:1 as text on every ground. */
-  --accent: #006fee;
+  /* The customer's accent: neutral by default (ink here, near-white in the dark block), so the library is monochrome until
+     a hue is picked. Change the seven --accent* values and --chart-accent here and in the dark block together (the docs'
+     Customize panel copies a ready block). Light: --accent is a deep fill with white text at 4.5:1. Dark: --accent is a
+     lighter tone of the hue with dark text at 4.5:1. --accent-text reads at 4.6:1 as text on every ground. --chart-accent
+     leads the chart series (a calm blue while the accent is neutral, so data still reads as data). */
+  --accent: #18181b;
   --accent-foreground: #ffffff;
-  --accent-hover: #0064d6;
-  --accent-press: #005bc3;
-  --accent-text: #0058bf;
-  --accent-soft: color-mix(in srgb, var(--accent) 14%, transparent);
+  --accent-hover: #2a2a2e;
+  --accent-press: #000000;
+  --accent-text: #27272a;
+  --accent-soft: rgb(24 24 27 / 8%);
+  --chart-accent: #2f6fdb;
+  /* The accent's deep tone (its white-text fill) in both themes, for surfaces that always carry white: avatar orbs. */
+  --accent-deep: #4b4b52;
   /* The primary action is ink. */
   --primary: #0a0a0b;
   --primary-foreground: #ffffff;
@@ -129,29 +134,36 @@
 :root[data-theme="dark"],
 [data-theme="dark"] {
   color-scheme: dark;
-  /* Series follow the accent: it, a neutral, then tints of each, so one pick recolours every chart. */
-  --chart-1: var(--accent-text);
-  --chart-2: color-mix(in srgb, var(--foreground) 58%, var(--background));
-  --chart-3: color-mix(in srgb, var(--accent-text) 70%, var(--background));
-  --chart-4: color-mix(in srgb, var(--foreground) 44%, var(--background));
-  --chart-5: color-mix(in srgb, var(--accent-text) 48%, var(--background));
-  --chart-6: color-mix(in srgb, var(--accent-text) 72%, var(--foreground));
-  --background: #000000;
-  --foreground: #fafafa;
-  --surface: #0b0b0c;
-  --elevated: #141416;
-  --elevated-glass: rgb(20 20 22 / 97%);
+  /* Series: the same hues a step lighter for the dark grounds. */
+  --chart-1: var(--chart-accent);
+  --chart-2: oklch(0.7 0.16 295);
+  --chart-3: oklch(0.75 0.15 60);
+  --chart-4: oklch(0.72 0.12 170);
+  --chart-5: oklch(0.72 0.16 355);
+  --chart-6: oklch(0.6 0 0);
+  /* A soft near-black in pure grey (no tint): page, stage, tile, field, each a step lighter. */
+  --background: #161616;
+  --foreground: #f5f5f5;
+  --surface: #1b1b1b;
+  --elevated: #212121;
+  --elevated-glass: rgb(33 33 33 / 97%);
   --edge-light: rgb(255 255 255 / 16%);
   --edge-glow: rgb(255 255 255 / 8%);
-  --muted: #1e1e21;
-  --muted-foreground: #a1a1aa;
-  --foreground-2: #6e6e76;
-  --faint: #7f7f88;
-  --knob: #3a3a40;
+  --muted: #2a2a2a;
+  --muted-foreground: #a3a3a3;
+  --foreground-2: #737373;
+  --faint: #8a8a8a;
+  --knob: #444444;
   --border: rgb(255 255 255 / 8%);
-  --border-strong: #71717b;
-  --accent-text: #60a0fe;
-  --accent-soft: color-mix(in srgb, var(--accent) 20%, transparent);
+  --border-strong: #7a7a7a;
+  --accent: #ececec;
+  --accent-foreground: #161616;
+  --accent-hover: #ffffff;
+  --accent-press: #d4d4d4;
+  --accent-text: #e4e4e4;
+  --accent-soft: rgb(236 236 236 / 12%);
+  --chart-accent: #7aa5f5;
+  --accent-deep: #4b4b52;
   --primary: #fafafa;
   --primary-foreground: #0a0a0b;
   --primary-hover: #e4e4e7;
@@ -165,19 +177,19 @@
   --warning: #f5a524;
   --warning-subtle: #3d2e19;
   --destructive: #ff5c8a;
-  --destructive-foreground: #0b0b0c;
+  --destructive-foreground: #161616;
   --destructive-subtle: #3c1423;
   --danger: #ff5c8a;
-  --danger-foreground: #0b0b0c;
+  --danger-foreground: #161616;
   --overlay: rgb(0 0 0 / 55%);
   --shadow-overlay: 0 12px 40px rgb(0 0 0 / 40%);
   --shadow-feedback: 0 4px 12px rgb(0 0 0 / 24%);
-  --raised: #1e1e21;
-  --raised-hover: #28282c;
-  --raised-press: #18181b;
-  --sunken: #0b0b0c;
+  --raised: #2a2a2a;
+  --raised-hover: #333333;
+  --raised-press: #1f1f1f;
+  --sunken: #1b1b1b;
   --shadow-plate: 0 1px 3px rgb(0 0 0 / 40%);
-  --field: #1e1e21;
+  --field: #2a2a2a;
   /* Derived tokens are restated so a dark region inside a light page resolves them against its own values. */
   --brand-subtle: var(--accent-soft);
   --ring: var(--accent-text);

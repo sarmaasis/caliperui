@@ -3,6 +3,7 @@
 import { Check } from "lucide-react";
 import { type KeyboardEvent } from "react";
 import { cn } from "./lib/cn";
+import "./shared/chip-option.css";
 import "./stepper.css";
 
 export type Step = {

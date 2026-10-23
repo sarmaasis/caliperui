@@ -118,7 +118,7 @@ export function SegmentedControl({
             aria-label={option.icon ? option.label : undefined}
             title={option.icon ? option.label : undefined}
             onClick={() => onValueChange(option.value)}
-            className="relative z-10 inline-flex shrink-0 h-[calc(var(--control-height)-6px)] min-w-10 items-center justify-center rounded-[9px] px-3 text-[13px] font-medium text-muted-foreground outline-none transition-colors hover:text-foreground focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-ring aria-checked:text-accent-foreground [&_svg]:size-4 [&_svg]:shrink-0"
+            className="relative z-10 inline-flex shrink-0 h-[calc(var(--control-height)-6px)] min-w-10 items-center justify-center rounded-[calc(var(--radius-touch)-3px)] px-3 text-[13px] font-medium text-muted-foreground outline-none transition-colors hover:text-foreground focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-ring aria-checked:text-accent-foreground [&_svg]:size-4 [&_svg]:shrink-0"
           >
             {option.icon ?? option.label}
           </button>

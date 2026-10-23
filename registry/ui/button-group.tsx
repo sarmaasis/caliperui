@@ -44,7 +44,7 @@ export function ButtonGroup({
       onFocus={(event) => place(event.target)}
       onBlur={(event) => rest(event.relatedTarget)}
       className={cn(
-        "relative inline-flex max-w-full items-stretch gap-0.5 rounded-touch bg-raised p-[3px] shadow-raised [&>[data-slot=button]]:h-[calc(var(--control-height)-6px)] [&>[data-slot=button]]:rounded-[9px] [&>[data-slot=button][data-size=icon]]:w-[calc(var(--control-height)-6px)]",
+        "relative inline-flex max-w-full items-stretch gap-0.5 rounded-touch bg-raised p-[3px] shadow-raised [&>[data-slot=button]]:h-[calc(var(--control-height)-6px)] [&>[data-slot=button]]:rounded-[calc(var(--radius-touch)-3px)] [&>[data-slot=button][data-size=icon]]:w-[calc(var(--control-height)-6px)]",
         className,
       )}
     >

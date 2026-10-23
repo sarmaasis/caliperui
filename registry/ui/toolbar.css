@@ -10,7 +10,7 @@
   }
   [data-slot="toolbar"] [data-slot="button"][data-size="icon"] { width: calc(var(--control-height) - 6px); }
   [data-slot="toolbar"] [data-slot="button"]:is([aria-pressed="true"], [aria-checked="true"], [data-state="open"]) {
-    --b-bg: var(--sunken); --b-bg-hover: var(--sunken); --b-bg-press: var(--sunken); --b-shadow: var(--shadow-sunken); --b-shadow-press: var(--shadow-sunken);
+    --b-bg: var(--raised-press); --b-bg-hover: var(--raised-press); --b-bg-press: var(--raised-press); --b-shadow: var(--shadow-sunken); --b-shadow-press: var(--shadow-sunken);
   }
   [data-slot="toolbar"] [data-toolbar-generic] button { height: calc(var(--control-height) - 6px); }
   [data-slot="toolbar"] [data-toolbar-unit] { display: inline-flex; flex: none; gap: 2px; }

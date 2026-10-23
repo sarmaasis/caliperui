@@ -143,9 +143,9 @@
   /* Toggle: pressed is recessed, as a toggled tool in a button group is. */
   /* Four attributes, so it wins over the group and toolbar pressed rules in any stylesheet order. */
   [data-slot="button"][data-variant="ghost"][data-toggle][aria-pressed="true"] {
-    --b-bg: var(--sunken);
-    --b-bg-hover: var(--sunken);
-    --b-bg-press: var(--sunken);
+    --b-bg: var(--raised-press);
+    --b-bg-hover: var(--raised-press);
+    --b-bg-press: var(--raised-press);
     --b-fg: var(--foreground);
     --b-shadow: var(--shadow-sunken);
     --b-shadow-press: var(--shadow-sunken);

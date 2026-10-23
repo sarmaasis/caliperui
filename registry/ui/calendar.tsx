@@ -184,7 +184,7 @@ export function Calendar({
   }, [selected, rangeStart, rangeEnd, viewYear, viewMonth, cells.length]);
 
   return (
-    <div data-slot="calendar" className={cn("w-[17.5rem]", className)}>
+    <div data-slot="calendar" className={cn("w-[17.5rem] max-w-full", className)}>
       <div className="mb-2 flex items-center justify-between gap-2">
         <button type="button" aria-label="Previous month" aria-disabled={prevDisabled || undefined} disabled={prevDisabled} className="grid size-8 place-items-center rounded-control outline-none hover:bg-muted focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-ring disabled:opacity-35" onClick={() => { const next = shiftMonth(viewYear, viewMonth, -1); setMonth(next.year, next.month); }}>
           <ChevronLeft aria-hidden="true" className="size-4" />
@@ -244,7 +244,7 @@ export function Calendar({
                 aria-disabled={isDisabled || undefined}
                 aria-label={[formatISODate(cell.iso), mark, reason && `unavailable: ${reason}`].filter(Boolean).join(", ")}
                 data-mark={mark ? true : undefined}
-                className="relative z-10 grid size-9 place-items-center text-sm outline-none focus-visible:outline-solid focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring aria-disabled:opacity-35 data-[outside=true]:text-muted-foreground data-[selected=true]:text-accent-foreground"
+                className="relative z-10 grid aspect-square w-full max-w-9 place-items-center text-sm outline-none focus-visible:outline-solid focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring aria-disabled:opacity-35 data-[outside=true]:text-muted-foreground data-[selected=true]:text-accent-foreground"
                 onMouseEnter={() => onHover?.(cell.iso)}
                 onClick={() => {
                   if (!isDisabled) onSelect?.(cell.iso);

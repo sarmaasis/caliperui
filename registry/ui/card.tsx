@@ -33,7 +33,7 @@ export function Card({
 }) {
   const [open, setOpen] = useState(false);
   return (
-    <article data-slot="card" className={cn("min-w-0 overflow-hidden rounded-overlay border border-border bg-background", className)}>
+    <article data-slot="card" className={cn("min-w-0 overflow-hidden rounded-overlay border border-border bg-background shadow-resting", className)}>
       {media && <div data-slot="card-media" className="aspect-video overflow-hidden bg-muted">{media}</div>}
       <div className="space-y-3 p-4">
         <div>

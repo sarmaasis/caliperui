@@ -16,7 +16,7 @@
     transform-origin: var(--radix-dropdown-menu-content-transform-origin);
   }
   [data-slot="dropdown-content"] [data-slot="glide-highlight"] {
-    border-radius: 12px;
+    border-radius: var(--radius-control);
     transition:
       transform var(--duration-fast) var(--ease-out),
       width var(--duration-fast) var(--ease-out),

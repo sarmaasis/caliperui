@@ -26,6 +26,19 @@
   [data-slot="avatar"][data-tone="3"] { --av-a: #ffd6a0; --av-b: #ffab86; }
   [data-slot="avatar"][data-tone="4"] { --av-a: #ffb4a6; --av-b: #ff9ec6; }
   [data-slot="avatar"][data-tone="5"] { --av-a: #b8c6ff; --av-b: #9fe1f0; }
+  /* Company marks (shape="square"): a solid hue from the name with white initials, 4.7:1 or better on every hue. */
+  [data-slot="avatar"][data-shape="square"] {
+    --mark-h: 255;
+    color: #ffffff;
+    background: oklch(0.52 0.15 var(--mark-h));
+    box-shadow: inset 0 0 0 1px rgb(255 255 255 / 12%);
+  }
+  [data-slot="avatar"][data-shape="square"] > span:first-child { text-shadow: none; }
+  [data-slot="avatar"][data-shape="square"][data-tone="1"] { --mark-h: 295; }
+  [data-slot="avatar"][data-shape="square"][data-tone="2"] { --mark-h: 2; }
+  [data-slot="avatar"][data-shape="square"][data-tone="3"] { --mark-h: 50; }
+  [data-slot="avatar"][data-shape="square"][data-tone="4"] { --mark-h: 150; }
+  [data-slot="avatar"][data-shape="square"][data-tone="5"] { --mark-h: 195; }
   [data-slot="avatar-presence"] {
     position: absolute;
     right: -3px;

@@ -247,7 +247,8 @@ export function ChartReadout({ children }: { children: ReactNode }) {
     <div
       data-slot="chart-readout"
       aria-hidden="true"
-      className="mt-3 min-h-11 rounded-surface bg-surface px-3 py-2 text-xs leading-5"
+      // A ruled line under the plot, not a box: the chart already sits on a surface.
+      className="mt-4 min-h-11 border-t border-border pt-3 text-xs leading-5 tabular-nums"
     >
       {children}
     </div>

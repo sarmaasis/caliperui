@@ -71,10 +71,13 @@
   --overlay: rgb(12 12 18 / 30%);
   --shadow-overlay: 0 12px 40px rgb(20 20 28 / 14%);
   --shadow-feedback: 0 4px 12px rgb(20 20 28 / 8%);
+  /* A card or raised panel at rest: a contact line and a soft fall, so it sits on the ground rather than being drawn on it. */
+  --shadow-resting: 0 1px 2px rgb(20 20 28 / 5%), 0 4px 16px -6px rgb(20 20 28 / 9%);
   --shadow-control: none;
-  --radius-control: 12px;
-  --radius-surface: 16px;
-  --radius-overlay: 20px;
+  /* Rounder and lifted (2026-10-21): controls 16, inner surfaces 20, cards and overlays 28. */
+  --radius-control: 16px;
+  --radius-surface: 20px;
+  --radius-overlay: 28px;
   --duration-instant: 0ms;
   --duration-fast: 120ms;
   --duration-normal: 180ms;
@@ -125,8 +128,13 @@
   --shadow-field-focus: 0 0 0 2px var(--ring);
   --shadow-field-invalid: 0 0 0 2px var(--danger-fill);
   --shadow-field-quiet: inset 0 0 0 1px var(--border);
+  /* Categorical tones (Badge tone): a pale wash with deep text in light; a deep wash with pale text in dark. */
+  --tone-bg-l: 0.95;
+  --tone-bg-c: 0.035;
+  --tone-fg-l: 0.46;
+  --tone-fg-c: 0.13;
   --radius-mark: 8px;
-  --radius-button: 12px;
+  --radius-button: 16px;
   --radius-touch: 16px;
   --motion-press-travel: 1px;
 }
@@ -184,11 +192,16 @@
   --overlay: rgb(0 0 0 / 55%);
   --shadow-overlay: 0 12px 40px rgb(0 0 0 / 40%);
   --shadow-feedback: 0 4px 12px rgb(0 0 0 / 24%);
+  --shadow-resting: 0 1px 2px rgb(0 0 0 / 28%), 0 6px 18px -8px rgb(0 0 0 / 50%);
   --raised: #2a2a2a;
   --raised-hover: #333333;
   --raised-press: #1f1f1f;
   --sunken: #1b1b1b;
   --shadow-plate: 0 1px 3px rgb(0 0 0 / 40%);
+  --tone-bg-l: 0.3;
+  --tone-bg-c: 0.055;
+  --tone-fg-l: 0.84;
+  --tone-fg-c: 0.1;
   --field: #2a2a2a;
   /* Derived tokens are restated so a dark region inside a light page resolves them against its own values. */
   --brand-subtle: var(--accent-soft);

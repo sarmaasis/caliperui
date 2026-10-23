@@ -77,7 +77,7 @@ export function DatePicker({
         disabled={disabled}
         aria-haspopup="dialog"
         aria-expanded={open}
-        className="flex h-[var(--control-height)] items-center rounded-overlay bg-[var(--field)] shadow-[var(--shadow-field)] transition-shadow hover:shadow-[var(--shadow-field-hover)] px-3 text-left text-sm outline-none focus-visible:shadow-[var(--shadow-field-focus)] disabled:opacity-45"
+        className="flex h-[var(--control-height)] items-center rounded-control bg-[var(--field)] shadow-[var(--shadow-field)] transition-shadow hover:shadow-[var(--shadow-field-hover)] px-3 text-left text-sm outline-none focus-visible:shadow-[var(--shadow-field-focus)] disabled:opacity-45"
         onKeyDown={(event) => {
           if (event.key === "ArrowDown" || event.key === "ArrowUp") {
             event.preventDefault();

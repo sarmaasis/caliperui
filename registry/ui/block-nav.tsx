@@ -9,6 +9,12 @@ import "./block-nav.css";
 
 export type BlockNavLink = { label: string; href: string; current?: boolean };
 
+// Whole class names, so Tailwind sees them.
+const folds = {
+  860: { nav: "@[860px]:block", row: "@[860px]:flex", menu: "@[860px]:hidden" },
+  1180: { nav: "@[1180px]:block", row: "@[1180px]:flex", menu: "@[1180px]:hidden" },
+};
+
 /**
  * The site header page templates share. It sits on the page colour, gains a
  * hairline and frost once the page scrolls, keeps the primary action in
@@ -25,6 +31,7 @@ export function BlockNav({
   primary,
   aside,
   link: Link = "a",
+  foldAt = 860,
   className,
 }: {
   brand: string;
@@ -40,6 +47,8 @@ export function BlockNav({
   aside?: ReactNode;
   /** The element for the brand and nav links, e.g. your router's Link, so moving between pages stays in the app. */
   link?: ElementType;
+  /** The header width (px) the links and actions need to sit in one row; narrower, they fold into the menu. 1180 suits six or more links beside extra controls. */
+  foldAt?: keyof typeof folds;
   className?: string;
 }) {
   const id = useId();
@@ -47,6 +56,7 @@ export function BlockNav({
   const menuButton = useRef<HTMLButtonElement>(null);
   const [scrolled, setScrolled] = useState(false);
   const [menu, setMenu] = useState(false);
+  const fold = folds[foldAt];
 
   useEffect(() => {
     const top = sentinel.current;
@@ -63,7 +73,7 @@ export function BlockNav({
         <div data-slot="block-nav-row">
           <Link href={brandHref} aria-label={brandLabel} data-slot="block-nav-brand" className={cn(logo && "inline-flex items-center gap-2.5")}>{logo}{brand}</Link>
           {nav.length > 0 && (
-            <nav aria-label="Site" className="hidden @[860px]:block">
+            <nav aria-label="Site" className={cn("hidden", fold.nav)}>
               <ul data-slot="block-nav-list">
                 {nav.map((item) => (
                   <li key={item.href}>
@@ -73,7 +83,7 @@ export function BlockNav({
               </ul>
             </nav>
           )}
-          <span className="ml-auto hidden items-center gap-2 @[860px]:flex">
+          <span className={cn("ml-auto hidden items-center gap-2", fold.row)}>
             {aside}
             {signIn && <BlockButton action={signIn} kind="secondary" link={Link} />}
             {primary && <BlockButton action={primary} link={Link} />}
@@ -85,9 +95,11 @@ export function BlockNav({
               aria-expanded={menu}
               aria-controls={`${id}-menu`}
               onClick={() => setMenu((open) => !open)}
+              // Focus stays on the button after it opens the menu, so Escape has to work here too.
+              onKeyDown={(event) => event.key === "Escape" && setMenu(false)}
               data-slot="block-button"
               data-kind="secondary"
-              className="ml-auto !min-h-11 !px-4 @[860px]:hidden"
+              className={cn("ml-auto !min-h-11 !px-4", fold.menu)}
             >
               {menu ? <X aria-hidden="true" className="size-4" /> : <Menu aria-hidden="true" className="size-4" />}
               Menu
@@ -98,7 +110,7 @@ export function BlockNav({
           id={`${id}-menu`}
           hidden={!menu}
           data-slot="site-menu"
-          className="absolute inset-x-0 top-full grid gap-1 border-b border-x border-border bg-[var(--elevated-glass)] px-5 pt-2 pb-6 backdrop-blur-[20px] backdrop-saturate-[1.4] [box-shadow:var(--shadow-overlay),inset_0_1px_0_var(--edge-light)] @[860px]:hidden"
+          className={cn("absolute inset-x-0 top-full grid gap-1 border-b border-x border-border bg-[var(--elevated-glass)] px-5 pt-2 pb-6 backdrop-blur-[20px] backdrop-saturate-[1.4] [box-shadow:var(--shadow-overlay),inset_0_1px_0_var(--edge-light)]", fold.menu)}
           onKeyDown={(event) => {
             if (event.key === "Escape") {
               setMenu(false);

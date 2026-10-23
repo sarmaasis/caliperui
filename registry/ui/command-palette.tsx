@@ -83,7 +83,7 @@ export function CommandPalette({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
         className={cn(
-          "flex flex-col gap-0 overflow-hidden rounded-[16px] p-0 sm:p-0",
+          "flex flex-col gap-0 overflow-hidden rounded-overlay p-0 sm:p-0",
           hasPreview ? "max-w-2xl" : "max-w-xl",
           className,
         )}

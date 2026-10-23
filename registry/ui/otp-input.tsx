@@ -79,7 +79,7 @@ export function OtpInput({
             disabled={disabled}
             value={digit}
             maxLength={1}
-            className="z-10 col-start-1 row-start-1 h-11 w-full min-w-0 rounded-overlay bg-[var(--field)] shadow-[var(--shadow-field)] transition-shadow hover:shadow-[var(--shadow-field-hover)] text-center text-sm font-medium text-transparent tabular-nums caret-transparent outline-none focus-visible:shadow-[var(--shadow-field-focus)]"
+            className="z-10 col-start-1 row-start-1 h-11 w-full min-w-0 rounded-control bg-[var(--field)] shadow-[var(--shadow-field)] transition-shadow hover:shadow-[var(--shadow-field-hover)] text-center text-sm font-medium text-transparent tabular-nums caret-transparent outline-none focus-visible:shadow-[var(--shadow-field-focus)]"
             onFocus={() => setActive(index)}
             onChange={(event) => {
               const text = event.currentTarget.value.replace(/\D/g, "");

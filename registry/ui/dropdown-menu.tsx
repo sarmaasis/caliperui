@@ -30,7 +30,7 @@ export function DropdownMenuContent({
         sideOffset={sideOffset}
         collisionPadding={collisionPadding}
         className={cn(
-          "relative z-50 min-w-56 max-w-[calc(100vw-2rem)] max-h-[var(--radix-dropdown-menu-content-available-height)] overflow-y-auto rounded-[14px] border border-border bg-elevated p-1 text-[13px] text-foreground shadow-overlay outline-none",
+          "relative z-50 min-w-56 max-w-[calc(100vw-2rem)] max-h-[var(--radix-dropdown-menu-content-available-height)] overflow-y-auto rounded-surface border border-border bg-elevated p-1 text-[13px] text-foreground shadow-overlay outline-none",
           className,
         )}
         {...props}
@@ -44,7 +44,7 @@ export function DropdownMenuContent({
 
 /** Row anatomy shared by every menu: dropdown, menubar and context menus. */
 export const menuItemClass =
-  "relative z-10 flex min-h-[34px] max-md:min-h-[var(--control-height)] cursor-default select-none items-center gap-2.5 rounded-[10px] px-2.5 text-[13px] font-normal outline-none data-[highlighted]:text-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-45 data-[variant=destructive]:text-destructive [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:text-muted-foreground data-[variant=destructive]:[&_svg]:text-destructive";
+  "relative z-10 flex min-h-[34px] max-md:min-h-[var(--control-height)] cursor-default select-none items-center gap-2.5 rounded-control px-2.5 text-[13px] font-normal outline-none data-[highlighted]:text-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-45 data-[variant=destructive]:text-destructive [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:text-muted-foreground data-[variant=destructive]:[&_svg]:text-destructive";
 
 export function DropdownMenuItem({
   className,

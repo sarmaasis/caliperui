@@ -101,7 +101,7 @@ export function DateRangePicker({
         disabled={disabled}
         aria-haspopup="dialog"
         aria-expanded={open}
-        className="flex h-[var(--control-height)] w-full max-w-sm items-center rounded-overlay bg-[var(--field)] shadow-[var(--shadow-field)] transition-shadow hover:shadow-[var(--shadow-field-hover)] px-3 text-left text-sm outline-none focus-visible:shadow-[var(--shadow-field-focus)] disabled:opacity-45"
+        className="flex h-[var(--control-height)] w-full max-w-sm items-center rounded-control bg-[var(--field)] shadow-[var(--shadow-field)] transition-shadow hover:shadow-[var(--shadow-field-hover)] px-3 text-left text-sm outline-none focus-visible:shadow-[var(--shadow-field-focus)] disabled:opacity-45"
       >
         <span className={cn("truncate", !(current.start && current.end) && "text-muted-foreground")}>{summary}</span>
         <CalendarIcon aria-hidden="true" className="ml-auto size-4 shrink-0 text-muted-foreground" />

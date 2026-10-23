@@ -119,7 +119,7 @@ export function ContactSection({
           </dl>
         )}
       </div>
-      <div className="rounded-overlay border border-border bg-background p-5 sm:p-6">
+      <div className="rounded-overlay border border-border bg-background p-5 shadow-resting sm:p-6">
         {sent ? (
           <div ref={thanks} tabIndex={-1} role="status" className="grid justify-items-start gap-3 outline-none">
             <CheckCircle2 aria-hidden="true" className="size-6 text-success" />

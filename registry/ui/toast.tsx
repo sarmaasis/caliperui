@@ -125,7 +125,7 @@ export function Toast({
       aria-labelledby={titleId}
       aria-describedby={children != null ? descriptionId : undefined}
       className={cn(
-        "block min-w-0 shrink-0 rounded-[14px] bg-elevated text-sm text-foreground shadow-feedback outline-none focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring [overflow-wrap:anywhere]",
+        "block min-w-0 shrink-0 rounded-surface bg-elevated text-sm text-foreground shadow-feedback outline-none focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring [overflow-wrap:anywhere]",
         className,
       )}
       style={{

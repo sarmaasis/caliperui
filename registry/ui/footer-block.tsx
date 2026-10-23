@@ -126,7 +126,7 @@ export function FooterBlock({
             {columns.map((column) => (
               <div key={column.title} className="grid content-start gap-4">
                 <h2 data-slot="footer-heading">{column.title}</h2>
-                <ul className="grid gap-2.5">
+                <ul className="m-0 grid list-none gap-2.5 p-0">
                   {column.links.map((link) => (
                     <li key={link.label}><a href={link.href} data-slot="footer-block-link">{link.label}</a></li>
                   ))}

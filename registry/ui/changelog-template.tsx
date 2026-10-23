@@ -2,6 +2,8 @@
 
 import { Link2 } from "lucide-react";
 import { useId, useMemo, useState, type ComponentProps, type ReactNode } from "react";
+import { Avatar } from "./avatar";
+import { Badge, type BadgeTone } from "./badge";
 import { BlockEyebrow, BlockLead, BlockRoot, BlockStage, BlockTitle, type BlockAction } from "./block-concept";
 import { BlockNav, type BlockNavLink } from "./block-nav";
 import { FooterBlock } from "./footer-block";
@@ -21,6 +23,8 @@ export type ChangelogTemplateEntry = {
   body: ReactNode;
   /** e.g. ["New", "Improved", "Fixed"]. */
   tags?: readonly string[];
+  /** Who shipped it, shown with their face under the version. */
+  author?: string;
   /** A product view of the change. */
   media?: ReactNode;
   mediaTitle?: string;
@@ -42,6 +46,7 @@ export function ChangelogTemplate({
   title,
   lead,
   entries,
+  tones,
   footer,
   header,
   footerNode,
@@ -55,6 +60,8 @@ export function ChangelogTemplate({
   title: string;
   lead?: string;
   entries: readonly ChangelogTemplateEntry[];
+  /** A hue per tag, e.g. { New: "green", Fixed: "orange" }; a tag without one stays a plain chip. */
+  tones?: Readonly<Record<string, BadgeTone>>;
   footer?: Omit<Without<ComponentProps<typeof FooterBlock>>, "brand"> & { brand?: string };
   /** Replaces the built-in header, for a site that already has its own. */
   header?: ReactNode;
@@ -98,11 +105,12 @@ export function ChangelogTemplate({
                     v{entry.version}
                     <Link2 aria-hidden="true" className="size-3.5" />
                   </a>
+                  {entry.author && <span data-slot="changelog-author"><Avatar name={entry.author} alt="" className="size-6 text-[10px]" />{entry.author}</span>}
                 </div>
                 <article className="grid min-w-0 gap-5">
                   {entry.tags && entry.tags.length > 0 && (
                     <ul className="flex flex-wrap gap-1.5" aria-label="Tags">
-                      {entry.tags.map((item) => <li key={item} data-slot="block-chip">{item}</li>)}
+                      {entry.tags.map((item) => (tones?.[item] ? <li key={item}><Badge tone={tones[item]}>{item}</Badge></li> : <li key={item} data-slot="block-chip">{item}</li>))}
                     </ul>
                   )}
                   <h2 data-slot="block-title" data-size="3" className="!text-[clamp(24px,3cqi,34px)]">{entry.title}</h2>

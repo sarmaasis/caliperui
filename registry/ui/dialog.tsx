@@ -33,7 +33,7 @@ export function DialogContent({
       <DialogPrimitive.Content
         data-slot="dialog-content"
         className={cn(
-          "fixed top-1/2 left-1/2 z-50 grid max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] max-w-md -translate-x-1/2 -translate-y-1/2 gap-5 overflow-y-auto rounded-[20px] border border-border bg-elevated p-5 text-foreground shadow-overlay outline-none sm:p-6",
+          "fixed top-1/2 left-1/2 z-50 grid max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] max-w-md -translate-x-1/2 -translate-y-1/2 gap-5 overflow-y-auto rounded-overlay border border-border bg-elevated p-5 text-foreground shadow-overlay outline-none sm:p-6",
           // Phones: the dialog becomes a sheet resting on the bottom edge.
           props["data-motion" as keyof typeof props] !== "sheet" &&
             "max-sm:top-auto max-sm:bottom-2 max-sm:left-2 max-sm:w-[calc(100%-1rem)] max-sm:max-w-none max-sm:translate-x-0 max-sm:translate-y-0 max-sm:max-h-[calc(100dvh-1.5rem)]",

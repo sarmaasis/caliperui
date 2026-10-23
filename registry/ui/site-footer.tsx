@@ -32,7 +32,7 @@ export function SiteFooter({
           {brand}
           {description && <p className="max-w-xs text-sm text-muted-foreground">{description}</p>}
           {social && social.length > 0 && (
-            <ul aria-label="Social links" className="mt-1 flex flex-wrap gap-1">
+            <ul aria-label="Social links" className="mt-1 flex list-none flex-wrap gap-1 p-0">
               {social.map((item) => (
                 <li key={item.label}>
                   <a href={item.href} aria-label={item.label} data-slot="footer-social">
@@ -47,7 +47,7 @@ export function SiteFooter({
           {columns.map((column) => (
             <div key={column.title} className="grid content-start gap-3">
               <h2 className="text-xs font-medium text-foreground">{column.title}</h2>
-              <ul className="grid gap-2">
+              <ul className="m-0 grid list-none gap-2 p-0">
                 {column.links.map((link) => (
                   <li key={link.href + link.label}>
                     <a href={link.href} data-slot="footer-link">

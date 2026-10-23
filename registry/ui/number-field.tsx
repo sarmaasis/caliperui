@@ -163,7 +163,7 @@ export function NumberField({
         data-slot="number-field"
         data-strain={strain ?? undefined}
         data-invalid={outside || undefined}
-        className="inline-flex h-[var(--control-height)] items-stretch overflow-hidden rounded-overlay bg-[var(--field)] shadow-[var(--shadow-field)] hover:shadow-[var(--shadow-field-hover)] focus-within:shadow-[var(--shadow-field-focus)] data-[invalid]:shadow-[0_0_0_2px_var(--warning)]"
+        className="inline-flex h-[var(--control-height)] items-stretch overflow-hidden rounded-control bg-[var(--field)] shadow-[var(--shadow-field)] hover:shadow-[var(--shadow-field-hover)] focus-within:shadow-[var(--shadow-field-focus)] data-[invalid]:shadow-[0_0_0_2px_var(--warning)]"
       >
         <button
           type="button"

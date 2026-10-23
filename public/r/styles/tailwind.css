@@ -49,6 +49,7 @@
   --radius-touch: var(--radius-touch);
   --shadow-overlay: var(--shadow-overlay);
   --shadow-feedback: var(--shadow-feedback);
+  --shadow-resting: var(--shadow-resting);
   --shadow-raised: var(--shadow-raised);
   --shadow-plate: var(--shadow-plate);
   --shadow-sunken: var(--shadow-sunken);

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ComponentProps } from "react";
+import { createContext, useContext, useState, type ComponentProps } from "react";
 import { cn } from "./lib/cn";
 import "./avatar.css";
 
@@ -8,9 +8,15 @@ export type AvatarProps = Omit<ComponentProps<"span">, "children"> & {
   name: string;
   src?: string;
   alt?: string;
+  /** "square" for a company, workspace or integration: a coloured mark instead of a person's orb or photo. */
+  shape?: "circle" | "square";
   /** Shown as a shape at the corner: filled, half, dash or ring. */
   presence?: "online" | "away" | "busy" | "offline";
 };
+
+/** Resolves a person's photo from their name when an Avatar has no `src`: your user directory, or sample faces in a demo.
+    Return undefined for anyone without one and they keep their orb. */
+export const AvatarPhotos = createContext<((name: string) => string | undefined) | null>(null);
 
 /** The same name always gets the same orb (six glass orbs; the first follows the accent). */
 export function avatarTone(name: string) {
@@ -48,10 +54,13 @@ export function Avatar({
   name,
   src,
   alt = name,
+  shape = "circle",
   presence,
   className,
   ...props
 }: AvatarProps) {
+  const resolve = useContext(AvatarPhotos);
+  const photo = src ?? (shape === "circle" ? resolve?.(name) : undefined);
   const words = name.trim().normalize("NFC").split(/\s+/u);
   const initials =
     (Array.from(words[0] ?? "")[0] ?? "?") +
@@ -61,8 +70,10 @@ export function Avatar({
     <span
       data-slot="avatar"
       data-tone={avatarTone(name)}
+      data-shape={shape === "square" ? "square" : undefined}
       className={cn(
-        "relative inline-flex size-8 shrink-0 items-center justify-center rounded-full text-xs font-semibold",
+        "relative inline-flex size-8 shrink-0 items-center justify-center text-xs font-semibold",
+        shape === "square" ? "rounded-[8px]" : "rounded-full",
         className,
       )}
       {...props}
@@ -71,8 +82,8 @@ export function Avatar({
       aria-hidden={!alt || undefined}
     >
       <AvatarContent
-        key={src ?? ""}
-        src={src}
+        key={photo ?? ""}
+        src={photo}
         initials={initials.toUpperCase()}
       />
       {presence && <span data-slot="avatar-presence" data-presence={presence} aria-hidden="true" />}

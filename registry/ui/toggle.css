@@ -17,9 +17,10 @@
   }
   [data-slot="button-group"] > [data-slot="button"][aria-pressed="true"],
   [data-slot="button-group"] > [data-slot="button"][aria-checked="true"] {
-    --b-bg: var(--sunken);
-    --b-bg-hover: var(--sunken);
-    --b-bg-press: var(--sunken);
+    /* --raised-press, not --sunken: in light mode --sunken is the shell's own #e9e9ec, so "on" vanished. */
+    --b-bg: var(--raised-press);
+    --b-bg-hover: var(--raised-press);
+    --b-bg-press: var(--raised-press);
     --b-shadow: var(--shadow-sunken);
     --b-shadow-press: var(--shadow-sunken);
   }

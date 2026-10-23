@@ -8,7 +8,7 @@
       d var(--duration-travel) var(--ease-showcase),
       opacity var(--duration-normal) var(--ease-out);
   }
-  [data-slot="chart-wash"] { opacity: 0.1; }
+  /* The wash carries its own fade (a gradient in line-chart.tsx), so the path itself is fully opaque. */
   [data-slot="line-chart"][data-visible="true"] [data-slot="chart-wash"] {
     animation: caliper-chart-fade var(--duration-showcase) var(--ease-out);
   }

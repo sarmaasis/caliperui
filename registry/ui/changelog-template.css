@@ -12,7 +12,8 @@
   [data-slot="changelog-filter"][aria-pressed="true"] { background: var(--k-ink); color: var(--k-bg); box-shadow: none; }
   [data-slot="changelog-filter"]:focus-visible { outline: 2px solid var(--k-focus); outline-offset: 2px; }
   [data-slot="changelog-entry"] { display: grid; gap: 16px; padding-block: clamp(36px, 5cqi, 56px); border-bottom: 1px solid var(--k-line); scroll-margin-top: 80px; }
-  [data-slot="changelog-meta"] { display: flex; align-items: baseline; gap: 14px; }
+  [data-slot="changelog-meta"] { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; }
+  [data-slot="changelog-author"] { display: inline-flex; align-items: center; gap: 8px; min-width: 0; font-size: 13px; line-height: 18px; color: var(--k-muted); }
   @container (min-width: 760px) {
     [data-slot="changelog-entry"] { grid-template-columns: 160px minmax(0, 1fr); gap: 40px; }
     [data-slot="changelog-meta"] { position: sticky; top: 88px; align-self: start; display: grid; gap: 6px; }

@@ -155,7 +155,7 @@ export function Combobox({
                 {onCreate && query.trim() && (
                   <button
                     type="button"
-                    className="mt-2 flex h-[var(--control-height)] w-full items-center gap-2 rounded-[10px] bg-muted px-2 text-left text-sm font-medium outline-none focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-ring"
+                    className="mt-2 flex h-[var(--control-height)] w-full items-center gap-2 rounded-control bg-muted px-2 text-left text-sm font-medium outline-none focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-ring"
                     onMouseDown={(event) => event.preventDefault()}
                     onClick={() => {
                       onCreate(query.trim());

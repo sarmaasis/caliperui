@@ -85,6 +85,11 @@ html[data-theme-reveal="wipe"]::view-transition-new(root) {
       transform: scaleY(0.96);
     }
   }
+  @keyframes caliper-plate-stretch {
+    40% {
+      transform: scaleX(1.07);
+    }
+  }
 }
 
 @keyframes caliper-fade-in {
@@ -364,4 +369,5 @@ html[data-theme-reveal="wipe"]::view-transition-new(root) {
   @keyframes caliper-chart-sweep { from { width: 0; } }
   @keyframes caliper-chart-arc { from { stroke-dashoffset: var(--len); } }
   @keyframes caliper-chart-fade { from { opacity: 0; } }
+  @keyframes ts-in { from { opacity: 0; transform: scale(0.97); } }
 }

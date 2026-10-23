@@ -1,0 +1,6 @@
+/* Shared by calendar-app.tsx, week-calendar.tsx; each imports it. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  [data-day] { position: relative; border-left: 1px solid var(--border); background-image: linear-gradient(var(--border) 1px, transparent 1px); background-size: 100% var(--hour); cursor: cell; }
+}

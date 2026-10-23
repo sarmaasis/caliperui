@@ -2,7 +2,8 @@
 
 import { ArrowRight, Link2 } from "lucide-react";
 import { useState, type ReactNode } from "react";
-import { BlockEyebrow, BlockInitials, BlockLead, BlockRoot, BlockStage, BlockTitle, type BlockAction } from "./block-concept";
+import { Avatar } from "./avatar";
+import { BlockEyebrow, BlockLead, BlockRoot, BlockStage, BlockTitle, type BlockAction } from "./block-concept";
 import type { BlockNavLink } from "./block-nav";
 import { CopyButton } from "./copy-button";
 import { TemplateOutline, TemplatePage, useReadingProgress, useScrollSpy, type TemplateFooter } from "./template-page";
@@ -92,7 +93,7 @@ export function BlogPostTemplate({
             <BlockLead className="!max-w-[56ch]">{post.lead}</BlockLead>
             <div className="flex flex-wrap items-center justify-between gap-4 border-t border-[var(--k-line)] pt-5">
               <span className="flex items-center gap-3">
-                <BlockInitials name={post.author.name} size={40} tone={1} />
+                <Avatar name={post.author.name} alt="" className="size-10 text-sm" />
                 <span className="grid">
                   <span className="text-sm font-medium">{post.author.name}</span>
                   <span className="text-[13px] text-[var(--k-muted)]">{post.author.role}</span>
@@ -132,7 +133,7 @@ export function BlogPostTemplate({
                 </section>
               ))}
               <aside data-slot="article-author" aria-label="About the author">
-                <BlockInitials name={post.author.name} size={56} tone={1} />
+                <Avatar name={post.author.name} alt="" className="size-14 text-base" />
                 <div className="grid gap-1">
                   <p className="m-0 text-[15px] font-medium">
                     {post.author.href ? <a href={post.author.href} className="underline-offset-4 hover:underline">{post.author.name}</a> : post.author.name}

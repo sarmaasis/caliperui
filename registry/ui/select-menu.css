@@ -39,7 +39,7 @@
   }
   [data-slot="select-menu-content"] {
     z-index: 50;
-    border-radius: 16px;
+    border-radius: var(--radius-surface);
     background: var(--elevated-glass);
     -webkit-backdrop-filter: blur(var(--blur-overlay));
     backdrop-filter: blur(var(--blur-overlay));
@@ -53,7 +53,7 @@
     gap: 10px;
     height: 36px;
     padding: 0 10px;
-    border-radius: 12px;
+    border-radius: var(--radius-control);
     font-size: 14px;
     cursor: default;
     transition: background-color var(--duration-fast) var(--ease-out);

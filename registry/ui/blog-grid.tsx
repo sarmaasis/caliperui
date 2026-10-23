@@ -1,6 +1,6 @@
 "use client";
 import { useMemo, useState } from "react";
-import { Badge } from "./badge";
+import { Badge, type BadgeTone } from "./badge";
 import { Avatar } from "./avatar";
 import { cn } from "./lib/cn";
 import "./shared/table-skeleton.css";
@@ -22,7 +22,7 @@ export type BlogPost = {
 
 const dateFormat = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
 
-function PostCard({ post, featured }: { post: BlogPost; featured?: boolean }) {
+function PostCard({ post, featured, tone }: { post: BlogPost; featured?: boolean; tone?: BadgeTone }) {
   return (
     <article data-slot="blog-card" data-featured={featured || undefined} className="group relative grid content-start gap-3">
       {post.image && (
@@ -32,7 +32,7 @@ function PostCard({ post, featured }: { post: BlogPost; featured?: boolean }) {
       )}
       <div className="grid gap-2">
         <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-muted-foreground">
-          {post.category && <Badge>{post.category}</Badge>}
+          {post.category && <Badge tone={tone}>{post.category}</Badge>}
           <time dateTime={post.date}>{dateFormat.format(new Date(post.date))}</time>
           {post.readTime && <span aria-hidden="true">·</span>}
           {post.readTime && <span>{post.readTime}</span>}
@@ -60,6 +60,7 @@ export function BlogGrid({
   title = "From the blog",
   description,
   featured = true,
+  tones,
   loading,
   className,
 }: {
@@ -68,6 +69,8 @@ export function BlogGrid({
   description?: string;
   /** Show the first post larger when there are at least three. */
   featured?: boolean;
+  /** One hue per category, e.g. { Engineering: "blue" }. Categories without one stay neutral. */
+  tones?: Partial<Record<string, BadgeTone>>;
   loading?: boolean;
   className?: string;
 }) {
@@ -107,11 +110,11 @@ export function BlogGrid({
         <div className="grid gap-x-6 gap-y-10 @xl:grid-cols-2 @4xl:grid-cols-3">
           {lead && (
             <div className="@xl:col-span-2">
-              <PostCard post={lead} featured />
+              <PostCard post={lead} featured tone={lead.category ? tones?.[lead.category] : undefined} />
             </div>
           )}
           {rest.map((post) => (
-            <PostCard key={post.id} post={post} />
+            <PostCard key={post.id} post={post} tone={post.category ? tones?.[post.category] : undefined} />
           ))}
         </div>
       ) : (

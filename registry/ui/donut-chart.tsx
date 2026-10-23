@@ -68,7 +68,7 @@ export function DonutChart({
       data-slot="donut-chart"
       className={cn("min-w-0", className)}
     >
-      <figcaption className="mb-4 text-sm font-medium">{label}</figcaption>
+      <figcaption className="mb-4 text-xs font-medium text-muted-foreground">{label}</figcaption>
       <ChartMessage loading={loading} error={error} empty={!parts.length} />
       {!error && !!parts.length && (
         <div data-slot="donut-layout">

@@ -29,7 +29,7 @@ export function PopoverContent({
         sideOffset={sideOffset}
         collisionPadding={collisionPadding}
         className={cn(
-          "z-50 w-80 max-w-[calc(100vw-2rem)] max-h-[var(--radix-popover-content-available-height)] overflow-y-auto rounded-[14px] border border-border bg-elevated p-3.5 text-sm text-foreground shadow-overlay outline-none",
+          "z-50 w-80 max-w-[calc(100vw-2rem)] max-h-[var(--radix-popover-content-available-height)] overflow-y-auto rounded-surface border border-border bg-elevated p-3.5 text-sm text-foreground shadow-overlay outline-none",
           arrow && "overflow-visible",
           className,
         )}

@@ -1,6 +1,6 @@
 "use client";
 import { area, curveMonotoneX } from "d3-shape";
-import { useState, type CSSProperties } from "react";
+import { useId, useState, type CSSProperties } from "react";
 import { cn } from "./lib/cn";
 import {
   ChartTable,
@@ -38,6 +38,7 @@ export function LineChart({
   band,
 }: LineChartProps) {
   const root = useChartReveal();
+  const washId = useId();
   const [hidden, setHidden] = useState<string[]>([]),
     [reading, setReading] = useState<number | null>(null);
   const visible = series.filter((item) => !hidden.includes(item.id));
@@ -55,8 +56,14 @@ export function LineChart({
         item.values[band.upper] ?? 0,
       ])
     : values;
+  const peak = Math.max(1, ...extremes);
+  // Round the top up to a whole step of its magnitude, so the axis reads 0 · 50 · 100, not 0 · 41 · 82.
+  const step = 10 ** Math.floor(Math.log10(peak));
   const min = Math.min(0, ...extremes),
-    max = Math.max(1, ...extremes);
+    max = Math.ceil(peak / step) * step;
+  // Up to five labels along the bottom, spread evenly from first to last.
+  const tickCount = Math.min(data.length, 5);
+  const xTicks = [...new Set(Array.from({ length: tickCount }, (_, k) => Math.round((k * (data.length - 1)) / Math.max(1, tickCount - 1))))];
   const index = reading === null ? null : Math.min(reading, data.length - 1);
   const datum = index === null ? null : data[index];
   function scrub(clientX: number, rect: DOMRect) {
@@ -87,7 +94,7 @@ export function LineChart({
       aria-busy={loading}
       className={cn("min-w-0", className)}
     >
-      <figcaption className="mb-3 text-sm font-medium">{label}</figcaption>
+      <figcaption className="mb-3 text-xs font-medium text-muted-foreground">{label}</figcaption>
       <ChartLegend
         series={series}
         hidden={hidden}
@@ -204,10 +211,21 @@ export function LineChart({
                   />
                 )}
                 {series[0] && !hidden.includes(series[0].id) && (() => {
-                  // A soft wash under the lead series gives the chart weight without a second colour.
+                  // A wash under the lead series, strongest at the line and gone at the baseline, gives the chart weight without a second colour.
                   const line = pathFor(data, series[0].id, min, max);
                   const d = line ? `${line}L600,210L0,210Z` : "";
-                  return <path data-slot="chart-wash" d={d} style={{ d: `path("${d}")` } as CSSProperties} fill={series[0].color ?? chartColor(0)} stroke="none" aria-hidden="true" />;
+                  const color = series[0].color ?? chartColor(0);
+                  return (
+                    <>
+                      <defs>
+                        <linearGradient id={washId} x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0" stopColor={color} stopOpacity="0.3" />
+                          <stop offset="1" stopColor={color} stopOpacity="0" />
+                        </linearGradient>
+                      </defs>
+                      <path data-slot="chart-wash" d={d} style={{ d: `path("${d}")` } as CSSProperties} fill={`url(#${washId})`} stroke="none" aria-hidden="true" />
+                    </>
+                  );
                 })()}
                 {series.map((item, i) => {
                   const d = pathFor(
@@ -284,10 +302,20 @@ export function LineChart({
             </div>
             <div
               aria-hidden="true"
-              className="mt-2 flex justify-between gap-3 text-[11px] text-muted-foreground"
+              className="relative mt-2 h-4 text-[11px] text-muted-foreground"
             >
-              <span>{data[0].label}</span>
-              <span>{data.at(-1)?.label}</span>
+              {xTicks.map((i, k) => (
+                <span
+                  key={i}
+                  className="absolute top-0 whitespace-nowrap"
+                  style={{
+                    left: `${(100 * ((data[i].x ?? i) - (data[0].x ?? 0))) / ((data.at(-1)?.x ?? data.length - 1) - (data[0].x ?? 0) || 1)}%`,
+                    translate: k === 0 ? "0" : k === xTicks.length - 1 ? "-100%" : "-50%",
+                  }}
+                >
+                  {data[i].label}
+                </span>
+              ))}
             </div>
           </div>
           <ChartReadout>

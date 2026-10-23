@@ -102,7 +102,7 @@ function markHover(list: HTMLElement | null, target: EventTarget | null) {
 export const NavigationMenuItem = Primitive.Item;
 
 const control =
-  "relative z-10 inline-flex h-9 select-none items-center gap-1 rounded-[10px] px-3 text-[13px] font-medium text-muted-foreground outline-none transition-colors duration-[var(--duration-fast)] ease-[var(--ease-out)] hover:text-foreground focus-visible:text-foreground focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring data-[state=open]:text-foreground data-[active]:text-foreground";
+  "relative z-10 inline-flex h-9 select-none items-center gap-1 rounded-control px-3 text-[13px] font-medium text-muted-foreground outline-none transition-colors duration-[var(--duration-fast)] ease-[var(--ease-out)] hover:text-foreground focus-visible:text-foreground focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring data-[state=open]:text-foreground data-[active]:text-foreground";
 
 export function NavigationMenuTrigger({ className, children, ...props }: ComponentProps<typeof Primitive.Trigger>) {
   return (

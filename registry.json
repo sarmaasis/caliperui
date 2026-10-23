@@ -47,6 +47,11 @@
           "target": "components/ui/about-template.tsx"
         },
         {
+          "path": "registry/ui/avatar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/avatar.tsx"
+        },
+        {
           "path": "registry/ui/block-concept.tsx",
           "type": "registry:ui",
           "target": "components/ui/block-concept.tsx"
@@ -100,6 +105,11 @@
           "path": "registry/ui/about-template.css",
           "type": "registry:file",
           "target": "components/ui/about-template.css"
+        },
+        {
+          "path": "registry/ui/avatar.css",
+          "type": "registry:file",
+          "target": "components/ui/avatar.css"
         },
         {
           "path": "registry/ui/block-concept.css",
@@ -703,6 +713,11 @@
       ],
       "files": [
         {
+          "path": "registry/ui/avatar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/avatar.tsx"
+        },
+        {
           "path": "registry/ui/block-concept.tsx",
           "type": "registry:ui",
           "target": "components/ui/block-concept.tsx"
@@ -746,6 +761,11 @@
           "path": "registry/ui/template-page.tsx",
           "type": "registry:ui",
           "target": "components/ui/template-page.tsx"
+        },
+        {
+          "path": "registry/ui/avatar.css",
+          "type": "registry:file",
+          "target": "components/ui/avatar.css"
         },
         {
           "path": "registry/ui/block-concept.css",
@@ -1015,6 +1035,239 @@
       }
     },
     {
+      "name": "calendar-app",
+      "type": "registry:ui",
+      "title": "Calendar app",
+      "description": "A full calendar: day, week, month and agenda, a month picker and calendar toggles, a now line, and events you create by dragging, move by dragging or with Alt and the arrows, and edit in place.",
+      "dependencies": [
+        "@radix-ui/react-dialog",
+        "@radix-ui/react-popover",
+        "@radix-ui/react-slot",
+        "clsx",
+        "lucide-react",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button.tsx"
+        },
+        {
+          "path": "registry/ui/calendar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/calendar.tsx"
+        },
+        {
+          "path": "registry/ui/calendar-app.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/calendar-app.tsx"
+        },
+        {
+          "path": "registry/ui/checkbox.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/checkbox.tsx"
+        },
+        {
+          "path": "registry/ui/dialog.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/dialog.tsx"
+        },
+        {
+          "path": "registry/ui/field.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/field.tsx"
+        },
+        {
+          "path": "registry/ui/input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input.tsx"
+        },
+        {
+          "path": "registry/ui/label.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/label.tsx"
+        },
+        {
+          "path": "registry/ui/lib/calendar-time.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/calendar-time.ts"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/lib/slide.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/slide.ts"
+        },
+        {
+          "path": "registry/ui/popover.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/popover.tsx"
+        },
+        {
+          "path": "registry/ui/rolling-value.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/rolling-value.tsx"
+        },
+        {
+          "path": "registry/ui/segmented-control.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/segmented-control.tsx"
+        },
+        {
+          "path": "registry/ui/select-menu.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/select-menu.tsx"
+        },
+        {
+          "path": "registry/ui/switch.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/switch.tsx"
+        },
+        {
+          "path": "registry/ui/textarea.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/textarea.tsx"
+        },
+        {
+          "path": "registry/ui/shared/loading-indicator.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/loading-indicator.css"
+        },
+        {
+          "path": "registry/ui/button.css",
+          "type": "registry:file",
+          "target": "components/ui/button.css"
+        },
+        {
+          "path": "registry/ui/shared/calendar-day.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/calendar-day.css"
+        },
+        {
+          "path": "registry/ui/shared/chip-option.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/chip-option.css"
+        },
+        {
+          "path": "registry/ui/calendar.css",
+          "type": "registry:file",
+          "target": "components/ui/calendar.css"
+        },
+        {
+          "path": "registry/ui/shared/styles-4.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/styles-4.css"
+        },
+        {
+          "path": "registry/ui/calendar-app.css",
+          "type": "registry:file",
+          "target": "components/ui/calendar-app.css"
+        },
+        {
+          "path": "registry/ui/checkbox.css",
+          "type": "registry:file",
+          "target": "components/ui/checkbox.css"
+        },
+        {
+          "path": "registry/ui/shared/dialog-overlay.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/dialog-overlay.css"
+        },
+        {
+          "path": "registry/ui/dialog.css",
+          "type": "registry:file",
+          "target": "components/ui/dialog.css"
+        },
+        {
+          "path": "registry/ui/shared/field-message.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/field-message.css"
+        },
+        {
+          "path": "registry/ui/field.css",
+          "type": "registry:file",
+          "target": "components/ui/field.css"
+        },
+        {
+          "path": "registry/ui/shared/input.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/input.css"
+        },
+        {
+          "path": "registry/ui/shared/input-2.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/input-2.css"
+        },
+        {
+          "path": "registry/ui/shared/input-group.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/input-group.css"
+        },
+        {
+          "path": "registry/ui/input.css",
+          "type": "registry:file",
+          "target": "components/ui/input.css"
+        },
+        {
+          "path": "registry/ui/shared/popover-content.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/popover-content.css"
+        },
+        {
+          "path": "registry/ui/popover.css",
+          "type": "registry:file",
+          "target": "components/ui/popover.css"
+        },
+        {
+          "path": "registry/ui/rolling-value.css",
+          "type": "registry:file",
+          "target": "components/ui/rolling-value.css"
+        },
+        {
+          "path": "registry/ui/shared/segmented-plate.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/segmented-plate.css"
+        },
+        {
+          "path": "registry/ui/shared/select.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/select.css"
+        },
+        {
+          "path": "registry/ui/select-menu.css",
+          "type": "registry:file",
+          "target": "components/ui/select-menu.css"
+        },
+        {
+          "path": "registry/ui/switch.css",
+          "type": "registry:file",
+          "target": "components/ui/switch.css"
+        },
+        {
+          "path": "registry/ui/textarea.css",
+          "type": "registry:file",
+          "target": "components/ui/textarea.css"
+        }
+      ],
+      "categories": [
+        "free-pro-screens"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "calendar-media",
+        "docs": "/docs/components/calendar-app"
+      }
+    },
+    {
       "name": "call-to-action",
       "type": "registry:ui",
       "title": "Call to action",
@@ -1140,6 +1393,16 @@
       ],
       "files": [
         {
+          "path": "registry/ui/avatar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/avatar.tsx"
+        },
+        {
+          "path": "registry/ui/badge.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/badge.tsx"
+        },
+        {
           "path": "registry/ui/block-concept.tsx",
           "type": "registry:ui",
           "target": "components/ui/block-concept.tsx"
@@ -1168,6 +1431,11 @@
           "path": "registry/ui/stage-scope.tsx",
           "type": "registry:ui",
           "target": "components/ui/stage-scope.tsx"
+        },
+        {
+          "path": "registry/ui/avatar.css",
+          "type": "registry:file",
+          "target": "components/ui/avatar.css"
         },
         {
           "path": "registry/ui/block-concept.css",
@@ -4328,14 +4596,9 @@
           "target": "components/ui/segmented-control.tsx"
         },
         {
-          "path": "registry/ui/shared/segmented-indicator.css",
+          "path": "registry/ui/shared/segmented-plate.css",
           "type": "registry:file",
-          "target": "components/ui/shared/segmented-indicator.css"
-        },
-        {
-          "path": "registry/ui/segmented-control.css",
-          "type": "registry:file",
-          "target": "components/ui/segmented-control.css"
+          "target": "components/ui/shared/segmented-plate.css"
         }
       ],
       "categories": [
@@ -5053,7 +5316,7 @@
       "name": "team-block",
       "type": "registry:ui",
       "title": "Team block",
-      "description": "People introduced by what they own and how to reach them, with initials when there is no photo.",
+      "description": "People introduced by what they own and how to reach them, with their photo or, when there is none, their initials.",
       "dependencies": [
         "clsx",
         "lucide-react",
@@ -5063,6 +5326,11 @@
         "https://caliperui.site/r/styles.json"
       ],
       "files": [
+        {
+          "path": "registry/ui/avatar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/avatar.tsx"
+        },
         {
           "path": "registry/ui/block-concept.tsx",
           "type": "registry:ui",
@@ -5082,6 +5350,11 @@
           "path": "registry/ui/team-block.tsx",
           "type": "registry:ui",
           "target": "components/ui/team-block.tsx"
+        },
+        {
+          "path": "registry/ui/avatar.css",
+          "type": "registry:file",
+          "target": "components/ui/avatar.css"
         },
         {
           "path": "registry/ui/block-concept.css",

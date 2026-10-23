@@ -8,8 +8,7 @@ import {
   type ReactNode,
 } from "react";
 import { cn } from "./lib/cn";
-import "./shared/segmented-indicator.css";
-import "./segmented-control.css";
+import "./shared/segmented-plate.css";
 
 /** With an icon, the option shows only the icon and `label` becomes its accessible name and tooltip. */
 export type SegmentedOption = { value: string; label: string; icon?: ReactNode };
@@ -85,7 +84,8 @@ export function SegmentedControl({
       data-slot="segmented"
       onKeyDown={move}
       className={cn(
-        "relative inline-flex rounded-touch bg-sunken p-[3px] shadow-sunken",
+        // Too many options for a narrow screen scroll sideways instead of spilling out.
+        "relative inline-flex max-w-full overflow-x-auto rounded-touch bg-sunken p-[3px] shadow-sunken [scrollbar-width:none]",
         className,
       )}
     >
@@ -118,7 +118,7 @@ export function SegmentedControl({
             aria-label={option.icon ? option.label : undefined}
             title={option.icon ? option.label : undefined}
             onClick={() => onValueChange(option.value)}
-            className="relative z-10 inline-flex h-[calc(var(--control-height)-6px)] min-w-10 items-center justify-center rounded-[9px] px-3 text-[13px] font-medium text-muted-foreground outline-none transition-colors hover:text-foreground focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-ring aria-checked:text-accent-foreground [&_svg]:size-4 [&_svg]:shrink-0"
+            className="relative z-10 inline-flex shrink-0 h-[calc(var(--control-height)-6px)] min-w-10 items-center justify-center rounded-[9px] px-3 text-[13px] font-medium text-muted-foreground outline-none transition-colors hover:text-foreground focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-ring aria-checked:text-accent-foreground [&_svg]:size-4 [&_svg]:shrink-0"
           >
             {option.icon ?? option.label}
           </button>

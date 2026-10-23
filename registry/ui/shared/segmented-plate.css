@@ -15,10 +15,25 @@
       transform 320ms var(--ease-settle),
       width 320ms var(--ease-settle);
   }
+  [data-slot="segmented-plate"] {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background: var(--accent);
+    box-shadow: var(--shadow-plate);
+  }
+  [data-slot="segmented-plate"][data-moved="true"] {
+    animation: caliper-plate-stretch 320ms var(--ease-out);
+  }
 
   @media (prefers-reduced-motion: reduce) {
-    [data-slot="segmented-indicator"] {
+    [data-slot="segmented-indicator"],
+    [data-slot="segmented-plate"] {
       transition: none;
+    }
+    [data-slot="segmented-plate"][data-moved="true"] {
+      animation: none;
     }
   }
 }

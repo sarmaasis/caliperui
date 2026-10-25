@@ -5,6 +5,7 @@ import { useEffect, useId, useMemo, useRef, useState, useSyncExternalStore, type
 import { Button } from "./button";
 import { Calendar } from "./calendar";
 import { Checkbox } from "./checkbox";
+import { DatePicker } from "./date-picker";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "./dialog";
 import { Field } from "./field";
 import { Input } from "./input";
@@ -36,6 +37,26 @@ export type CalendarView = "day" | "week" | "month" | "agenda";
 const HOUR = 48;
 const SNAP = 15;
 const snap = (minutes: number) => Math.round(minutes / SNAP) * SNAP;
+/* Quarter hours in the reader's clock, so the time reads the same in any OS language. Kept here so the item needs nothing beyond itself. */
+const quarterHours = Array.from({ length: 96 }, (_, index) => {
+  const value = `${String(Math.floor(index / 4)).padStart(2, "0")}:${String((index % 4) * 15).padStart(2, "0")}`;
+  return { value, label: clock(value) };
+});
+function clock(value: string) {
+  const [hour, minute] = value.split(":").map(Number);
+  return `${hour % 12 || 12}:${String(minute).padStart(2, "0")} ${hour < 12 ? "AM" : "PM"}`;
+}
+function TimeField({ label, value, disabled, onChange }: { label: string; value: string; disabled: boolean; onChange: (value: string) => void }) {
+  const id = useId();
+  const options = quarterHours.some((slot) => slot.value === value) ? quarterHours : [...quarterHours, { value, label: clock(value) }].sort((a, b) => a.value.localeCompare(b.value));
+  return (
+    <div className="grid gap-1.5">
+      <span id={id} className="text-sm font-medium">{label}</span>
+      <SelectMenu aria-labelledby={id} disabled={disabled} value={value} onValueChange={onChange} options={options} />
+    </div>
+  );
+}
+
 const longDay = (date: Date) => date.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" });
 const plusDays = (date: Date, days: number) => addMinutes(date, 0, days);
 let seq = 0;
@@ -500,7 +521,7 @@ function EventEditor({ draft, calendars, onClose, onSave, onDelete }: { draft: D
           <>
             <DialogHeader>
               <DialogTitle>{form.id ? "Edit event" : "New event"}</DialogTitle>
-              <DialogDescription>{longDay(parseLocal(form.date))}{form.allDay ? ", all day" : `, ${form.start}–${form.end}`}</DialogDescription>
+              <DialogDescription>{longDay(parseLocal(form.date))}{form.allDay ? ", all day" : `, ${clock(form.start)}–${clock(form.end)}`}</DialogDescription>
             </DialogHeader>
             <form
               id={formId}
@@ -515,16 +536,11 @@ function EventEditor({ draft, calendars, onClose, onSave, onDelete }: { draft: D
                 {(props) => <Input {...props} autoFocus value={form.title} placeholder="Untitled event" onChange={(e) => set("title", e.target.value)} />}
               </Field>
               <div className="grid grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)_minmax(0,1fr)] gap-2 max-sm:grid-cols-2">
-                <Field label="Date" className="max-sm:col-span-2">
-                  {(props) => <Input {...props} type="date" value={form.date} onChange={(e) => e.target.value && set("date", e.target.value)} />}
-                </Field>
-                <Field label="Starts">
-                  {(props) => <Input {...props} type="time" step={900} disabled={form.allDay} value={form.start} onChange={(e) => set("start", e.target.value)} />}
-                </Field>
-                <Field label="Ends" error={error}>
-                  {(props) => <Input {...props} type="time" step={900} disabled={form.allDay} value={form.end} onChange={(e) => { set("end", e.target.value); setError(undefined); }} />}
-                </Field>
+                <DatePicker label="Date" className="max-w-none max-sm:col-span-2" value={form.date} onValueChange={(value) => value && set("date", value)} />
+                <TimeField label="Starts" disabled={form.allDay} value={form.start} onChange={(value) => set("start", value)} />
+                <TimeField label="Ends" disabled={form.allDay} value={form.end} onChange={(value) => { set("end", value); setError(undefined); }} />
               </div>
+              {error && <p role="alert" className="-mt-1.5 text-[13px] text-destructive">{error}</p>}
               <label className="flex items-center gap-2 text-[13px]">
                 <Switch checked={form.allDay} onChange={(e) => set("allDay", e.target.checked)} />
                 All day

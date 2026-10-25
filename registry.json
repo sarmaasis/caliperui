@@ -1072,6 +1072,11 @@
           "target": "components/ui/checkbox.tsx"
         },
         {
+          "path": "registry/ui/date-picker.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/date-picker.tsx"
+        },
+        {
           "path": "registry/ui/dialog.tsx",
           "type": "registry:ui",
           "target": "components/ui/dialog.tsx"
@@ -1175,6 +1180,11 @@
           "path": "registry/ui/checkbox.css",
           "type": "registry:file",
           "target": "components/ui/checkbox.css"
+        },
+        {
+          "path": "registry/ui/shared/date-menu.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/date-menu.css"
         },
         {
           "path": "registry/ui/shared/dialog-overlay.css",

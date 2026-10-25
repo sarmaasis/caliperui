@@ -29,6 +29,10 @@ export type SelectMenuOption = {
 
 const ROW = 36;
 const PAD = 4;
+// The list is a little wider than its trigger and starts before it, so the chosen row sits over the trigger.
+const WIDER = 36;
+const ALIGN = 28;
+const EDGE = 12;
 
 function useCoarsePointer() {
   const [coarse, setCoarse] = useState(false);
@@ -84,6 +88,9 @@ export function SelectMenu({
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
   const [offset, setOffset] = useState(0);
+  // Keeps the list inside the dialog or card it opens in, when laying it over the trigger would cross the edge.
+  const [shift, setShift] = useState(0);
+  const [room, setRoom] = useState<number | undefined>(undefined);
   const trigger = useRef<HTMLButtonElement>(null);
   const list = useRef<HTMLDivElement>(null);
   const selectedIndex = Math.max(0, options.findIndex((option) => option.value === value));
@@ -114,6 +121,11 @@ export function SelectMenu({
       const above = PAD + selectedIndex * ROW;
       const fits = rect.top - above > 8 && rect.top - above + options.length * ROW + PAD * 2 < window.innerHeight - 8;
       setOffset(fits ? -(rect.height + above) - (ROW - rect.height) / 2 : 6);
+      const card = trigger.current.closest<HTMLElement>('[role="dialog"]')?.getBoundingClientRect();
+      const left = rect.left - ALIGN;
+      const right = left + rect.width + WIDER;
+      setShift(!card ? 0 : left < card.left + EDGE ? card.left + EDGE - left : right > card.right - EDGE ? card.right - EDGE - right : 0);
+      setRoom(card ? card.width - EDGE * 2 : undefined);
       setActive(selectedIndex);
     }
     setOpen(nextOpen);
@@ -228,7 +240,7 @@ export function SelectMenu({
           side="bottom"
           align="start"
           sideOffset={offset}
-          alignOffset={-28}
+          alignOffset={shift - ALIGN}
           avoidCollisions={offset > 0}
           onOpenAutoFocus={(event) => {
             event.preventDefault();
@@ -243,7 +255,7 @@ export function SelectMenu({
             }
           }}
           data-slot="select-menu-content"
-          style={{ width: "calc(var(--radix-popover-trigger-width) + 36px)", transformOrigin: `50% ${PAD + selectedIndex * ROW + ROW / 2}px` }}
+          style={{ width: `calc(var(--radix-popover-trigger-width) + ${WIDER}px)`, maxWidth: room, transformOrigin: `50% ${PAD + selectedIndex * ROW + ROW / 2}px` }}
         >
           <div
             ref={list}

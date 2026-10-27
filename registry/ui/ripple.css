@@ -1,0 +1,8 @@
+/* ripple.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Ripple: ink in the current colour, kept faint so the surface's own label stays the loudest thing. */
+  [data-slot="ripple"] { z-index: 0; --ripple-strength: 14%; }
+  [data-slot="ripple"] > [data-slot="ripple-ink"] { position: absolute; border-radius: 50%; background: color-mix(in oklab, currentColor var(--ripple-strength), transparent); opacity: 0; pointer-events: none; }
+}

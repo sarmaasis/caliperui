@@ -2,7 +2,7 @@
 
 React components, blocks and complete product screens drawn to one specification. Accessible by default, shadcn-compatible, installed as source you own.
 
-This repository is the free tier: 72 components and 20 basic sections and pages, MIT licensed. Each part is plain React, Tailwind CSS v4 and Radix source that you copy into your project and own. Docs, live previews and the full catalogue are at **https://caliperui.site**.
+This repository is the free tier: 80 components and 20 basic sections and pages, MIT licensed. Each part is plain React, Tailwind CSS v4 and Radix source that you copy into your project and own. Docs, live previews and the full catalogue are at **https://caliperui.site**.
 
 ## Install
 

@@ -1,0 +1,18 @@
+/* clip-reveal.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Clip reveal: only parts armed below the fold start hidden; the content settles from a slight zoom behind the edge. */
+  /* The wipe is on the inner layer: a box clipped to nothing never reports itself in view, so the observed root stays whole. */
+  [data-slot="clip-reveal"] > [data-slot="cr-inner"] { height: 100%; clip-path: inset(0); transition: clip-path 0.95s var(--ease-showcase), scale 1.2s var(--ease-showcase); }
+  [data-slot="clip-reveal"][data-state="hidden"] > [data-slot="cr-inner"] { scale: 1.08; transition: none; }
+  [data-slot="clip-reveal"][data-state="hidden"][data-from="bottom"] > [data-slot="cr-inner"] { clip-path: inset(100% 0 0 0); }
+  [data-slot="clip-reveal"][data-state="hidden"][data-from="top"] > [data-slot="cr-inner"] { clip-path: inset(0 0 100% 0); }
+  [data-slot="clip-reveal"][data-state="hidden"][data-from="left"] > [data-slot="cr-inner"] { clip-path: inset(0 100% 0 0); }
+  [data-slot="clip-reveal"][data-state="hidden"][data-from="right"] > [data-slot="cr-inner"] { clip-path: inset(0 0 0 100%); }
+  [data-slot="clip-reveal"][data-state="hidden"][data-from="iris"] > [data-slot="cr-inner"] { clip-path: inset(50% 50% 50% 50% round 999px); }
+  [data-slot="clip-reveal"][data-from="iris"][data-state="shown"] > [data-slot="cr-inner"] { clip-path: inset(0 0 0 0 round 0); }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="clip-reveal"], [data-slot="clip-reveal"] > [data-slot="cr-inner"] { transition: none; }
+  }
+}

@@ -1,0 +1,11 @@
+/* boop.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Boop: a quick push, then the settle curve springs it home. */
+  [data-slot="boop"] { transition: transform 0.6s var(--ease-settle); }
+  [data-slot="boop"][data-on] { transform: translate(var(--boop-x), var(--boop-y)) rotate(var(--boop-r)) scale(var(--boop-s)); transition-duration: 0.14s; transition-timing-function: var(--ease-out); }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="boop"][data-slot] { transform: none; transition: none; }
+  }
+}

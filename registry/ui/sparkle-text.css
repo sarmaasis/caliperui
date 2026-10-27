@@ -1,0 +1,11 @@
+/* sparkle-text.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Sparkle text: stars bloom, turn and fade around the text, behind it. */
+  [data-slot="sparkle-text"] [data-slot="st-star"] { position: absolute; z-index: 0; pointer-events: none; translate: -50% -50%; animation: st-bloom 760ms var(--ease-in-out) forwards; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="sparkle-text"] [data-slot="st-star"] { display: none; }
+  }
+  @keyframes st-bloom { 0% { scale: 0; rotate: 0deg; } 50% { scale: 1; rotate: 90deg; } 100% { scale: 0; rotate: 180deg; } }
+}

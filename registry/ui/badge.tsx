@@ -25,8 +25,8 @@ const shapes = {
 
 /* Categorical hues for labels that name a kind, not a status (a deal stage, a team, a type): OKLCH hue angles.
    Lightness and chroma come per theme from tokens.css (--tone-*), so the text holds 4.5:1 on its wash in both. */
-const tones = { blue: 255, violet: 295, rose: 2, orange: 50, amber: 82, green: 150, teal: 195, slate: 260 } as const;
-export type BadgeTone = keyof typeof tones;
+export const toneHues = { blue: 255, violet: 295, rose: 2, orange: 50, amber: 82, green: 150, teal: 195, slate: 260 } as const;
+export type BadgeTone = keyof typeof toneHues;
 
 export type BadgeProps = ComponentProps<"span"> & {
   variant?: keyof typeof variants;
@@ -58,7 +58,7 @@ export function Badge({
           : variants[variant],
         className,
       )}
-      style={tone ? ({ "--tone-h": tones[tone], ...style } as CSSProperties) : style}
+      style={tone ? ({ "--tone-h": toneHues[tone], ...style } as CSSProperties) : style}
       {...props}
     >
       {tone && <span data-slot="badge-dot" aria-hidden="true" className="size-1.5 shrink-0 rounded-full bg-current" />}

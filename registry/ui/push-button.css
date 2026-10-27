@@ -1,0 +1,27 @@
+/* push-button.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Push button: a face on its own edge; hover lifts, press travels down onto the edge, release springs back. */
+  [data-slot="push-button"] { --pb-depth: 4px; --pb-face: var(--primary); --pb-ink: var(--primary-foreground); position: relative; display: inline-flex; padding: 0; padding-bottom: var(--pb-depth); border: 0; border-radius: var(--radius-button); background: none; font-weight: 600; letter-spacing: -0.006em; cursor: pointer; outline: none; -webkit-tap-highlight-color: transparent; }
+  [data-slot="push-button"][data-variant="accent"] { --pb-face: var(--accent); --pb-ink: var(--accent-foreground); }
+  [data-slot="push-button"][data-variant="secondary"] { --pb-face: var(--raised); --pb-ink: var(--foreground); }
+  [data-slot="push-button"] [data-slot="pb-edge"] { position: absolute; inset: var(--pb-depth) 0 0; border-radius: inherit; background: color-mix(in oklab, var(--pb-face), #000 32%); }
+  [data-slot="push-button"][data-variant="secondary"] [data-slot="pb-edge"] { background: var(--border-strong); }
+  [data-slot="push-button"] [data-slot="pb-face"] { position: relative; display: inline-flex; flex: 1; align-items: center; justify-content: center; gap: 8px; min-height: 40px; padding: 0 18px; border-radius: inherit; background: var(--pb-face); color: var(--pb-ink); font-size: 14px; translate: 0 0; transition: translate 0.5s var(--ease-settle), filter var(--duration-fast) var(--ease-out); }
+  [data-slot="push-button"][data-variant="secondary"] [data-slot="pb-face"] { box-shadow: inset 0 0 0 1px var(--border-strong); }
+  [data-slot="push-button"][data-size="sm"] { --pb-depth: 3px; }
+  [data-slot="push-button"][data-size="sm"] [data-slot="pb-face"] { min-height: 32px; padding: 0 14px; font-size: 13px; }
+  [data-slot="push-button"][data-size="lg"] { --pb-depth: 5px; }
+  [data-slot="push-button"][data-size="lg"] [data-slot="pb-face"] { min-height: 48px; padding: 0 24px; font-size: 16px; }
+  [data-slot="push-button"] [data-slot="pb-face"] svg { width: 1.1em; height: 1.1em; flex: none; }
+  @media (hover: hover) { [data-slot="push-button"]:hover:not(:disabled) [data-slot="pb-face"] { translate: 0 -1px; filter: brightness(1.06); transition-duration: 0.25s; } }
+  [data-slot="push-button"]:active:not(:disabled) [data-slot="pb-face"] { translate: 0 var(--pb-depth); transition: translate 34ms linear; }
+  [data-slot="push-button"]:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
+  [data-slot="push-button"]:disabled { cursor: not-allowed; }
+  [data-slot="push-button"]:disabled [data-slot="pb-face"] { translate: 0 var(--pb-depth); background: var(--muted); color: var(--muted-foreground); box-shadow: none; }
+  @media (pointer: coarse) { [data-slot="push-button"] [data-slot="pb-face"] { min-height: 44px; } }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="push-button"] [data-slot="pb-face"] { transition: none; }
+  }
+}

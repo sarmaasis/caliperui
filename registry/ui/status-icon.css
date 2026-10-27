@@ -1,0 +1,23 @@
+/* status-icon.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Status icon: one ring, one pie, one disc and one mark; each status sets them, so changes animate between shapes. */
+  /* Waiting states stay grey; moving and finished states carry a hue (amber working, blue in review, green done), one lightness per theme. */
+  [data-slot="status-icon"] { --si-l: 0.64; --si-c: 0.16; color: var(--muted-foreground); transition: color var(--duration-travel) var(--ease-out); }
+  [data-theme="dark"] [data-slot="status-icon"] { --si-l: 0.78; --si-c: 0.15; }
+  [data-slot="status-icon"][data-status="in-progress"] { color: oklch(var(--si-l) var(--si-c) 75); }
+  [data-slot="status-icon"][data-status="in-review"] { color: oklch(var(--si-l) var(--si-c) 255); }
+  [data-slot="status-icon"][data-status="done"] { color: oklch(var(--si-l) var(--si-c) 150); }
+  [data-slot="status-icon"] [data-slot="si-ring"] { stroke: currentColor; stroke-dasharray: 40 0; transform-origin: 8px 8px; transition: stroke-dasharray var(--duration-travel) var(--ease-out), rotate var(--duration-travel) var(--ease-out), opacity var(--duration-normal) var(--ease-out); }
+  [data-slot="status-icon"][data-status="backlog"] [data-slot="si-ring"] { stroke-dasharray: 2.6 2.4; rotate: -22deg; }
+  [data-slot="status-icon"] [data-slot="si-pie"] { stroke: currentColor; stroke-dasharray: var(--si-pie) 16px; transform-origin: 8px 8px; rotate: -90deg; transition: stroke-dasharray var(--duration-travel) var(--ease-settle); }
+  [data-slot="status-icon"] [data-slot="si-disc"] { fill: currentColor; transform-origin: 8px 8px; scale: 0; transition: scale var(--duration-deliberate) var(--ease-settle); }
+  [data-slot="status-icon"]:is([data-status="done"], [data-status="cancelled"]) [data-slot="si-disc"] { scale: 1; }
+  [data-slot="status-icon"]:is([data-status="done"], [data-status="cancelled"]) [data-slot="si-ring"] { opacity: 0; }
+  [data-slot="status-icon"] [data-slot="si-mark"] { stroke: var(--background); stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset var(--duration-deliberate) var(--ease-out); }
+  [data-slot="status-icon"]:is([data-status="done"], [data-status="cancelled"]) [data-slot="si-mark"] { stroke-dashoffset: 0; transition-delay: 120ms; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="status-icon"], [data-slot="status-icon"] :is([data-slot="si-ring"], [data-slot="si-pie"], [data-slot="si-disc"], [data-slot="si-mark"]) { transition: none; }
+  }
+}

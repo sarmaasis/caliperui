@@ -1,0 +1,15 @@
+/* equalizer-bars.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Equalizer bars: each bar its own tempo, so they never line up; paused bars settle low. */
+  [data-slot="equalizer-bars"] { color: var(--accent); }
+  [data-slot="equalizer-bars"] i { width: 3px; height: 100%; border-radius: 999px; background: currentColor; transform-origin: bottom; scale: 1 0.3; transition: scale var(--duration-deliberate) var(--ease-out); }
+  [data-slot="equalizer-bars"][data-playing] i { animation: eq-bounce calc(0.62s + var(--eq-i) * 0.17s) var(--ease-in-out) calc(var(--eq-i) * -0.29s) infinite alternate; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="equalizer-bars"][data-playing] i { animation: none; }
+    [data-slot="equalizer-bars"][data-playing] i:nth-child(odd) { scale: 1 0.7; }
+    [data-slot="equalizer-bars"][data-playing] i:nth-child(even) { scale: 1 0.45; }
+  }
+  @keyframes eq-bounce { 0% { scale: 1 0.25; } 35% { scale: 1 0.9; } 60% { scale: 1 0.45; } 100% { scale: 1 1; } }
+}

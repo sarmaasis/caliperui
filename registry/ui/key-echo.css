@@ -1,0 +1,13 @@
+/* key-echo.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Key echo: caps rise in, a repeat bumps its count, and old combinations fade up and out. */
+  [data-slot="key-echo"] [data-slot="ke-combo"] { display: inline-flex; align-items: center; gap: 6px; padding: 6px 8px; border: 1px solid var(--border); border-radius: var(--radius-control); background: var(--background); box-shadow: var(--shadow-resting); animation: ke-in 0.28s var(--ease-settle); }
+  [data-slot="key-echo"] [data-slot="ke-times"] { font-size: 12px; font-variant-numeric: tabular-nums; color: var(--muted-foreground); animation: ke-bump 0.25s var(--ease-settle); }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="key-echo"] :is([data-slot="ke-combo"], [data-slot="ke-times"]) { animation: none; }
+  }
+  @keyframes ke-in { from { opacity: 0; translate: 0 8px; scale: 0.94; } }
+  @keyframes ke-bump { from { scale: 1.3; } }
+}

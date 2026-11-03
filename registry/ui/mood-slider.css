@@ -1,0 +1,20 @@
+/* mood-slider.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Mood slider: the face's colour and mouth follow the slider; the word swaps with a small lift. */
+  [data-slot="mood-slider"] [data-slot="mo-face"] { width: 112px; height: 112px; }
+  [data-slot="mood-slider"] [data-slot="mo-skin"] { fill: oklch(0.86 0.12 var(--mo-h)); transition: fill var(--duration-normal) var(--ease-out); }
+  [data-theme="dark"] [data-slot="mood-slider"] [data-slot="mo-skin"] { fill: oklch(0.74 0.13 var(--mo-h)); }
+  [data-slot="mood-slider"] [data-slot="mo-feature"] { fill: oklch(0.24 0.03 var(--mo-h)); transition: ry var(--duration-normal) var(--ease-settle); }
+  [data-slot="mood-slider"] [data-slot="mo-mouth"] { fill: none; stroke: oklch(0.24 0.03 var(--mo-h)); stroke-width: 5; stroke-linecap: round; transition: d var(--duration-normal) var(--ease-settle); }
+  [data-slot="mood-slider"] [data-slot="mo-word"] { min-height: 24px; margin: 0; font-weight: 500; }
+  [data-slot="mood-slider"] [data-slot="mo-word"] > span { display: inline-block; animation: mo-word 0.3s var(--ease-out); }
+  [data-slot="mood-slider"] [data-slot="mo-range"] { width: min(280px, 100%); accent-color: oklch(0.6 0.15 var(--mo-h)); cursor: pointer; }
+  [data-slot="mood-slider"] [data-slot="mo-range"]:focus-visible { outline: 2px solid var(--ring); outline-offset: 4px; border-radius: 4px; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="mood-slider"] :is([data-slot="mo-feature"], [data-slot="mo-mouth"], [data-slot="mo-skin"]) { transition: none; }
+    [data-slot="mood-slider"] [data-slot="mo-word"] > span { animation: none; }
+  }
+  @keyframes mo-word { from { opacity: 0; translate: 0 5px; } }
+}

@@ -1,0 +1,10 @@
+/* unit-field.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Unit field: the figure and its unit read as one field; the unit switch sits beside it. */
+  [data-slot="unit-field"] [data-slot="uf-box"] { display: flex; flex: 1; min-width: 0; align-items: center; height: var(--control-height); padding: 0 12px; border: 1px solid var(--border); border-radius: var(--radius-control); background: var(--background); transition: border-color var(--duration-fast) var(--ease-out); }
+  [data-slot="unit-field"] [data-slot="uf-box"]:focus-within { border-color: var(--ring); box-shadow: 0 0 0 2px color-mix(in oklab, var(--ring) 30%, transparent); }
+  [data-slot="unit-field"] [data-slot="uf-input"] { flex: 1; min-width: 0; border: 0; background: none; color: var(--foreground); font: inherit; font-size: 15px; font-variant-numeric: tabular-nums; outline: none; }
+  [data-slot="unit-field"] [data-slot="uf-suffix"] { flex: none; color: var(--muted-foreground); font-size: 13px; }
+}

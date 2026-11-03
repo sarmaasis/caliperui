@@ -1,4 +1,4 @@
-/* Shared by not-found-compass.tsx, rating.tsx; each imports it. Edit freely. */
+/* Shared by not-found-compass.tsx, rating.tsx, ruler-slider.tsx; each imports it. Edit freely. */
 @layer theme, base, components, utilities;
 
 @layer components {

@@ -2359,6 +2359,45 @@
       }
     },
     {
+      "name": "cycling-placeholder",
+      "type": "registry:ui",
+      "title": "Cycling placeholder",
+      "description": "A text field whose placeholder rolls through examples of what to type, so an empty search box teaches what it can find. The roll pauses while the field has focus and the examples disappear once anything is typed.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/cycling-placeholder.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/cycling-placeholder.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/cycling-placeholder.css",
+          "type": "registry:file",
+          "target": "components/ui/cycling-placeholder.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "text-motion",
+        "docs": "/docs/components/cycling-placeholder"
+      }
+    },
+    {
       "name": "data-table",
       "type": "registry:ui",
       "title": "Data table",
@@ -2716,6 +2755,50 @@
         "license": "MIT",
         "family": "overlays-and-tabs",
         "docs": "/docs/components/dialog"
+      }
+    },
+    {
+      "name": "diff-text",
+      "type": "registry:ui",
+      "title": "Diff text",
+      "description": "Shows a change to a piece of text where it stands: removed words are struck through and close up, added words grow in with a passing tint, and then it settles. With `keep`, the marks stay for review.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/diff-text.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/diff-text.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/lib/diff-lines.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/diff-lines.ts"
+        },
+        {
+          "path": "registry/ui/diff-text.css",
+          "type": "registry:file",
+          "target": "components/ui/diff-text.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "text-motion",
+        "docs": "/docs/components/diff-text"
       }
     },
     {
@@ -3205,6 +3288,45 @@
       }
     },
     {
+      "name": "event-rail",
+      "type": "registry:ui",
+      "title": "Event rail",
+      "description": "Dated events on a rail you drag sideways. The event in the middle is full size, its neighbours shrink and dim with distance, ticks run beneath the cards and each new year's numeral drifts slowly behind them.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/event-rail.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/event-rail.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/event-rail.css",
+          "type": "registry:file",
+          "target": "components/ui/event-rail.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "browse",
+        "docs": "/docs/components/event-rail"
+      }
+    },
+    {
       "name": "faq-block",
       "type": "registry:ui",
       "title": "FAQ block",
@@ -3556,6 +3678,55 @@
       }
     },
     {
+      "name": "key-echo",
+      "type": "registry:ui",
+      "title": "Key echo",
+      "description": "Shows the keys you press as caps that pop up, stack and fade, for screen recordings, tutorials and live demos. Pressing the same combination again counts it instead of adding another.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/kbd.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/kbd.tsx"
+        },
+        {
+          "path": "registry/ui/key-echo.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/key-echo.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/kbd.css",
+          "type": "registry:file",
+          "target": "components/ui/kbd.css"
+        },
+        {
+          "path": "registry/ui/key-echo.css",
+          "type": "registry:file",
+          "target": "components/ui/key-echo.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "surfaces",
+        "docs": "/docs/components/key-echo"
+      }
+    },
+    {
       "name": "label",
       "type": "registry:ui",
       "title": "Label",
@@ -3808,6 +3979,45 @@
       }
     },
     {
+      "name": "marquee-select",
+      "type": "registry:ui",
+      "title": "Marquee select",
+      "description": "Select many items by dragging a rubber band over them, the way a desktop does. Chosen items lift with a tick, Shift keeps what was already chosen, and a count springs up with a way to clear.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/marquee-select.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/marquee-select.tsx"
+        },
+        {
+          "path": "registry/ui/marquee-select.css",
+          "type": "registry:file",
+          "target": "components/ui/marquee-select.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "browse",
+        "docs": "/docs/components/marquee-select"
+      }
+    },
+    {
       "name": "metric",
       "type": "registry:ui",
       "title": "Metric",
@@ -3849,6 +4059,45 @@
         "license": "MIT",
         "family": "blocks",
         "docs": "/docs/components/metric"
+      }
+    },
+    {
+      "name": "mood-slider",
+      "type": "registry:ui",
+      "title": "Mood slider",
+      "description": "A satisfaction rating as a face that changes with the slider: the mouth bends from a frown to a smile, the eyes soften and the colour warms from red through amber to green, with the word for each step beneath.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/mood-slider.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/mood-slider.tsx"
+        },
+        {
+          "path": "registry/ui/mood-slider.css",
+          "type": "registry:file",
+          "target": "components/ui/mood-slider.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "changing-values",
+        "docs": "/docs/components/mood-slider"
       }
     },
     {
@@ -4663,6 +4912,65 @@
       }
     },
     {
+      "name": "ruler-slider",
+      "type": "registry:ui",
+      "title": "Ruler slider",
+      "description": "A tape of ticks that slides under a fixed needle. Drag it and let go: it keeps the speed you gave it, slows, and clicks into the nearest step while the number above rolls to the new value. For picking a measurement where the scale itself helps.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/animated-counter.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/animated-counter.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/lib/motion-tokens.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/motion-tokens.ts"
+        },
+        {
+          "path": "registry/ui/ruler-slider.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ruler-slider.tsx"
+        },
+        {
+          "path": "registry/ui/animated-counter.css",
+          "type": "registry:file",
+          "target": "components/ui/animated-counter.css"
+        },
+        {
+          "path": "registry/ui/shared/styles-5.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/styles-5.css"
+        },
+        {
+          "path": "registry/ui/ruler-slider.css",
+          "type": "registry:file",
+          "target": "components/ui/ruler-slider.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "changing-values",
+        "docs": "/docs/components/ruler-slider"
+      }
+    },
+    {
       "name": "scroll-area",
       "type": "registry:ui",
       "title": "Scroll area",
@@ -4699,6 +5007,51 @@
         "license": "MIT",
         "family": "disclosure",
         "docs": "/docs/components/scroll-area"
+      }
+    },
+    {
+      "name": "scroll-top-ring",
+      "type": "registry:ui",
+      "title": "Scroll top ring",
+      "description": "A back-to-top button whose ring fills as you read. It springs in once you have scrolled past the threshold, stays in the corner of whatever scrolls, and returns you to the top with focus at the start of the content.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/lib/scroll-view.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/scroll-view.ts"
+        },
+        {
+          "path": "registry/ui/scroll-top-ring.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/scroll-top-ring.tsx"
+        },
+        {
+          "path": "registry/ui/scroll-top-ring.css",
+          "type": "registry:file",
+          "target": "components/ui/scroll-top-ring.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "browse",
+        "docs": "/docs/components/scroll-top-ring"
       }
     },
     {
@@ -4951,6 +5304,45 @@
       }
     },
     {
+      "name": "shuffle-grid",
+      "type": "registry:ui",
+      "title": "Shuffle grid",
+      "description": "A grid you filter with a row of chips. Items that stay glide to their new places, items that leave shrink away from where they stood and items that arrive grow in, so a filter reads as a rearrangement rather than a swap.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/shuffle-grid.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/shuffle-grid.tsx"
+        },
+        {
+          "path": "registry/ui/shuffle-grid.css",
+          "type": "registry:file",
+          "target": "components/ui/shuffle-grid.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "browse",
+        "docs": "/docs/components/shuffle-grid"
+      }
+    },
+    {
       "name": "sidebar",
       "type": "registry:ui",
       "title": "Sidebar",
@@ -5137,6 +5529,45 @@
       }
     },
     {
+      "name": "signal-strength",
+      "type": "registry:ui",
+      "title": "Signal strength",
+      "description": "Four bars for the quality of a connection. The bars rise and fall one after another as the level changes and take a colour for how good it is; while searching a light sweeps across them, and offline they grey out under a slash.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/signal-strength.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/signal-strength.tsx"
+        },
+        {
+          "path": "registry/ui/signal-strength.css",
+          "type": "registry:file",
+          "target": "components/ui/signal-strength.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "changing-values",
+        "docs": "/docs/components/signal-strength"
+      }
+    },
+    {
       "name": "site-footer",
       "type": "registry:ui",
       "title": "Site footer",
@@ -5212,6 +5643,45 @@
         "license": "MIT",
         "family": "feedback",
         "docs": "/docs/components/skeleton"
+      }
+    },
+    {
+      "name": "skeleton-morph",
+      "type": "registry:ui",
+      "title": "Skeleton morph",
+      "description": "Loading placeholders that turn into the real content one block at a time instead of being swapped out. The placeholders are the content's own boxes, so nothing moves when the data arrives.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/skeleton-morph.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/skeleton-morph.tsx"
+        },
+        {
+          "path": "registry/ui/skeleton-morph.css",
+          "type": "registry:file",
+          "target": "components/ui/skeleton-morph.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "surfaces",
+        "docs": "/docs/components/skeleton-morph"
       }
     },
     {
@@ -5321,6 +5791,45 @@
         "license": "MIT",
         "family": "blocks",
         "docs": "/docs/components/sparkline"
+      }
+    },
+    {
+      "name": "split-bar",
+      "type": "registry:ui",
+      "title": "Split bar",
+      "description": "One bar that is the whole, split into shares in the chart colours. Rest on a share, or focus its legend row, and it widens to show its figures while the others make room; switch shares off and the rest fill the bar again.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/split-bar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/split-bar.tsx"
+        },
+        {
+          "path": "registry/ui/split-bar.css",
+          "type": "registry:file",
+          "target": "components/ui/split-bar.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "changing-values",
+        "docs": "/docs/components/split-bar"
       }
     },
     {
@@ -5524,6 +6033,45 @@
       }
     },
     {
+      "name": "swatch-picker",
+      "type": "registry:ui",
+      "title": "Swatch picker",
+      "description": "A row of colour swatches with one selection ring that glides to the chosen colour, wrapping rows included. The chosen swatch steps in to make room for the ring.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/swatch-picker.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/swatch-picker.tsx"
+        },
+        {
+          "path": "registry/ui/swatch-picker.css",
+          "type": "registry:file",
+          "target": "components/ui/swatch-picker.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "surfaces",
+        "docs": "/docs/components/swatch-picker"
+      }
+    },
+    {
       "name": "switch",
       "type": "registry:ui",
       "title": "Switch",
@@ -5593,6 +6141,50 @@
         "license": "MIT",
         "family": "animated-tabs",
         "docs": "/docs/components/tabs"
+      }
+    },
+    {
+      "name": "tag-overflow",
+      "type": "registry:ui",
+      "title": "Tag overflow",
+      "description": "A row of tags that shows the first few and folds the rest into a \"+N\" count. Choosing the count opens the rest one after another in place, and \"Show less\" folds them back.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/badge.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/badge.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/tag-overflow.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/tag-overflow.tsx"
+        },
+        {
+          "path": "registry/ui/tag-overflow.css",
+          "type": "registry:file",
+          "target": "components/ui/tag-overflow.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "surfaces",
+        "docs": "/docs/components/tag-overflow"
       }
     },
     {
@@ -5828,6 +6420,50 @@
       }
     },
     {
+      "name": "toc-progress",
+      "type": "registry:ui",
+      "title": "Toc progress",
+      "description": "A table of contents that reads along with you: a thin rail bends through the nested headings and fills as the page scrolls, a marker rides it to the current section, and the reading time left counts down.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/lib/scroll-view.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/scroll-view.ts"
+        },
+        {
+          "path": "registry/ui/toc-progress.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/toc-progress.tsx"
+        },
+        {
+          "path": "registry/ui/toc-progress.css",
+          "type": "registry:file",
+          "target": "components/ui/toc-progress.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "browse",
+        "docs": "/docs/components/toc-progress"
+      }
+    },
+    {
       "name": "toggle",
       "type": "registry:ui",
       "title": "Toggle and toggle group",
@@ -6044,6 +6680,55 @@
         "license": "MIT",
         "family": "overlays-and-tabs",
         "docs": "/docs/components/tooltip"
+      }
+    },
+    {
+      "name": "unit-field",
+      "type": "registry:ui",
+      "title": "Unit field",
+      "description": "A number field with its unit beside it. Switching the unit converts the amount and the figure counts across to the new value rather than jumping, so it is clear the quantity is the same.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/segmented-control.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/segmented-control.tsx"
+        },
+        {
+          "path": "registry/ui/unit-field.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/unit-field.tsx"
+        },
+        {
+          "path": "registry/ui/shared/segmented-plate.css",
+          "type": "registry:file",
+          "target": "components/ui/shared/segmented-plate.css"
+        },
+        {
+          "path": "registry/ui/unit-field.css",
+          "type": "registry:file",
+          "target": "components/ui/unit-field.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "changing-values",
+        "docs": "/docs/components/unit-field"
       }
     },
     {

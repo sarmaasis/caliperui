@@ -1,0 +1,19 @@
+/* toc-progress.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Toc progress: the rail bends with the nesting; the fill and marker follow the reading line. */
+  [data-slot="toc-progress"] [data-slot="tp-body"] { position: relative; }
+  [data-slot="toc-progress"] [data-slot="tp-rail"] { position: absolute; top: 0; left: 0; overflow: visible; pointer-events: none; }
+  [data-slot="toc-progress"] [data-slot="tp-track"] { fill: none; stroke: var(--border); stroke-width: 1.5; }
+  [data-slot="toc-progress"] [data-slot="tp-fill"] { fill: none; stroke: var(--foreground); stroke-width: 1.5; stroke-linecap: round; stroke-dasharray: 0 100000; transition: stroke-dasharray 0.16s linear; }
+  [data-slot="toc-progress"] [data-slot="tp-marker"] { fill: var(--background); stroke: var(--foreground); stroke-width: 1.5; transition: transform 0.16s linear; }
+  [data-slot="toc-progress"] ol { display: grid; margin: 0; padding: 0; list-style: none; }
+  [data-slot="toc-progress"] [data-slot="tp-link"] { display: block; padding: 5px 0; border-radius: 4px; color: var(--muted-foreground); font-size: 13px; line-height: 1.35; text-decoration: none; transition: color var(--duration-fast) var(--ease-out); }
+  [data-slot="toc-progress"] [data-slot="tp-link"]:hover, [data-slot="toc-progress"] [data-slot="tp-link"][aria-current] { color: var(--foreground); }
+  [data-slot="toc-progress"] [data-slot="tp-link"][aria-current] { font-weight: 500; }
+  [data-slot="toc-progress"] [data-slot="tp-link"]:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="toc-progress"] :is([data-slot="tp-fill"], [data-slot="tp-marker"]) { transition: none; }
+  }
+}

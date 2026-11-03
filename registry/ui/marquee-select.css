@@ -1,0 +1,25 @@
+/* marquee-select.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Marquee select: a band on desktop; chosen items lift with a tick, and the count springs up. */
+  [data-slot="marquee-select"] [data-slot="ms-area"] { gap: 10px; outline: none; }
+  @media (pointer: fine) { [data-slot="marquee-select"] [data-slot="ms-area"] { touch-action: none; } }
+  [data-slot="marquee-select"] [data-slot="ms-item"] { position: relative; border-radius: var(--radius-control); outline: none; cursor: default; transition: translate var(--duration-normal) var(--ease-settle), box-shadow var(--duration-normal) var(--ease-out); }
+  [data-slot="marquee-select"] [data-slot="ms-item"][aria-selected="true"] { translate: 0 -2px; box-shadow: 0 0 0 2px var(--foreground), var(--shadow-resting); }
+  [data-slot="marquee-select"] [data-slot="ms-item"]::before, [data-slot="marquee-select"] [data-slot="ms-item"]::after { content: ""; position: absolute; top: 6px; right: 6px; z-index: 1; width: 18px; height: 18px; border-radius: 50%; scale: 0; pointer-events: none; transition: scale var(--duration-normal) var(--ease-settle); }
+  [data-slot="marquee-select"] [data-slot="ms-item"]::before { background: var(--foreground); }
+  [data-slot="marquee-select"] [data-slot="ms-item"]::after { background: var(--background); mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5.5 9.2l2.3 2.3 4.7-5' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+  [data-slot="marquee-select"] [data-slot="ms-item"][aria-selected="true"]::before, [data-slot="marquee-select"] [data-slot="ms-item"][aria-selected="true"]::after { scale: 1; }
+  [data-slot="marquee-select"] [data-slot="ms-item"]:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
+  [data-slot="marquee-select"] [data-slot="ms-band"] { position: absolute; z-index: 3; border: 1px solid color-mix(in oklab, var(--foreground) 55%, transparent); border-radius: 4px; background: color-mix(in oklab, var(--foreground) 7%, transparent); pointer-events: none; }
+  [data-slot="marquee-select"] [data-slot="ms-count"] { display: inline-flex; align-items: center; gap: 4px; height: 32px; padding: 0 4px 0 12px; border-radius: 999px; background: var(--foreground); color: var(--background); font-size: 13px; animation: ms-pop var(--duration-travel) var(--ease-settle); }
+  [data-slot="marquee-select"] [data-slot="ms-number"] { display: inline-block; animation: ms-tick var(--duration-normal) var(--ease-out); }
+  [data-slot="marquee-select"] [data-slot="ms-clear"] { height: 24px; margin-left: 6px; padding: 0 10px; border: 0; border-radius: 999px; background: color-mix(in oklab, var(--background) 20%, transparent); color: inherit; font-size: 12px; cursor: pointer; }
+  [data-slot="marquee-select"] [data-slot="ms-clear"]:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="marquee-select"] :is([data-slot="ms-item"], [data-slot="ms-count"], [data-slot="ms-number"]), [data-slot="marquee-select"] [data-slot="ms-item"]::before, [data-slot="marquee-select"] [data-slot="ms-item"]::after { transition: none; animation: none; }
+  }
+  @keyframes ms-pop { from { opacity: 0; scale: 0.8; translate: 0 6px; } }
+  @keyframes ms-tick { from { translate: 0 -40%; opacity: 0; } }
+}

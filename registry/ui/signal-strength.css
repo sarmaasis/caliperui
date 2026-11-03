@@ -1,0 +1,23 @@
+/* signal-strength.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Signal strength: bars rise in turn; colour follows quality; a sweep while searching. */
+  [data-slot="signal-strength"] { --ss-w: 4px; --ss-h: 16px; position: relative; align-items: flex-end; gap: 2px; height: var(--ss-h); color: var(--muted-foreground); }
+  [data-slot="signal-strength"][data-size="sm"] { --ss-w: 3px; --ss-h: 12px; }
+  [data-slot="signal-strength"][data-level="1"] { color: var(--destructive); }
+  [data-slot="signal-strength"][data-level="2"] { color: var(--warning); }
+  [data-slot="signal-strength"]:is([data-level="3"], [data-level="4"]) { color: var(--success); }
+  [data-slot="signal-strength"] i { width: var(--ss-w); height: calc(var(--ss-h) * (0.25 + var(--ss-i) * 0.1875)); border-radius: 1px; background: color-mix(in oklab, var(--foreground) 16%, transparent); transform-origin: bottom; transition: background-color var(--duration-normal) var(--ease-out) calc(var(--ss-i) * 40ms), scale var(--duration-normal) var(--ease-settle) calc(var(--ss-i) * 40ms); }
+  [data-slot="signal-strength"] i[data-on] { background: currentColor; }
+  [data-slot="signal-strength"][data-status="searching"] i { animation: ss-sweep 1.2s var(--ease-in-out) calc(var(--ss-i) * 120ms) infinite; }
+  [data-slot="signal-strength"] [data-slot="ss-slash"] { position: absolute; left: -2px; right: -2px; top: 50%; height: 1.5px; background: var(--muted-foreground); rotate: -40deg; box-shadow: 0 0 0 1px var(--background); }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="signal-strength"] i { transition: none; }
+    [data-slot="signal-strength"][data-status="searching"] i { animation: ss-pulse 2s ease-in-out infinite; }
+  }
+  @keyframes ss-sweep { 0%, 100% { background-color: color-mix(in oklab, var(--foreground) 16%, transparent); } 30% { background-color: var(--muted-foreground); } }
+  @media (prefers-reduced-motion: reduce) {
+    @keyframes ss-pulse { 50% { opacity: 0.5; } }
+  }
+}

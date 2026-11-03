@@ -1,0 +1,18 @@
+/* swatch-picker.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Swatch picker: one ring travels to the chosen colour; the chosen swatch steps in to make room for it. */
+  [data-slot="swatch-picker"] { --sp-size: 28px; gap: 10px; }
+  [data-slot="swatch-picker"][data-size="sm"] { --sp-size: 22px; gap: 8px; }
+  [data-slot="swatch-picker"] [data-slot="sp-swatch"] { position: relative; width: var(--sp-size); height: var(--sp-size); padding: 0; border: 0; border-radius: 50%; background: var(--sp-color); box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--foreground) 14%, transparent); cursor: pointer; transition: scale var(--duration-normal) var(--ease-settle); }
+  @media (hover: hover) { [data-slot="swatch-picker"] [data-slot="sp-swatch"]:hover { scale: 1.08; } }
+  [data-slot="swatch-picker"] [data-slot="sp-swatch"][aria-checked="true"] { scale: 0.72; }
+  [data-slot="swatch-picker"] [data-slot="sp-swatch"]:active { scale: 0.66; }
+  [data-slot="swatch-picker"] [data-slot="sp-swatch"]:focus-visible { outline: 2px solid var(--ring); outline-offset: 4px; }
+  [data-slot="swatch-picker"] [data-slot="sp-ring"] { position: absolute; top: 0; left: 0; width: var(--sp-size); height: var(--sp-size); border-radius: 50%; box-shadow: inset 0 0 0 2px color-mix(in oklab, var(--sp-color) 72%, var(--foreground)); pointer-events: none; transition: translate var(--duration-travel) var(--ease-settle), box-shadow var(--duration-travel) var(--ease-out); }
+  @media (pointer: coarse) { [data-slot="swatch-picker"] { --sp-size: 36px; } }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="swatch-picker"] :is([data-slot="sp-ring"], [data-slot="sp-swatch"]) { transition: none; }
+  }
+}

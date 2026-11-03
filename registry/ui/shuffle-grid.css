@@ -1,0 +1,14 @@
+/* shuffle-grid.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Shuffle grid: chips filter; cells are moved by script, and a leaving cell is hidden once its exit ends. */
+  [data-slot="shuffle-grid"] [data-slot="shg-chip"] { height: 30px; padding: 0 12px; border: 1px solid var(--border); border-radius: 999px; background: var(--background); color: var(--muted-foreground); font-size: 13px; cursor: pointer; transition: background-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out); }
+  @media (hover: hover) { [data-slot="shuffle-grid"] [data-slot="shg-chip"]:hover { color: var(--foreground); } }
+  [data-slot="shuffle-grid"] [data-slot="shg-chip"][aria-pressed="true"] { border-color: var(--foreground); background: var(--foreground); color: var(--background); }
+  [data-slot="shuffle-grid"] [data-slot="shg-chip"]:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+  [data-slot="shuffle-grid"] [data-slot="shg-grid"] { gap: 10px; margin: 0; padding: 0; overflow: clip; overflow-clip-margin: 8px; list-style: none; }
+  [data-slot="shuffle-grid"] [data-slot="shg-cell"] { min-width: 0; }
+  [data-slot="shuffle-grid"] [data-slot="shg-cell"][data-out] { display: none; }
+  @media (pointer: coarse) { [data-slot="shuffle-grid"] [data-slot="shg-chip"] { height: 36px; } }
+}

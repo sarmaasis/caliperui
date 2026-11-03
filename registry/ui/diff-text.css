@@ -1,0 +1,21 @@
+/* diff-text.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Diff text: removed words strike, then close up; added words open up with a passing tint. */
+  [data-slot="diff-text"] :is([data-slot="dt-del"], [data-slot="dt-ins"]) { display: inline-grid; grid-template-columns: 1fr; text-decoration: none; vertical-align: bottom; }
+  [data-slot="diff-text"] :is([data-slot="dt-del"], [data-slot="dt-ins"]) > span:not(.sr-only) { min-width: 0; overflow: hidden; white-space: pre; }
+  [data-slot="diff-text"] [data-slot="dt-del"] > span { color: var(--muted-foreground); text-decoration: line-through; text-decoration-color: var(--destructive); animation: dt-strike 0.3s var(--ease-out) calc(var(--dt-i) * 30ms) backwards; }
+  [data-slot="diff-text"] [data-slot="dt-del"] { animation: dt-out 0.45s var(--ease-in-out) calc(440ms + var(--dt-i) * 30ms) forwards; }
+  [data-slot="diff-text"] [data-slot="dt-ins"] { border-radius: 2px; animation: dt-in 0.5s var(--ease-out) calc(720ms + var(--dt-i) * 30ms) backwards, dt-tint 1.4s var(--ease-out) calc(720ms + var(--dt-i) * 30ms) backwards; }
+  [data-slot="diff-text"][data-keep] [data-slot="dt-del"] { animation: none; }
+  [data-slot="diff-text"][data-keep] [data-slot="dt-del"] + [data-slot="dt-ins"] { margin-left: 0.3em; }
+  [data-slot="diff-text"][data-keep] [data-slot="dt-ins"] { background: color-mix(in oklab, var(--success) 18%, transparent); animation: dt-in 0.5s var(--ease-out) calc(300ms + var(--dt-i) * 30ms) backwards; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="diff-text"] :is([data-slot="dt-del"], [data-slot="dt-ins"]), [data-slot="diff-text"] [data-slot="dt-del"] > span { animation: none; }
+  }
+  @keyframes dt-strike { from { color: var(--foreground); text-decoration-color: transparent; } }
+  @keyframes dt-out { to { grid-template-columns: 0fr; opacity: 0; } }
+  @keyframes dt-in { from { grid-template-columns: 0fr; opacity: 0; } }
+  @keyframes dt-tint { 0%, 45% { background-color: color-mix(in oklab, var(--success) 22%, transparent); } 100% { background-color: transparent; } }
+}

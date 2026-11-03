@@ -1,0 +1,14 @@
+/* tag-overflow.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Tag overflow: extra tags pop in one after another; the count is a small pill. */
+  [data-slot="tag-overflow"] [data-slot="badge"][data-extra] { animation: to-in 0.3s var(--ease-settle) calc(var(--to-i) * 45ms) backwards; }
+  [data-slot="tag-overflow"] [data-slot="to-toggle"] { height: 22px; padding: 0 8px; border: 1px dashed var(--border-strong); border-radius: 999px; background: none; color: var(--muted-foreground); font-size: 12px; font-variant-numeric: tabular-nums; cursor: pointer; transition: color var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out); }
+  @media (hover: hover) { [data-slot="tag-overflow"] [data-slot="to-toggle"]:hover { color: var(--foreground); border-color: var(--foreground); } }
+  [data-slot="tag-overflow"] [data-slot="to-toggle"]:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="tag-overflow"] [data-slot="badge"][data-extra] { animation: none; }
+  }
+  @keyframes to-in { from { opacity: 0; scale: 0.7; } }
+}

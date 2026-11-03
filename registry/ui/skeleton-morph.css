@@ -1,0 +1,17 @@
+/* skeleton-morph.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Skeleton morph: bones are the content's own boxes; arriving content fills each one in turn. */
+  [data-slot="skeleton-morph"][data-loading] [data-bone] { color: transparent; background-color: var(--muted); background-image: linear-gradient(90deg, transparent 30%, color-mix(in oklab, var(--background) 55%, transparent) 50%, transparent 70%); background-size: 240% 100%; border-radius: 4px; box-decoration-break: clone; -webkit-box-decoration-break: clone; animation: sm-shimmer 1.6s linear infinite; }
+  [data-slot="skeleton-morph"][data-loading] [data-bone="round"] { border-radius: 50%; }
+  [data-slot="skeleton-morph"][data-loading] [data-bone] > * { opacity: 0; }
+  [data-slot="skeleton-morph"][data-arrived]:not([data-loading]) [data-bone] { animation: sm-fill 0.5s var(--ease-out) calc(var(--sm-i, 0) * var(--sm-stagger)) backwards; }
+  [data-slot="skeleton-morph"][data-arrived]:not([data-loading]) [data-bone] > * { animation: sm-rise 0.5s var(--ease-out) calc(var(--sm-i, 0) * var(--sm-stagger) + 60ms) backwards; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="skeleton-morph"] [data-bone], [data-slot="skeleton-morph"] [data-bone] > * { animation: none; }
+  }
+  @keyframes sm-shimmer { from { background-position: 120% 0; } to { background-position: -120% 0; } }
+  @keyframes sm-fill { from { color: transparent; background-color: var(--muted); } }
+  @keyframes sm-rise { from { opacity: 0; scale: 0.98; } }
+}

@@ -1,0 +1,23 @@
+/* split-bar.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Split bar: one whole; the focused share takes extra room and the rest make way. */
+  [data-slot="split-bar"] [data-slot="sb-bar"] { display: flex; height: 36px; overflow: hidden; border-radius: var(--radius-control); }
+  [data-slot="split-bar"] [data-slot="sb-segment"] { position: relative; display: flex; align-items: center; flex-basis: 0; min-width: 0; padding-inline: 8px; overflow: hidden; border-left: 2px solid var(--background); background: var(--sb-color); transition: flex-grow var(--duration-travel) var(--ease-settle), opacity var(--duration-normal) var(--ease-out), border-left-width var(--duration-travel) var(--ease-out); }
+  [data-slot="split-bar"] [data-slot="sb-segment"]:first-child, [data-slot="split-bar"] [data-slot="sb-segment"][data-off] { border-left-width: 0; }
+  [data-slot="split-bar"] [data-slot="sb-bar"][data-focused] [data-slot="sb-segment"]:not([data-active]) { opacity: 0.4; }
+  [data-slot="split-bar"] [data-slot="sb-share"] { font-size: 12px; font-weight: 500; font-variant-numeric: tabular-nums; color: var(--background); white-space: nowrap; opacity: 0; translate: 0 4px; transition: opacity var(--duration-normal) var(--ease-out), translate var(--duration-normal) var(--ease-out); }
+  [data-slot="split-bar"] [data-slot="sb-segment"][data-active] [data-slot="sb-share"] { opacity: 1; translate: 0 0; transition-delay: 80ms; }
+  [data-slot="split-bar"] [data-slot="sb-key"] { display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0 8px; border: 0; border-radius: var(--radius-control); background: none; color: var(--foreground); font-size: 13px; cursor: pointer; transition: background-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out); }
+  [data-slot="split-bar"] [data-slot="sb-key"]:hover { background: var(--muted); }
+  [data-slot="split-bar"] [data-slot="sb-key"][aria-pressed="false"] { color: var(--muted-foreground); }
+  [data-slot="split-bar"] [data-slot="sb-key"][aria-disabled="true"] { cursor: default; }
+  [data-slot="split-bar"] [data-slot="sb-key"]:focus-visible { outline: 2px solid var(--ring); outline-offset: 1px; }
+  [data-slot="split-bar"] [data-slot="sb-swatch"] { width: 8px; height: 8px; border-radius: 2px; background: var(--sb-color); transition: background-color var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out); }
+  [data-slot="split-bar"] [data-slot="sb-key"][aria-pressed="false"] [data-slot="sb-swatch"] { background: transparent; box-shadow: inset 0 0 0 1.5px var(--sb-color); }
+  @media (pointer: coarse) { [data-slot="split-bar"] [data-slot="sb-key"] { height: 36px; } }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="split-bar"] [data-slot="sb-segment"], [data-slot="split-bar"] [data-slot="sb-share"] { transition: none; }
+  }
+}

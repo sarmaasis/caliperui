@@ -33,7 +33,7 @@ Every part brings its own stylesheet and depends on the shared tokens (`@caliper
 
 ## Free and Pro
 
-Pro adds complete product screens, app templates and domain sets, licensed separately at https://caliperui.site. Pro source is not in this repository.
+Caliper UI Pro adds editable source for complete product screens, app templates and domain sets. [Try the live templates](https://caliperui.site/templates?utm_source=github&utm_medium=referral&utm_campaign=caliper_free_registry) or [compare plans and pricing](https://pro.caliperui.site/pricing?utm_source=github&utm_medium=referral&utm_campaign=caliper_free_registry).
 
 ## Contributing
 

@@ -2,7 +2,7 @@
 
 React components, blocks and complete product screens drawn to one specification. Accessible by default, shadcn-compatible, installed as source you own.
 
-This repository is the free tier: 96 components and 20 basic sections and pages, MIT licensed. Each part is plain React, Tailwind CSS v4 and Radix source that you copy into your project and own. Docs, live previews and the full catalogue are at **https://caliperui.site**.
+This repository is the free tier: 112 components and 20 basic sections and pages, MIT licensed. Each part is plain React, Tailwind CSS v4 and Radix source that you copy into your project and own. Docs, live previews and the full catalogue are at **https://caliperui.site**.
 
 ## Install
 
@@ -33,7 +33,9 @@ Every part brings its own stylesheet and depends on the shared tokens (`@caliper
 
 ## Free and Pro
 
-Caliper UI Pro adds editable source for complete product screens, app templates and domain sets. [Try the live templates](https://caliperui.site/templates?utm_source=github&utm_medium=referral&utm_campaign=caliper_free_registry) or [compare plans and pricing](https://pro.caliperui.site/pricing?utm_source=github&utm_medium=referral&utm_campaign=caliper_free_registry).
+Build a complete product with [editable app templates](https://caliperui.site/templates?utm_source=github&utm_medium=referral&utm_campaign=caliper_free_registry): CRM, finance, helpdesk, a SaaS app, docs, shop, file tools and onboarding. Preview the working UI before buying. Templates are frontend source; connect your own backend and services.
+
+A single template is $79 once. [Pro](https://pro.caliperui.site/pricing?utm_source=github&utm_medium=referral&utm_campaign=caliper_free_registry) is $149 once for all Pro components, screens and templates. Team is $499 for 10 developers. Each includes lifetime updates to its purchased scope, with no subscription or renewal fee. Pro source is not in this repository.
 
 ## Contributing
 

@@ -1,0 +1,20 @@
+/* pin-drop.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Pin drop: the pin falls, squashes on landing and sends one ring; its tip sits on the point. */
+  [data-slot="pin-drop"] [data-slot="pdr-surface"] { position: absolute; inset: 0; z-index: 1; border-radius: inherit; background: transparent; cursor: crosshair; }
+  [data-slot="pin-drop"] [data-slot="pdr-surface"]:focus-visible { outline: 2px solid var(--ring); outline-offset: -2px; }
+  [data-slot="pin-drop"] [data-slot="pdr-pin"] { position: absolute; z-index: 2; width: 0; height: 0; pointer-events: none; transition: left var(--duration-fast) var(--ease-out), top var(--duration-fast) var(--ease-out); }
+  [data-slot="pin-drop"] [data-slot="pdr-head"] { position: absolute; left: -12px; bottom: 0; width: 24px; height: 32px; fill: var(--destructive); transform-origin: 50% 100%; filter: drop-shadow(0 2px 2px rgb(0 0 0 / 0.28)); }
+  [data-slot="pin-drop"] [data-slot="pdr-head"] circle { fill: var(--background); }
+  [data-slot="pin-drop"] [data-slot="pdr-ring"] { position: absolute; left: -18px; top: -18px; width: 36px; height: 36px; border: 2px solid var(--destructive); border-radius: 50%; opacity: 0; }
+  [data-slot="pin-drop"] [data-dropped] [data-slot="pdr-head"] { animation: pdr-fall 560ms both; }
+  [data-slot="pin-drop"] [data-dropped] [data-slot="pdr-ring"] { animation: pdr-ring 700ms 330ms var(--ease-out) both; }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="pin-drop"] [data-slot="pdr-head"], [data-slot="pin-drop"] [data-slot="pdr-ring"] { animation: none; }
+  }
+  @keyframes pdr-fall { 0% { translate: 0 -72px; opacity: 0; scale: 1 1; animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5); } 55% { translate: 0 0; opacity: 1; scale: 1.15 0.8; } 75% { scale: 0.95 1.08; } 100% { scale: 1 1; } }
+  @keyframes pdr-ring { 0% { opacity: 0.7; scale: 0.2; } 100% { opacity: 0; scale: 1.6; } }
+}

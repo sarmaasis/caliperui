@@ -1,0 +1,32 @@
+/* gesture-hint.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Gesture hint: a ghost finger plays the movement, then rests; the caption is a pill beneath it. */
+  [data-slot="gesture-hint"] { z-index: 2; }
+  [data-slot="gesture-hint"] [data-slot="gh-stage"] { position: relative; width: 132px; height: 56px; }
+  [data-slot="gesture-hint"] :is([data-slot="gh-finger"], [data-slot="gh-ring"]) { position: absolute; left: 50%; top: 50%; width: 30px; height: 30px; margin: -15px 0 0 -15px; border-radius: 50%; opacity: 0; }
+  [data-slot="gesture-hint"] [data-slot="gh-finger"] { border: 2px solid var(--background); background: color-mix(in oklab, var(--foreground) 80%, transparent); box-shadow: 0 0 0 1px color-mix(in oklab, var(--foreground) 24%, transparent); animation: var(--gh-name, gh-tap) 2.2s var(--ease-in-out) var(--gh-delay) var(--gh-plays) both; }
+  [data-slot="gesture-hint"] [data-slot="gh-ring"] { border: 2px solid var(--foreground); }
+  [data-slot="gesture-hint"][data-gesture="tap"] [data-slot="gh-ring"] { animation: gh-ring 2.2s var(--ease-out) var(--gh-delay) var(--gh-plays) both; }
+  [data-slot="gesture-hint"][data-gesture="drag"] [data-slot="gh-ring"] { opacity: 0.3; border-style: dashed; translate: -44px 0; }
+  [data-slot="gesture-hint"][data-gesture="swipe-left"] { --gh-name: gh-swipe-left; }
+  [data-slot="gesture-hint"][data-gesture="swipe-right"] { --gh-name: gh-swipe-right; }
+  [data-slot="gesture-hint"][data-gesture="swipe-up"] { --gh-name: gh-swipe-up; }
+  [data-slot="gesture-hint"][data-gesture="drag"] { --gh-name: gh-drag; }
+  [data-slot="gesture-hint"] [data-slot="gh-label"] { padding: 4px 12px; border: 1px solid var(--border); border-radius: 999px; background: var(--background); color: var(--foreground); font-size: 13px; font-weight: 500; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="gesture-hint"] [data-slot="gh-finger"] { animation: none; opacity: 1; }
+    [data-slot="gesture-hint"] [data-slot="gh-ring"] { animation: none; }
+    [data-slot="gesture-hint"][data-gesture="swipe-left"] [data-slot="gh-finger"] { translate: 28px 0; }
+    [data-slot="gesture-hint"][data-gesture="swipe-right"] [data-slot="gh-finger"] { translate: -28px 0; }
+    [data-slot="gesture-hint"][data-gesture="swipe-up"] [data-slot="gh-finger"] { translate: 0 14px; }
+    [data-slot="gesture-hint"][data-gesture="drag"] [data-slot="gh-finger"] { translate: -44px 0; }
+  }
+  @keyframes gh-tap { 0% { opacity: 0; scale: 1.25; translate: 0 10px; } 20% { opacity: 1; scale: 1; translate: 0 0; } 40% { scale: 0.8; } 55% { scale: 1; } 85% { opacity: 1; } 100% { opacity: 0; } }
+  @keyframes gh-ring { 0%, 38% { opacity: 0; scale: 0.6; } 40% { opacity: 0.55; scale: 0.8; } 75%, 100% { opacity: 0; scale: 2.2; } }
+  @keyframes gh-swipe-left { 0% { opacity: 0; translate: 46px 0; } 15% { opacity: 1; } 25% { scale: 0.84; translate: 46px 0; } 65% { scale: 0.84; translate: -46px 0; } 80% { opacity: 1; scale: 1; } 100% { opacity: 0; translate: -46px 0; } }
+  @keyframes gh-swipe-right { 0% { opacity: 0; translate: -46px 0; } 15% { opacity: 1; } 25% { scale: 0.84; translate: -46px 0; } 65% { scale: 0.84; translate: 46px 0; } 80% { opacity: 1; scale: 1; } 100% { opacity: 0; translate: 46px 0; } }
+  @keyframes gh-swipe-up { 0% { opacity: 0; translate: 0 22px; } 15% { opacity: 1; } 25% { scale: 0.84; translate: 0 22px; } 65% { scale: 0.84; translate: 0 -22px; } 80% { opacity: 1; scale: 1; } 100% { opacity: 0; translate: 0 -22px; } }
+  @keyframes gh-drag { 0% { opacity: 0; translate: -44px 0; } 15% { opacity: 1; } 25% { scale: 0.84; translate: -44px 0; } 65% { scale: 0.84; translate: 44px 0; } 80% { opacity: 1; scale: 1; } 100% { opacity: 0; translate: 44px 0; } }
+}

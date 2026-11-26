@@ -1,0 +1,21 @@
+/* bars-morph.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Bars morph: three bars take per-shape offsets, turns and lengths; arrow heads are the outer bars at 45 degrees. */
+  [data-slot="bars-morph"] i { position: absolute; inset: calc(50% - 1px) 2px auto; height: 2px; border-radius: 1px; background: currentColor; transition: translate var(--duration-deliberate) var(--ease-settle), rotate var(--duration-deliberate) var(--ease-settle), scale var(--duration-deliberate) var(--ease-settle), opacity var(--duration-normal) var(--ease-out); }
+  [data-slot="bars-morph"][data-shape="menu"] i:nth-child(1) { translate: 0 -6px; }
+  [data-slot="bars-morph"][data-shape="menu"] i:nth-child(3) { translate: 0 6px; }
+  [data-slot="bars-morph"][data-shape="close"] i:nth-child(1) { rotate: 45deg; }
+  [data-slot="bars-morph"][data-shape="close"] i:nth-child(3) { rotate: -45deg; }
+  [data-slot="bars-morph"]:is([data-shape="close"], [data-shape="minus"]) i:nth-child(2) { scale: 0 1; opacity: 0; }
+  [data-slot="bars-morph"][data-shape="plus"] i:nth-child(2) { rotate: 90deg; }
+  [data-slot="bars-morph"]:is([data-shape="plus"], [data-shape="minus"]) i:nth-child(3) { scale: 0 1; opacity: 0; }
+  [data-slot="bars-morph"][data-shape="back"] i:nth-child(1) { translate: -4.6px -3.4px; rotate: -45deg; scale: 0.6 1; }
+  [data-slot="bars-morph"][data-shape="back"] i:nth-child(3) { translate: -4.6px 3.4px; rotate: 45deg; scale: 0.6 1; }
+  [data-slot="bars-morph"][data-shape="forward"] i:nth-child(1) { translate: 4.6px -3.4px; rotate: 45deg; scale: 0.6 1; }
+  [data-slot="bars-morph"][data-shape="forward"] i:nth-child(3) { translate: 4.6px 3.4px; rotate: -45deg; scale: 0.6 1; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="bars-morph"] i { transition: none; }
+  }
+}

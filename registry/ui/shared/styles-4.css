@@ -1,4 +1,4 @@
-/* Shared by calendar-app.tsx, week-calendar.tsx; each imports it. Edit freely. */
+/* Shared by calendar-app.tsx, sun-path.tsx, week-calendar.tsx; each imports it. Edit freely. */
 @layer theme, base, components, utilities;
 
 @layer components {

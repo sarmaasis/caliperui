@@ -1,0 +1,18 @@
+/* bookmark-ribbon.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Bookmark ribbon: the fill unrolls from the top; the dip on saving is a Web Animation started by the press. */
+  [data-slot="bookmark-ribbon"] { color: var(--foreground); border-radius: 12px; transition: background-color var(--duration-fast) var(--ease-out), scale var(--duration-fast) var(--ease-out); }
+  @media (hover: hover) { [data-slot="bookmark-ribbon"]:hover { background: var(--muted); } }
+  [data-slot="bookmark-ribbon"]:active { scale: 0.94; }
+  [data-slot="bookmark-ribbon"]:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+  [data-slot="bookmark-ribbon"] [data-slot="bkr-mark"] { width: 22px; height: 22px; overflow: visible; }
+  [data-slot="bookmark-ribbon"] [data-slot="bkr-line"] { fill: none; stroke: currentColor; stroke-width: 1.75px; stroke-linejoin: round; }
+  [data-slot="bookmark-ribbon"] [data-slot="bkr-fill"] { fill: currentColor; transform-box: fill-box; transform-origin: 50% 0; scale: 1 0; transition: scale var(--duration-normal) var(--ease-in); }
+  [data-slot="bookmark-ribbon"][data-on] [data-slot="bkr-fill"] { scale: 1 1; transition: scale var(--duration-deliberate) var(--ease-settle); }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="bookmark-ribbon"] [data-slot="bkr-fill"] { transition: none; }
+  }
+}

@@ -1,0 +1,22 @@
+/* newton-cradle.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Newton cradle: end balls swing in turn on a 1.4s cycle; the swing eases out going up and in coming down. */
+  [data-slot="newton-cradle"] { --nc-r: 11px; --nc-len: 36px; --nc-t: 1.4s; color: var(--foreground); }
+  [data-slot="newton-cradle"][data-size="sm"] { --nc-r: 7px; --nc-len: 22px; }
+  [data-slot="newton-cradle"][data-size="lg"] { --nc-r: 16px; --nc-len: 52px; }
+  [data-slot="newton-cradle"] [data-slot="nc-frame"] { position: relative; display: flex; padding: 3px calc(var(--nc-r) * 0.6) 0; }
+  [data-slot="newton-cradle"] [data-slot="nc-frame"]::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; border-radius: 2px; background: var(--border-strong); }
+  [data-slot="newton-cradle"] [data-slot="nc-ball"] { position: relative; flex: none; width: calc(var(--nc-r) * 2); height: calc(var(--nc-len) + var(--nc-r) * 2); transform-origin: 50% 0; background: linear-gradient(var(--border-strong), var(--border-strong)) 50% 0 / 1px var(--nc-len) no-repeat; }
+  [data-slot="newton-cradle"] [data-slot="nc-ball"]::after { content: ""; position: absolute; inset: auto 0 0; aspect-ratio: 1; border-radius: 50%; background: currentColor; box-shadow: inset calc(var(--nc-r) * 0.18) calc(var(--nc-r) * 0.18) 0 color-mix(in oklab, var(--background) 24%, transparent); }
+  [data-slot="newton-cradle"] [data-slot="nc-ball"][data-end="left"] { animation: nc-left var(--nc-t) infinite; }
+  [data-slot="newton-cradle"] [data-slot="nc-ball"][data-end="right"] { animation: nc-right var(--nc-t) infinite; }
+  [data-slot="newton-cradle"][data-paused] [data-slot="nc-ball"] { animation-play-state: paused; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="newton-cradle"] [data-slot="nc-ball"][data-end] { animation: none; }
+    [data-slot="newton-cradle"] [data-slot="nc-ball"][data-end="left"] { rotate: 24deg; }
+  }
+  @keyframes nc-left { 0% { rotate: 0deg; animation-timing-function: ease-out; } 25% { rotate: 38deg; animation-timing-function: ease-in; } 50%, 100% { rotate: 0deg; } }
+  @keyframes nc-right { 0%, 50% { rotate: 0deg; animation-timing-function: ease-out; } 75% { rotate: -38deg; animation-timing-function: ease-in; } 100% { rotate: 0deg; } }
+}

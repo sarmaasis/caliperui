@@ -1,0 +1,15 @@
+/* tally-count.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Tally count: each mark is a path drawn with its dash offset; the slash follows the fourth stroke. */
+  [data-slot="tally-count"] { color: var(--foreground); }
+  [data-slot="tally-count"] [data-slot="tly-gate"] { width: 34px; height: 32px; flex: none; overflow: visible; }
+  [data-slot="tally-count"] [data-slot="tly-mark"] { fill: none; stroke: currentColor; stroke-width: 2.25px; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; opacity: 0; transition: stroke-dashoffset 220ms var(--ease-out), opacity 0s linear 220ms; }
+  [data-slot="tally-count"] [data-slot="tly-mark"][data-on] { stroke-dashoffset: 0; opacity: 1; transition: stroke-dashoffset 300ms var(--ease-out), opacity 0s; }
+  [data-slot="tally-count"] [data-slot="tly-mark"][data-slash][data-on] { transition-delay: 90ms; }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="tally-count"] [data-slot="tly-mark"] { transition: none; }
+  }
+}

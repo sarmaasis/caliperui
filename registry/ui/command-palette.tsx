@@ -83,7 +83,8 @@ export function CommandPalette({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
         className={cn(
-          "flex flex-col gap-0 overflow-hidden rounded-overlay p-0 sm:p-0",
+          // Phones: pinned to the top, because the keyboard covers a sheet on the bottom edge and iOS won't move it.
+          "flex flex-col gap-0 overflow-hidden rounded-overlay p-0 sm:p-0 max-sm:top-2 max-sm:bottom-auto",
           hasPreview ? "max-w-2xl" : "max-w-xl",
           className,
         )}
@@ -331,7 +332,7 @@ function PaletteContent({
       </div>
 
       <div className={cn("grid min-h-0", hasPreview && "md:grid-cols-[minmax(0,1fr)_240px]")}>
-      <div className="min-h-0 max-h-[min(28rem,60dvh)] overflow-y-auto overscroll-contain p-2">
+      <div className="min-h-0 max-h-[min(28rem,60dvh)] overflow-y-auto overscroll-contain p-2 max-sm:max-h-[33dvh]">
         <div
           ref={options}
           id={listId}

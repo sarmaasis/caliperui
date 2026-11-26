@@ -1,0 +1,18 @@
+/* bead-counter.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Bead counter: slid beads travel one gap to the right, nearest to the boundary first. */
+  [data-slot="bead-counter"] { --bdc-w: 28px; --bdc-gap: 56px; width: fit-content; max-width: 100%; color: var(--foreground); font-size: 13px; outline: none; }
+  [data-slot="bead-counter"]:focus-visible [data-slot="bdc-wire"] { outline: 2px solid var(--ring); outline-offset: 4px; }
+  [data-slot="bead-counter"] [data-slot="bdc-wire"] { position: relative; display: flex; align-items: center; width: calc(var(--bdc-n) * var(--bdc-w) + var(--bdc-gap)); height: 40px; border-radius: 12px; }
+  [data-slot="bead-counter"] [data-slot="bdc-wire"]::before { content: ""; position: absolute; inset: 50% 0 auto; height: 2px; margin-top: -1px; border-radius: 1px; background: var(--border-strong); }
+  [data-slot="bead-counter"] [data-slot="bdc-bead"] { position: relative; flex: none; width: var(--bdc-w); height: 28px; border: 1.5px solid var(--border-strong); border-radius: 50%; background: color-mix(in oklab, var(--foreground) 10%, var(--background)); cursor: pointer; transition: translate 380ms var(--ease-settle) var(--bdc-delay), background-color var(--duration-normal) var(--ease-out) var(--bdc-delay); }
+  [data-slot="bead-counter"] [data-slot="bdc-bead"]::after { content: ""; position: absolute; inset: -8px -2px; }
+  [data-slot="bead-counter"] [data-slot="bdc-bead"][data-slid] { translate: var(--bdc-gap) 0; border-color: var(--foreground); background: var(--foreground); }
+  [data-slot="bead-counter"] [data-slot="bdc-read"] { color: var(--muted-foreground); font-variant-numeric: tabular-nums; }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="bead-counter"] [data-slot="bdc-bead"] { transition: none; }
+  }
+}

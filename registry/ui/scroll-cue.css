@@ -1,0 +1,23 @@
+/* scroll-cue.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Scroll cue: a wheel dot slides down the mouse, or chevrons pour down; the cue leaves once the page scrolls. */
+  [data-slot="scroll-cue"] { flex-direction: column; align-items: center; gap: 8px; padding: 8px 12px; border: 0; border-radius: 12px; background: none; color: var(--muted-foreground); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: color var(--duration-fast) var(--ease-out), opacity var(--duration-deliberate) var(--ease-out), translate var(--duration-deliberate) var(--ease-out), scale var(--duration-fast) var(--ease-out), visibility 0s linear var(--duration-deliberate); }
+  @media (hover: hover) { [data-slot="scroll-cue"]:hover { color: var(--foreground); } }
+  [data-slot="scroll-cue"]:active { scale: 0.96; }
+  [data-slot="scroll-cue"]:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+  [data-slot="scroll-cue"][data-gone] { opacity: 0; translate: 0 8px; visibility: hidden; pointer-events: none; }
+  [data-slot="scroll-cue"] [data-slot="scu-mouse"] { position: relative; width: 20px; height: 32px; border: 1.5px solid currentColor; border-radius: 12px; }
+  [data-slot="scroll-cue"] [data-slot="scu-mouse"] i { position: absolute; left: 50%; top: 6px; width: 3px; height: 6px; margin-left: -1.5px; border-radius: 2px; background: currentColor; animation: scu-wheel 1.8s var(--ease-in-out) infinite; }
+  [data-slot="scroll-cue"] [data-slot="scu-chevrons"] { display: grid; justify-items: center; height: 32px; }
+  [data-slot="scroll-cue"] [data-slot="scu-chevrons"] i { width: 10px; height: 10px; margin-top: -4px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; rotate: 45deg; opacity: 0; animation: scu-pour 1.8s var(--ease-in-out) infinite; }
+  [data-slot="scroll-cue"] [data-slot="scu-chevrons"] i:nth-child(2) { animation-delay: 0.2s; }
+  [data-slot="scroll-cue"] [data-slot="scu-chevrons"] i:nth-child(3) { animation-delay: 0.4s; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="scroll-cue"] :is([data-slot="scu-mouse"] i, [data-slot="scu-chevrons"] i) { animation: none; opacity: 1; }
+    [data-slot="scroll-cue"] { transition: color var(--duration-fast) var(--ease-out); }
+  }
+  @keyframes scu-wheel { 0% { translate: 0 0; opacity: 0; } 20% { opacity: 1; } 75% { translate: 0 9px; opacity: 1; } 100% { translate: 0 11px; opacity: 0; } }
+  @keyframes scu-pour { 0% { translate: 0 -4px; opacity: 0; } 50% { opacity: 1; } 100% { translate: 0 4px; opacity: 0; } }
+}

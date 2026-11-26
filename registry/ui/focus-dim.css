@@ -1,0 +1,12 @@
+/* focus-dim.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Focus dim: while one child is hovered (or holds focus) the rest step back. */
+  [data-slot="focus-dim"] { --fdm-opacity: 0.5; }
+  [data-slot="focus-dim"][data-strength="soft"] { --fdm-opacity: 0.7; }
+  [data-slot="focus-dim"][data-strength="strong"] { --fdm-opacity: 0.28; }
+  [data-slot="focus-dim"] > * { transition: opacity var(--duration-normal) var(--ease-out); }
+  @media (hover: hover) { [data-slot="focus-dim"]:has(> :hover) > :not(:hover) { opacity: var(--fdm-opacity); } }
+  [data-slot="focus-dim"]:has(> :focus-within) > :not(:focus-within) { opacity: var(--fdm-opacity); }
+}

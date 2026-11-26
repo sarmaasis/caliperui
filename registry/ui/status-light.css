@@ -1,0 +1,20 @@
+/* status-light.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Status light: three lamps, one lit; lamps come on quickly and fade slowly like a bulb. */
+  [data-slot="status-light"] { color: var(--foreground); font-size: 14px; }
+  [data-slot="status-light"] [data-slot="stl-lamps"] { display: inline-flex; flex-direction: column; gap: 5px; padding: 6px; border: 1px solid var(--border); border-radius: 12px; background: var(--muted); }
+  [data-slot="status-light"][data-orientation="horizontal"] [data-slot="stl-lamps"] { flex-direction: row; }
+  [data-slot="status-light"] [data-slot="stl-lamp"] { width: 14px; height: 14px; border-radius: 50%; background: var(--lamp); opacity: 0.18; transition: opacity 520ms var(--ease-out); }
+  [data-slot="status-light"] [data-lamp="fail"] { --lamp: var(--destructive); }
+  [data-slot="status-light"] [data-lamp="warn"] { --lamp: var(--warning); }
+  [data-slot="status-light"] [data-lamp="ok"] { --lamp: var(--success); }
+  [data-slot="status-light"] [data-slot="stl-lamp"][data-on] { opacity: 1; box-shadow: inset 1px 1px 0 color-mix(in oklab, white 38%, transparent); transition-duration: var(--duration-fast); }
+  [data-slot="status-light"][data-state="running"] [data-slot="stl-lamp"][data-on] { animation: stl-breathe 1.6s var(--ease-in-out) infinite; }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="status-light"] [data-slot="stl-lamp"] { animation: none; }
+  }
+  @keyframes stl-breathe { 50% { opacity: 0.4; } }
+}

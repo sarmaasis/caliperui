@@ -634,6 +634,162 @@
       }
     },
     {
+      "name": "bars-morph",
+      "type": "registry:ui",
+      "title": "Bars morph",
+      "description": "One icon made of three bars that become one another. A menu turns into a cross, a plus into a minus, an arrow points the other way. The same bars stay on screen, so a toggle reads as one thing changing state.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/bars-morph.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/bars-morph.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/bars-morph.css",
+          "type": "registry:file",
+          "target": "components/ui/bars-morph.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "surfaces",
+        "docs": "/docs/components/bars-morph"
+      }
+    },
+    {
+      "name": "battery-meter",
+      "type": "registry:ui",
+      "title": "Battery meter",
+      "description": "A battery cell that fills and drains with the level. It stays in the foreground colour until 20%, turns amber at 20% and red at 10%, and while charging a soft light sweeps across the fill and a bolt appears.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/battery-meter.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/battery-meter.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/battery-meter.css",
+          "type": "registry:file",
+          "target": "components/ui/battery-meter.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "changing-values",
+        "docs": "/docs/components/battery-meter"
+      }
+    },
+    {
+      "name": "bead-counter",
+      "type": "registry:ui",
+      "title": "Bead counter",
+      "description": "A counter that works like an abacus wire. The count is how many beads have been slid to the right. Press a bead to slide it and every bead before it, and they clack across one after another, nearest first.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/bead-counter.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/bead-counter.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/bead-counter.css",
+          "type": "registry:file",
+          "target": "components/ui/bead-counter.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "changing-values",
+        "docs": "/docs/components/bead-counter"
+      }
+    },
+    {
+      "name": "blinds-reveal",
+      "type": "registry:ui",
+      "title": "Blinds reveal",
+      "description": "Content behind a row of slats that fold away one after another as the block scrolls into view, or when told to. Alternate slats fold to opposite edges, and the content underneath settles from a touch larger.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/blinds-reveal.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/blinds-reveal.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/blinds-reveal.css",
+          "type": "registry:file",
+          "target": "components/ui/blinds-reveal.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "media",
+        "docs": "/docs/components/blinds-reveal"
+      }
+    },
+    {
       "name": "blog-grid",
       "type": "registry:ui",
       "title": "Blog grid",
@@ -836,6 +992,45 @@
         "license": "MIT",
         "family": "reading-proof",
         "docs": "/docs/components/blog-post-template"
+      }
+    },
+    {
+      "name": "bookmark-ribbon",
+      "type": "registry:ui",
+      "title": "Bookmark ribbon",
+      "description": "A save toggle drawn as a ribbon bookmark. Saving unrolls the ribbon from the top while the whole mark dips and settles; unsaving rolls it back up.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/bookmark-ribbon.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/bookmark-ribbon.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/bookmark-ribbon.css",
+          "type": "registry:file",
+          "target": "components/ui/bookmark-ribbon.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "surfaces",
+        "docs": "/docs/components/bookmark-ribbon"
       }
     },
     {
@@ -1525,6 +1720,45 @@
         "license": "MIT",
         "family": "pages-set",
         "docs": "/docs/components/changelog-template"
+      }
+    },
+    {
+      "name": "char-counter",
+      "type": "registry:ui",
+      "title": "Char counter",
+      "description": "A character counter drawn as a ring that fills as you type. Quiet and small until you near the limit; then it turns amber and shows how many are left, and past the limit it turns red and shows how many are over.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/char-counter.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/char-counter.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/char-counter.css",
+          "type": "registry:file",
+          "target": "components/ui/char-counter.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "changing-values",
+        "docs": "/docs/components/char-counter"
       }
     },
     {
@@ -3437,6 +3671,45 @@
       }
     },
     {
+      "name": "focus-dim",
+      "type": "registry:ui",
+      "title": "Focus dim",
+      "description": "A group whose other children step back while one is hovered or has keyboard focus, so the one in use stands out. It is only a stylesheet rule: no script and no wrapper per item.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/focus-dim.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/focus-dim.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/focus-dim.css",
+          "type": "registry:file",
+          "target": "components/ui/focus-dim.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "browse",
+        "docs": "/docs/components/focus-dim"
+      }
+    },
+    {
       "name": "footer-block",
       "type": "registry:ui",
       "title": "Footer block",
@@ -3489,6 +3762,84 @@
         "license": "MIT",
         "family": "marketing",
         "docs": "/docs/components/footer-block"
+      }
+    },
+    {
+      "name": "gesture-hint",
+      "type": "registry:ui",
+      "title": "Gesture hint",
+      "description": "A ghost finger that shows a gesture once, in place of a block of instructions. It plays the movement a few times over its parent with a caption, and leaves for good the moment the person touches the area.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/gesture-hint.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/gesture-hint.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/gesture-hint.css",
+          "type": "registry:file",
+          "target": "components/ui/gesture-hint.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "surfaces",
+        "docs": "/docs/components/gesture-hint"
+      }
+    },
+    {
+      "name": "heartbeat-line",
+      "type": "registry:ui",
+      "title": "Heartbeat line",
+      "description": "A live monitor trace. The line scrolls past a fixed edge at the true rate, so a faster rate is really a faster line. Alert turns it red; flatline stops the scroll and draws a level line.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/heartbeat-line.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/heartbeat-line.tsx"
+        },
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/heartbeat-line.css",
+          "type": "registry:file",
+          "target": "components/ui/heartbeat-line.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "changing-values",
+        "docs": "/docs/components/heartbeat-line"
       }
     },
     {
@@ -4101,6 +4452,45 @@
       }
     },
     {
+      "name": "moon-phase",
+      "type": "registry:ui",
+      "title": "Moon phase",
+      "description": "The moon for a date, or for a phase you give it. The lit part is a half disc closed by the terminator; when the date changes, the terminator sweeps to the new phase by the shortest way round.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/moon-phase.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/moon-phase.tsx"
+        },
+        {
+          "path": "registry/ui/moon-phase.css",
+          "type": "registry:file",
+          "target": "components/ui/moon-phase.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "media",
+        "docs": "/docs/components/moon-phase"
+      }
+    },
+    {
       "name": "navigation-menu",
       "type": "registry:ui",
       "title": "Navigation menu",
@@ -4245,6 +4635,45 @@
         "license": "MIT",
         "family": "reading-proof",
         "docs": "/docs/components/newsletter-signup"
+      }
+    },
+    {
+      "name": "newton-cradle",
+      "type": "registry:ui",
+      "title": "Newton cradle",
+      "description": "A desk cradle as a loading indicator. The end ball swings out and falls back, the row passes the knock along and the ball at the other end swings in turn. The swing slows at the top and quickens through the bottom, as a real pendulum does.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/newton-cradle.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/newton-cradle.tsx"
+        },
+        {
+          "path": "registry/ui/newton-cradle.css",
+          "type": "registry:file",
+          "target": "components/ui/newton-cradle.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "surfaces",
+        "docs": "/docs/components/newton-cradle"
       }
     },
     {
@@ -4622,6 +5051,45 @@
         "license": "MIT",
         "family": "inputs",
         "docs": "/docs/components/password-field"
+      }
+    },
+    {
+      "name": "pin-drop",
+      "type": "registry:ui",
+      "title": "Pin drop",
+      "description": "A pin you drop on a surface. Click, tap or press Enter and the pin falls from above onto the spot, squashes on landing and sends out one ring. Arrow keys nudge a placed pin.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/pin-drop.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/pin-drop.tsx"
+        },
+        {
+          "path": "registry/ui/pin-drop.css",
+          "type": "registry:file",
+          "target": "components/ui/pin-drop.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "surfaces",
+        "docs": "/docs/components/pin-drop"
       }
     },
     {
@@ -5007,6 +5475,50 @@
         "license": "MIT",
         "family": "disclosure",
         "docs": "/docs/components/scroll-area"
+      }
+    },
+    {
+      "name": "scroll-cue",
+      "type": "registry:ui",
+      "title": "Scroll cue",
+      "description": "The small \"keep going\" cue at the foot of a first screen. A wheel dot slides down a mouse outline, or chevrons pour downward, until the person scrolls; then it fades away and leaves the tab order.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/lib/scroll-view.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/scroll-view.ts"
+        },
+        {
+          "path": "registry/ui/scroll-cue.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/scroll-cue.tsx"
+        },
+        {
+          "path": "registry/ui/scroll-cue.css",
+          "type": "registry:file",
+          "target": "components/ui/scroll-cue.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "browse",
+        "docs": "/docs/components/scroll-cue"
       }
     },
     {
@@ -5794,6 +6306,45 @@
       }
     },
     {
+      "name": "spirit-level",
+      "type": "registry:ui",
+      "title": "Spirit level",
+      "description": "A carpenter's level. The bubble drifts to the high side and settles with one small overshoot; inside the tolerance the tube turns green and reads Level.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/spirit-level.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/spirit-level.tsx"
+        },
+        {
+          "path": "registry/ui/spirit-level.css",
+          "type": "registry:file",
+          "target": "components/ui/spirit-level.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "changing-values",
+        "docs": "/docs/components/spirit-level"
+      }
+    },
+    {
       "name": "split-bar",
       "type": "registry:ui",
       "title": "Split bar",
@@ -5985,6 +6536,45 @@
         "license": "MIT",
         "family": "changing-values",
         "docs": "/docs/components/status-icon"
+      }
+    },
+    {
+      "name": "status-light",
+      "type": "registry:ui",
+      "title": "Status light",
+      "description": "A three-lamp signal for a service or a build: red, amber, green. One lamp lights at a time; the others stay dark. Running breathes the amber lamp and idle lights none. Lamps come on quickly and fade out slowly, as a bulb does.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/status-light.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/status-light.tsx"
+        },
+        {
+          "path": "registry/ui/status-light.css",
+          "type": "registry:file",
+          "target": "components/ui/status-light.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "changing-values",
+        "docs": "/docs/components/status-light"
       }
     },
     {
@@ -6185,6 +6775,45 @@
         "license": "MIT",
         "family": "surfaces",
         "docs": "/docs/components/tag-overflow"
+      }
+    },
+    {
+      "name": "tally-count",
+      "type": "registry:ui",
+      "title": "Tally count",
+      "description": "A count kept as tally marks. Four strokes and a slash across them make a gate of five; gates line up and wrap. Each mark is drawn in as the count rises and drawn back as it falls.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://caliperui.site/r/styles.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/lib/cn.ts",
+          "type": "registry:ui",
+          "target": "components/ui/lib/cn.ts"
+        },
+        {
+          "path": "registry/ui/tally-count.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/tally-count.tsx"
+        },
+        {
+          "path": "registry/ui/tally-count.css",
+          "type": "registry:file",
+          "target": "components/ui/tally-count.css"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "meta": {
+        "tier": "free",
+        "license": "MIT",
+        "family": "changing-values",
+        "docs": "/docs/components/tally-count"
       }
     },
     {

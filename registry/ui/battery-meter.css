@@ -1,0 +1,24 @@
+/* battery-meter.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Battery meter: the fill slides in from the left inside a clipped cell; charging adds a sweep of light. */
+  [data-slot="battery-meter"] { --bat-color: var(--foreground); color: var(--foreground); font-size: 13px; font-variant-numeric: tabular-nums; }
+  [data-slot="battery-meter"][data-tone="low"] { --bat-color: var(--warning); }
+  [data-slot="battery-meter"][data-tone="critical"] { --bat-color: var(--destructive); }
+  [data-slot="battery-meter"][data-charging] { --bat-color: var(--success); }
+  [data-slot="battery-meter"] [data-slot="bat-body"] { position: relative; width: 36px; height: 18px; flex: none; border: 1.5px solid var(--border-strong); border-radius: 8px; }
+  [data-slot="battery-meter"] [data-slot="bat-body"]::after { content: ""; position: absolute; right: -5px; top: 50%; width: 3px; height: 7px; margin-top: -3.5px; border-radius: 0 3px 3px 0; background: var(--border-strong); }
+  [data-slot="battery-meter"] [data-slot="bat-cell"] { position: absolute; inset: 2px; overflow: hidden; border-radius: 4px; }
+  [data-slot="battery-meter"] [data-slot="bat-fill"] { position: absolute; inset: 0; border-radius: 4px; background: var(--bat-color); translate: calc((var(--bat-level) - 1) * 100%) 0; transition: translate var(--duration-deliberate) var(--ease-out), background-color var(--duration-normal) var(--ease-out); }
+  [data-slot="battery-meter"][data-charging] [data-slot="bat-fill"]::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, transparent 30%, color-mix(in oklab, var(--background) 55%, transparent) 50%, transparent 70%); animation: bat-sweep 1.8s var(--ease-in-out) infinite; }
+  [data-slot="battery-meter"] [data-slot="bat-bolt"] { width: 14px; height: 14px; flex: none; fill: var(--success); animation: bat-bolt var(--duration-normal) var(--ease-settle); }
+  [data-slot="battery-meter"] [data-slot="bat-value"] { min-width: 3.4ch; color: var(--muted-foreground); }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="battery-meter"] [data-slot="bat-fill"] { transition: none; }
+    [data-slot="battery-meter"] [data-slot="bat-fill"]::after, [data-slot="battery-meter"] [data-slot="bat-bolt"] { animation: none; }
+  }
+  @keyframes bat-sweep { from { translate: -100% 0; } to { translate: 100% 0; } }
+  @keyframes bat-bolt { from { scale: 0.4; opacity: 0; } to { scale: 1; opacity: 1; } }
+}

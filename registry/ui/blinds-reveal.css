@@ -1,0 +1,22 @@
+/* blinds-reveal.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Blinds reveal: slats scale away in turn, alternate slats folding to opposite edges; the cover then leaves. */
+  [data-slot="blinds-reveal"] { --bl-color: var(--foreground); isolation: isolate; }
+  [data-slot="blinds-reveal"] [data-slot="bl-content"] { scale: 1.05; transition: scale var(--duration-showcase) var(--ease-showcase) 120ms; }
+  [data-slot="blinds-reveal"][data-open] [data-slot="bl-content"] { scale: 1; }
+  [data-slot="blinds-reveal"] [data-slot="bl-slats"] { position: absolute; inset: 0; z-index: 1; display: flex; pointer-events: none; overflow: hidden; border-radius: inherit; transition: visibility 0s; }
+  [data-slot="blinds-reveal"][data-direction="horizontal"] [data-slot="bl-slats"] { flex-direction: column; }
+  [data-slot="blinds-reveal"][data-open] [data-slot="bl-slats"] { visibility: hidden; transition: visibility 0s linear calc(var(--duration-showcase) + var(--bl-n) * 50ms); }
+  [data-slot="blinds-reveal"] [data-slot="bl-slats"] i { flex: 1 1 0; background: var(--bl-color); box-shadow: 0 0 0 0.5px var(--bl-color); transform-origin: 0 50%; transition: transform var(--duration-showcase) var(--ease-showcase) calc(var(--bl-i) * 50ms); }
+  [data-slot="blinds-reveal"] [data-slot="bl-slats"] i:nth-child(even) { transform-origin: 100% 50%; }
+  [data-slot="blinds-reveal"][data-direction="horizontal"] [data-slot="bl-slats"] i { transform-origin: 50% 0; }
+  [data-slot="blinds-reveal"][data-direction="horizontal"] [data-slot="bl-slats"] i:nth-child(even) { transform-origin: 50% 100%; }
+  [data-slot="blinds-reveal"][data-open] [data-slot="bl-slats"] i { transform: scaleX(0); }
+  [data-slot="blinds-reveal"][data-direction="horizontal"][data-open] [data-slot="bl-slats"] i { transform: scaleY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="blinds-reveal"] [data-slot="bl-slats"] { display: none; }
+    [data-slot="blinds-reveal"] [data-slot="bl-content"] { scale: 1; transition: none; }
+  }
+}

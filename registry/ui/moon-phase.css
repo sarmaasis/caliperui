@@ -1,0 +1,11 @@
+/* moon-phase.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Moon phase: fixed neutral colours, since the moon looks the same by day and by night; the thin outline keeps a full moon visible on a pale page. */
+  [data-slot="moon-phase"] { color: var(--foreground); }
+  [data-slot="moon-phase"] [data-slot="mnp-disc"] { display: block; }
+  [data-slot="moon-phase"] [data-slot="mnp-dark"] { fill: oklch(0.34 0.012 260); }
+  [data-slot="moon-phase"] [data-slot="mnp-lit"] { fill: oklch(0.95 0 0); stroke: oklch(0.72 0 0); stroke-width: 1px; stroke-linejoin: round; }
+  [data-slot="moon-phase"] [data-slot="mnp-name"] { color: var(--muted-foreground); font-size: 13px; font-variant-numeric: tabular-nums; }
+}

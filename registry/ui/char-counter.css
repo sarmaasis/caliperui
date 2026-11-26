@@ -1,0 +1,22 @@
+/* char-counter.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Char counter: the ring fills with length; near the limit it warns and shows what is left; past it, red. */
+  [data-slot="char-counter"] { color: var(--muted-foreground); font-size: 13px; }
+  [data-slot="char-counter"] [data-slot="chc-ring"] { width: 20px; height: 20px; flex: none; rotate: -90deg; }
+  [data-slot="char-counter"] [data-slot="chc-ring"] circle { fill: none; stroke-width: 2.5px; }
+  [data-slot="char-counter"] [data-slot="chc-track"] { stroke: var(--border); }
+  [data-slot="char-counter"] [data-slot="chc-fill"] { stroke: currentColor; stroke-linecap: round; transition: stroke-dasharray var(--duration-deliberate) var(--ease-out), stroke var(--duration-normal) var(--ease-out); }
+  [data-slot="char-counter"][data-state="near"] [data-slot="chc-fill"] { stroke: var(--warning); }
+  [data-slot="char-counter"][data-state="over"] [data-slot="chc-fill"] { stroke: var(--destructive); }
+  [data-slot="char-counter"][data-state="over"] [data-slot="chc-ring"] { animation: chc-nudge 0.32s var(--ease-out); }
+  [data-slot="char-counter"] [data-slot="chc-figure"] { color: var(--foreground); font-weight: 500; animation: chc-pop var(--duration-deliberate) var(--ease-settle); }
+  [data-slot="char-counter"][data-state="over"] [data-slot="chc-figure"] { color: var(--destructive); }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="char-counter"] :is([data-slot="chc-ring"], [data-slot="chc-figure"]) { animation: none; }
+    [data-slot="char-counter"] [data-slot="chc-fill"] { transition: none; }
+  }
+  @keyframes chc-nudge { 30% { translate: -2px 0; } 65% { translate: 2px 0; } }
+  @keyframes chc-pop { from { opacity: 0; scale: 0.7; } }
+}

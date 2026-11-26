@@ -1,0 +1,22 @@
+/* heartbeat-line.tsx's styles; it imports this file. Edit freely. */
+@layer theme, base, components, utilities;
+
+@layer components {
+  /* Heartbeat line: the trace is six beats wide and slides three, so it loops with no seam at the true rate. */
+  [data-slot="heartbeat-line"] { color: var(--success); }
+  [data-slot="heartbeat-line"][data-status="alert"] { color: var(--destructive); }
+  [data-slot="heartbeat-line"][data-status="flatline"] { color: var(--muted-foreground); }
+  [data-slot="heartbeat-line"] [data-slot="hbl-trace"] { width: 180px; height: 44px; flex: none; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 20%, #000 80%, transparent); }
+  [data-slot="heartbeat-line"] [data-slot="hbl-trace"] path { fill: none; stroke: currentColor; stroke-width: 2.25px; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; transition: stroke var(--duration-deliberate) var(--ease-out); }
+  [data-slot="heartbeat-line"] [data-slot="hbl-scroll"] { animation: hbl-scroll var(--hbl-period) linear infinite; }
+  [data-slot="heartbeat-line"] [data-slot="hbl-flat"] { display: none; }
+  [data-slot="heartbeat-line"][data-status="flatline"] [data-slot="hbl-scroll"] { display: none; }
+  [data-slot="heartbeat-line"][data-status="flatline"] [data-slot="hbl-flat"] { display: inline; }
+  [data-slot="heartbeat-line"] [data-slot="hbl-rate"] { display: inline-flex; align-items: baseline; gap: 4px; color: var(--foreground); }
+  [data-slot="heartbeat-line"] [data-slot="hbl-rate"] b { font-size: 20px; font-weight: 600; }
+  [data-slot="heartbeat-line"] [data-slot="hbl-rate"] small { color: var(--muted-foreground); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-slot="heartbeat-line"] [data-slot="hbl-scroll"] { animation: none; }
+  }
+  @keyframes hbl-scroll { to { transform: translateX(-360px); } }
+}
